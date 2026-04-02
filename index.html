@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gengadharan S | Flutter Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">Gengadharan S</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#tech">Tech</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle light and dark mode">🌗</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section reveal">
+      <div class="container">
+        <div class="hero-layout">
+          <div class="hero-left">
+            <p class="kicker">Flutter Engineer • Production App Delivery</p>
+            <h1>Gengadharan S</h1>
+            <h2>Flutter Developer | Play Store Published App Developer</h2>
+            <p class="subtitle">I design and ship robust mobile products focused on offline support, smooth UX, and business impact.</p>
+          </div>
+          <div class="hero-right">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Hire Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section project-story reveal">
+      <div class="container">
+        <h2 class="section-title">Project Showcase</h2>
+      </div>
+      <div id="project-showcase"></div>
+    </section>
+
+    <section id="services" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <div class="services-grid">
+          <article class="panel service-card"><h3>Flutter App Development</h3></article>
+          <article class="panel service-card"><h3>Bug Fixing & Optimization</h3></article>
+          <article class="panel service-card"><h3>API Integration</h3></article>
+          <article class="panel service-card"><h3>Play Store Deployment</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-grid">
+          <div class="panel tech-item"><img src="assets/skills/flutter.png" alt="Flutter" /><span>Flutter</span></div>
+          <div class="panel tech-item"><img src="assets/skills/dart.png" alt="Dart" /><span>Dart</span></div>
+          <div class="panel tech-item"><img src="assets/skills/python.png" alt="Python" /><span>Python</span></div>
+          <div class="panel tech-item"><img src="assets/skills/flask.png" alt="Flask" /><span>Flask</span></div>
+          <div class="panel tech-item"><img src="assets/skills/mysql.png" alt="MySQL" /><span>MySQL</span></div>
+          <div class="panel tech-item"><img src="assets/skills/git.png" alt="Git" /><span>Git</span></div>
+          <div class="panel tech-item"><img src="assets/skills/cloud.png" alt="Cloud" /><span>Cloud</span></div>
+          <div class="panel tech-item"><img src="assets/skills/android.png" alt="Android" /><span>Android</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <div class="container">
+        <article class="panel contact-card">
+          <h2>Let’s Build Your App 🚀</h2>
+          <p>Available for freelance Flutter app development, optimization, and deployment engagements.</p>
+          <a href="mailto:gengadharan4656s@gmail.com" class="btn">Email Me</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <button id="to-top" class="icon-btn to-top" aria-label="Back to top">↑</button>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightbox-close" class="icon-btn lightbox-close" aria-label="Close preview">✕</button>
+    <img id="lightbox-image" src="" alt="Project screenshot preview" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
