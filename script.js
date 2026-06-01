@@ -60,22 +60,27 @@ const projects = [
     images: ['assets/projects/bus-1.png', 'assets/projects/bus-2.png']
   },
   {
-    title: 'Workflow Automation',
-    tag: 'Operations Productivity',
-    problem:
+  title: 'Workflow Automation',
+  tag: 'Operations Productivity',
+  problem:
       'Manual repetitive operations consume team bandwidth and introduce inconsistencies in communication workflows.',
-    solution:
+  solution:
       'Designed and deployed automated email workflows to reduce manual effort, improve consistency, and trigger communication on schedule.',
-    implementation: [
-      'Mapped routine tasks into deterministic workflow steps',
-      'Configured trigger-based scheduling for timed automation',
-      'Implemented template-driven email delivery with operational logging'
-    ],
-    features: ['Automated scheduling', 'Email workflow orchestration', 'Reduced manual effort'],
-    tech: ['n8n', 'Python', 'Cloud'],
-    images: ['assets/projects/automation-1.png',
-            'assets/projects/automation-2.png']
-  }
+  implementation: [
+    'Mapped routine tasks into deterministic workflow steps',
+    'Configured trigger-based scheduling for timed automation',
+    'Implemented template-driven email delivery with operational logging'
+  ],
+  features: [
+    'Automated scheduling',
+    'Email workflow orchestration',
+    'Reduced manual effort'
+  ],
+  tech: ['n8n', 'Python', 'Cloud'],
+  images: [
+    'assets/projects/automation-1.png' // Landscape image
+  ]
+}
 ];
 
 function setTheme(isDark) {
