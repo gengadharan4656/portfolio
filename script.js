@@ -147,16 +147,24 @@ function renderProjects() {
               </div>
             </div>
             <div class="right-images" aria-label="${project.title} screenshots">
-              ${project.images
-                .map(
-                  (img, idx) => `
-                <figure class="phone-shot">
-                  <img src="${img}" alt="${project.title} mobile screenshot ${idx + 1}" loading="lazy" />
-                </figure>
-              `
-                )
-                .join('')}
-            </div>
+  ${
+    project.title === 'Workflow Automation'
+      ? `
+        <figure class="workflow-shot">
+          <img src="${project.images[0]}" alt="${project.title}" loading="lazy" />
+        </figure>
+      `
+      : project.images
+          .map(
+            (img, idx) => `
+            <figure class="phone-shot">
+              <img src="${img}" alt="${project.title} mobile screenshot ${idx + 1}" loading="lazy" />
+            </figure>
+          `
+          )
+          .join('')
+  }
+</div>
           </div>
         </div>
       </article>
@@ -166,9 +174,9 @@ function renderProjects() {
 
   projectShowcase.innerHTML = markup;
 
-  document.querySelectorAll('.phone-shot img').forEach((img) => {
-    img.addEventListener('click', () => openLightbox(img.src, img.alt));
-  });
+  document.querySelectorAll('.phone-shot img, .workflow-shot img').forEach((img) => {
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+});
 }
 
 function updateOnScroll() {

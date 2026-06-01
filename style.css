@@ -191,7 +191,21 @@ body {
 }
 
 .phone-shot img:hover { transform: scale(1.03); }
+.workflow-shot {
+  width: 100%;
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
 
+.workflow-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  cursor: zoom-in;
+}
 .services-grid {
   display: grid;
   gap: 16px;
@@ -230,7 +244,7 @@ body {
 }
 .lightbox.open { display: flex; }
 .lightbox img {
-  max-width: min(450px, 94vw);
+  max-width: 95vw;
   max-height: 90vh;
   border-radius: 22px;
   border: 1px solid rgba(255,255,255,.24);
