@@ -1,11 +1,16 @@
 const body = document.body;
 const toggle = document.getElementById('theme-toggle');
+const menuToggle = document.getElementById('menu-toggle');
+const header = document.querySelector('.site-header');
 const progress = document.getElementById('scroll-progress');
 const toTop = document.getElementById('to-top');
 const projectShowcase = document.getElementById('project-showcase');
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 const lightboxClose = document.getElementById('lightbox-close');
+const avatarVideo = document.getElementById('avatar-video');
+const avatarImage = document.getElementById('avatar-image');
+const videoStatus = document.querySelector('.video-status');
 
 const projects = [
   {
@@ -85,136 +90,136 @@ const projects = [
 
 function setTheme(isDark) {
   body.classList.toggle('dark', isDark);
+  toggle?.setAttribute('aria-pressed', String(isDark));
+  toggle?.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#070a12' : '#f5f7fb');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
 setTheme(localStorage.getItem('theme') !== 'light');
 toggle?.addEventListener('click', () => setTheme(!body.classList.contains('dark')));
 
+function closeMenu() {
+  body.classList.remove('menu-open');
+  menuToggle?.setAttribute('aria-expanded', 'false');
+  menuToggle?.setAttribute('aria-label', 'Open navigation');
+}
+
+menuToggle?.addEventListener('click', () => {
+  const willOpen = !body.classList.contains('menu-open');
+  body.classList.toggle('menu-open', willOpen);
+  menuToggle.setAttribute('aria-expanded', String(willOpen));
+  menuToggle.setAttribute('aria-label', willOpen ? 'Close navigation' : 'Open navigation');
+});
+document.querySelectorAll('.nav-link').forEach((link) => link.addEventListener('click', closeMenu));
+
 function openLightbox(src, alt) {
   lightboxImage.src = src;
   lightboxImage.alt = alt;
   lightbox.classList.add('open');
   lightbox.setAttribute('aria-hidden', 'false');
+  lightboxClose.focus();
+  body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
+  body.style.overflow = '';
 }
 
-lightbox?.addEventListener('click', (event) => {
-  if (event.target === lightbox) closeLightbox();
-});
+lightbox?.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
 lightboxClose?.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeLightbox(); closeMenu(); } });
 
 function listBlock(title, items) {
-  return `
-    <div class="content-block">
-      <h4>${title}</h4>
-      <ul>${items.map((item) => `<li> ${item}</li>`).join('')}</ul>
-    </div>
-  `;
+  return `<div class="content-block"><h4>${title}</h4><ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul></div>`;
 }
-
 function textBlock(title, content) {
-  return `
-    <div class="content-block">
-      <h4>${title}</h4>
-      <p>${content}</p>
-    </div>
-  `;
+  return `<div class="content-block"><h4>${title}</h4><p>${content}</p></div>`;
 }
 
 function renderProjects() {
-  const markup = projects
-    .map(
-      (project) => `
-      <article class="project-slide reveal">
-        <div class="container">
-          <div class="panel project-section">
-            <div class="left-content">
-              <p class="kicker">${project.tag}</p>
-              <h3>${project.title}</h3>
-              <p class="project-intro">A story-driven product showcase focused on clarity, architecture, and measurable UX value.</p>
-              ${textBlock('Problem', project.problem)}
-              ${textBlock('Solution', project.solution)}
+  projectShowcase.innerHTML = projects.map((project, index) => `
+    <article class="project-slide reveal">
+      <div class="container">
+        <div class="panel project-section">
+          <div class="left-content">
+            <span class="project-index">PROJECT / ${String(index + 1).padStart(2, '0')}</span>
+            <p class="project-tag">${project.tag}</p>
+            <h3>${project.title}</h3>
+            <p class="project-intro">A story-driven product showcase focused on clarity, architecture, and meaningful user value.</p>
+            <div class="project-details">
+              ${textBlock('The challenge', project.problem)}
+              ${textBlock('The solution', project.solution)}
               ${listBlock('Implementation', project.implementation)}
-              ${listBlock('Features', project.features)}
-              <div class="content-block">
-                <h4>Tech Stack</h4>
-                <div class="tech-tags">${project.tech.map((tech) => `<span>${tech}</span>`).join('')}</div>
-              </div>
+              ${listBlock('Key features', project.features)}
+              <div class="content-block"><h4>Technology</h4><div class="tech-tags">${project.tech.map((tech) => `<span>${tech}</span>`).join('')}</div></div>
             </div>
-            <div class="right-images" aria-label="${project.title} screenshots">
-  ${
-    project.title === 'Workflow Automation'
-      ? `
-        <figure class="workflow-shot">
-          <img src="${project.images[0]}" alt="${project.title}" loading="lazy" />
-        </figure>
-      `
-      : project.images
-          .map(
-            (img, idx) => `
-            <figure class="phone-shot">
-              <img src="${img}" alt="${project.title} mobile screenshot ${idx + 1}" loading="lazy" />
-            </figure>
-          `
-          )
-          .join('')
-  }
-</div>
+          </div>
+          <div class="right-images" aria-label="${project.title} screenshots">
+            ${project.title === 'Workflow Automation'
+              ? `<figure class="workflow-shot"><img src="${project.images[0]}" alt="${project.title} workflow overview" loading="lazy" /></figure>`
+              : project.images.map((img, imageIndex) => `<figure class="phone-shot"><img src="${img}" alt="${project.title} mobile screenshot ${imageIndex + 1}" loading="lazy" /></figure>`).join('')}
           </div>
         </div>
-      </article>
-    `
-    )
-    .join('');
+      </div>
+    </article>`).join('');
 
-  projectShowcase.innerHTML = markup;
-
-  document.querySelectorAll('.phone-shot img, .workflow-shot img').forEach((img) => {
-  img.addEventListener('click', () => openLightbox(img.src, img.alt));
-});
+  document.querySelectorAll('.phone-shot img, .workflow-shot img').forEach((image) => {
+    image.addEventListener('click', () => openLightbox(image.src, image.alt));
+  });
 }
 
 function updateOnScroll() {
   const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = `${(window.scrollY / maxHeight) * 100}%`;
-  toTop.classList.toggle('show', window.scrollY > 450);
+  const percentage = maxHeight > 0 ? (window.scrollY / maxHeight) * 100 : 0;
+  progress.style.width = `${percentage}%`;
+  toTop.classList.toggle('show', window.scrollY > 500);
+  header.classList.toggle('scrolled', window.scrollY > 20);
 }
-
-window.addEventListener('scroll', updateOnScroll);
-
+window.addEventListener('scroll', updateOnScroll, { passive: true });
 toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  },
-  { threshold: 0.15 }
-);
 
 renderProjects();
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-updateOnScroll();
-const avatarVideo = document.getElementById('avatar-video');
-const avatarImage = document.getElementById('avatar-image');
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px' });
+document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+const sections = [...document.querySelectorAll('main section[id]')];
+const navLinks = [...document.querySelectorAll('.nav-link')];
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+  });
+}, { rootMargin: '-40% 0px -50%', threshold: 0 });
+sections.forEach((section) => sectionObserver.observe(section));
+
+function showProfileImage() {
+  if (!avatarVideo || !avatarImage || avatarVideo.classList.contains('fade-out')) return;
+  avatarImage.classList.add('visible');
+  avatarVideo.classList.add('fade-out');
+  if (videoStatus) videoStatus.textContent = 'Introduction complete';
+  window.setTimeout(() => { avatarVideo.hidden = true; }, 850);
+}
 
 if (avatarVideo) {
-
-  avatarVideo.addEventListener('ended', () => {
-
-    avatarVideo.style.display = 'none';
-
-    if (avatarImage) {
-      avatarImage.style.display = 'block';
-    }
-
+  avatarVideo.addEventListener('ended', showProfileImage);
+  avatarVideo.addEventListener('error', showProfileImage);
+  const playPromise = avatarVideo.play();
+  playPromise?.catch(() => {
+    avatarVideo.muted = true;
+    avatarVideo.play().catch(() => { if (videoStatus) videoStatus.textContent = 'Tap play to begin'; });
   });
-
 }
+
+document.getElementById('year').textContent = new Date().getFullYear();
+updateOnScroll();
