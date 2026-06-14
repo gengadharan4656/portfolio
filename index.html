@@ -40,14 +40,26 @@
         <div class="hero-copy">
           <div class="availability fade-up"><span class="status-dot"></span> Open to internships &amp; collaborations</div>
           <p class="eyebrow fade-up delay-1">Hello, I’m</p>
-          <h1 class="fade-up delay-2">Gengadharan <span>S</span></h1>
+          <h1 class="fade-up delay-2">
+  Gengadharan&nbsp;<span>S</span>
+</h1>
           <div class="role-stack fade-up delay-3" aria-label="Professional roles">
             <span>Software Developer</span><i></i><span>AI Integrator</span><i></i><span>Cloud Computing Enthusiast</span>
           </div>
           <p class="hero-lead fade-up delay-4">Computer Science Engineering Student building intelligent applications, scalable cloud solutions, and modern digital experiences that turn ambitious ideas into useful products.</p>
           <div class="hero-actions fade-up delay-5">
             <a href="#projects" class="btn btn-primary">View Projects <span aria-hidden="true">↘</span></a>
-            <a href="mailto:gengadharan4656s@gmail.com?subject=Resume%20Request" class="btn btn-secondary" aria-label="Request Gengadharan's resume by email">Download Resume <span aria-hidden="true">↓</span></a>
+            <a href="assets/resume/Gengadharan_Resume.pdf"
+   target="_blank"
+   class="btn btn-secondary">
+   View Resume
+</a>
+
+<a href="assets/resume/Gengadharan_Resume.pdf"
+   download
+   class="btn btn-primary">
+   Download Resume
+</a>
             <a href="#contact" class="text-link">Contact Me <span aria-hidden="true">→</span></a>
           </div>
           <div class="hero-meta fade-up delay-5" aria-label="Professional highlights">
@@ -61,13 +73,31 @@
           <div class="visual-orbit orbit-one" aria-hidden="true"></div>
           <div class="visual-orbit orbit-two" aria-hidden="true"></div>
           <div class="avatar-shell">
-            <div class="avatar-topline"><span><i></i> AI introduction</span><span class="video-status">Playing once</span></div>
-            <div class="avatar-container">
-              <video id="avatar-video" class="avatar-media avatar-video" autoplay playsinline controls preload="metadata" poster="assets/profile.png">
-                <source src="assets/avatar.mp4" type="video/mp4" />
-                Your browser does not support the video element.
-              </video>
-              <img id="avatar-image" class="avatar-media avatar-image" src="assets/profile.png" alt="Professional portrait of Gengadharan S" />
+            <div class="avatar-topline"><span><i></i> AI introduction</span><span class="video-status">
+  Click to watch introduction
+</span></div>
+           <div class="avatar-container">
+
+  <button id="play-intro-btn" class="play-intro-btn">
+    ▶ Watch My Introduction
+  </button>
+
+  <video id="avatar-video"
+       class="avatar-media avatar-video"
+       playsinline
+       controls
+       preload="metadata"
+       poster="assets/profile.png"
+       hidden>
+
+  <source src="assets/avatar.mp4" type="video/mp4">
+
+  Your browser does not support the video element.
+</video>
+              <img id="avatar-image"
+     class="avatar-media avatar-image visible"
+     src="assets/profile.png"
+     alt="Professional portrait of Gengadharan S" />
               <div class="avatar-gradient" aria-hidden="true"></div>
             </div>
             <div class="avatar-caption"><span>Based in India</span><strong>Building for the world.</strong></div>

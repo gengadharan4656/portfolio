@@ -211,15 +211,66 @@ function showProfileImage() {
   window.setTimeout(() => { avatarVideo.hidden = true; }, 850);
 }
 
-if (avatarVideo) {
-  avatarVideo.addEventListener('ended', showProfileImage);
-  avatarVideo.addEventListener('error', showProfileImage);
-  const playPromise = avatarVideo.play();
-  playPromise?.catch(() => {
-    avatarVideo.muted = true;
-    avatarVideo.play().catch(() => { if (videoStatus) videoStatus.textContent = 'Tap play to begin'; });
-  });
-}
+const playIntroBtn =
+document.getElementById("play-intro-btn");
 
+if (playIntroBtn && avatarVideo) {
+
+  playIntroBtn.addEventListener("click", () => {
+
+    // Hide button while video plays
+    playIntroBtn.style.display = "none";
+
+    avatarVideo.hidden = false;
+
+    avatarVideo.classList.remove("fade-out");
+
+    avatarImage.classList.remove("visible");
+
+    avatarVideo.currentTime = 0;
+
+    avatarVideo.muted = false;
+
+    avatarVideo.play()
+      .then(() => {
+
+        if (videoStatus) {
+          videoStatus.textContent =
+            "Playing introduction";
+        }
+
+      })
+      .catch(err => {
+
+        console.log(err);
+
+        // Show button again if video fails
+        playIntroBtn.style.display = "block";
+
+      });
+
+  });
+
+  avatarVideo.addEventListener("ended", () => {
+
+    avatarImage.classList.add("visible");
+
+    avatarVideo.classList.add("fade-out");
+
+    setTimeout(() => {
+      avatarVideo.hidden = true;
+    }, 800);
+
+    // Show button again after video finishes
+    playIntroBtn.style.display = "block";
+
+    if (videoStatus) {
+      videoStatus.textContent =
+        "Watch introduction again";
+    }
+
+  });
+
+}
 document.getElementById('year').textContent = new Date().getFullYear();
 updateOnScroll();
