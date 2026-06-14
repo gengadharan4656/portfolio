@@ -112,7 +112,7 @@ function listBlock(title, items) {
   return `
     <div class="content-block">
       <h4>${title}</h4>
-      <ul>${items.map((item) => `<li>✔ ${item}</li>`).join('')}</ul>
+      <ul>${items.map((item) => `<li> ${item}</li>`).join('')}</ul>
     </div>
   `;
 }
@@ -202,3 +202,19 @@ renderProjects();
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 updateOnScroll();
+const avatarVideo = document.getElementById('avatar-video');
+const avatarImage = document.getElementById('avatar-image');
+
+if (avatarVideo) {
+
+  avatarVideo.addEventListener('ended', () => {
+
+    avatarVideo.style.display = 'none';
+
+    if (avatarImage) {
+      avatarImage.style.display = 'block';
+    }
+
+  });
+
+}

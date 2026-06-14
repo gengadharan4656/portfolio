@@ -170,7 +170,42 @@ body {
   padding-bottom: 10px;
   scroll-snap-type: x mandatory;
 }
+.avatar-container{
+    position: relative;
+    width: 380px;
+    max-width: 100%;
+}
 
+.avatar-video,
+.avatar-image{
+    width:100%;
+    border-radius:24px;
+    display:block;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.avatar-image{
+    display:none;
+}
+
+.hero-buttons{
+    margin-top:20px;
+    display:flex;
+    gap:12px;
+    justify-content:center;
+}
+
+@media(max-width:768px){
+
+    .avatar-container{
+        width:280px;
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+}
 .phone-shot {
   flex: 0 0 210px;
   aspect-ratio: 9 / 19.5;
