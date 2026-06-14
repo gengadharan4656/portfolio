@@ -3,132 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gengadharan S | Flutter Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Gengadharan S — software developer, AI integrator, and cloud computing enthusiast." />
+  <meta name="theme-color" content="#070b14" />
+  <title>Gengadharan S | Software Developer & AI Integrator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="dark">
   <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#home">Gengadharan S</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a class="nav-link" href="#home">Home</a>
+      <a class="brand" href="#home" aria-label="Gengadharan S — home"><span class="brand-mark">GS</span><span class="brand-name">Gengadharan S</span></a>
+      <nav class="nav" id="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home">Home</a>
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="#services">Services</a>
-        <a class="nav-link" href="#tech">Tech</a>
+        <a class="nav-link" href="#tech">Stack</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
-      <button id="theme-toggle" class="icon-btn" aria-label="Toggle light and dark mode">🌗</button>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn theme-toggle" aria-label="Switch to light mode" aria-pressed="true"><span class="sun">☀</span><span class="moon">☾</span></button>
+        <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+      </div>
     </div>
   </header>
 
   <main>
-    <section id="home" class="hero section reveal">
-      <div class="container">
-        <div class="hero-layout">
-          <div class="hero-left">
-            <p class="kicker">
-Software Developer • AI Integrator • Cloud Computing
-</p>
-
-<h2>
-Computer Science Engineering Student
-</h2>
-
-<p class="subtitle">
-Building intelligent applications, scalable cloud solutions,
-and modern digital experiences.
-</p>
+    <section id="home" class="hero section">
+      <div class="hero-glow glow-one" aria-hidden="true"></div>
+      <div class="hero-glow glow-two" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="availability fade-up"><span class="status-dot"></span> Open to internships &amp; collaborations</div>
+          <p class="eyebrow fade-up delay-1">Hello, I’m</p>
+          <h1 class="fade-up delay-2">Gengadharan <span>S</span></h1>
+          <div class="role-stack fade-up delay-3" aria-label="Professional roles">
+            <span>Software Developer</span><i></i><span>AI Integrator</span><i></i><span>Cloud Computing Enthusiast</span>
           </div>
-          <div class="hero-right">
+          <p class="hero-lead fade-up delay-4">Computer Science Engineering Student building intelligent applications, scalable cloud solutions, and modern digital experiences that turn ambitious ideas into useful products.</p>
+          <div class="hero-actions fade-up delay-5">
+            <a href="#projects" class="btn btn-primary">View Projects <span aria-hidden="true">↘</span></a>
+            <a href="mailto:gengadharan4656s@gmail.com?subject=Resume%20Request" class="btn btn-secondary" aria-label="Request Gengadharan's resume by email">Download Resume <span aria-hidden="true">↓</span></a>
+            <a href="#contact" class="text-link">Contact Me <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-meta fade-up delay-5" aria-label="Professional highlights">
+            <div><strong>04+</strong><span>Featured projects</span></div>
+            <div><strong>08+</strong><span>Technologies</span></div>
+            <div><strong>∞</strong><span>Curiosity to build</span></div>
+          </div>
+        </div>
 
-  <div class="avatar-container">
-    <video
-      id="avatar-video"
-      class="avatar-video"
-      autoplay
-      muted
-      playsinline
-    >
-      <source src="assets/avatar.mp4" type="video/mp4">
-    </video>
-
-    <img
-      id="avatar-image"
-      class="avatar-image"
-      src="assets/profile.png"
-      alt="Gengadharan"
-    />
-  </div>
-
-  <div class="hero-buttons">
-    <a href="#projects" class="btn">View Projects</a>
-    <a href="#contact" class="btn btn-outline">Hire Me</a>
-  </div>
-
-</div>
+        <div class="hero-visual fade-up delay-3">
+          <div class="visual-orbit orbit-one" aria-hidden="true"></div>
+          <div class="visual-orbit orbit-two" aria-hidden="true"></div>
+          <div class="avatar-shell">
+            <div class="avatar-topline"><span><i></i> AI introduction</span><span class="video-status">Playing once</span></div>
+            <div class="avatar-container">
+              <video id="avatar-video" class="avatar-media avatar-video" autoplay playsinline controls preload="metadata" poster="assets/profile.png">
+                <source src="assets/avatar.mp4" type="video/mp4" />
+                Your browser does not support the video element.
+              </video>
+              <img id="avatar-image" class="avatar-media avatar-image" src="assets/profile.png" alt="Professional portrait of Gengadharan S" />
+              <div class="avatar-gradient" aria-hidden="true"></div>
+            </div>
+            <div class="avatar-caption"><span>Based in India</span><strong>Building for the world.</strong></div>
+          </div>
+          <div class="floating-chip chip-ai"><span>✦</span> AI Integrator</div>
+          <div class="floating-chip chip-cloud"><span>☁</span> Cloud Native</div>
         </div>
       </div>
+      <a href="#projects" class="scroll-cue" aria-label="Scroll to projects"><span></span> Explore my work</a>
     </section>
 
     <section id="projects" class="section project-story reveal">
-      <div class="container">
-        <h2 class="section-title">Project Showcase</h2>
+      <div class="container section-heading">
+        <div><p class="eyebrow">Selected work</p><h2 class="section-title">Products built with<br /><span>purpose &amp; precision.</span></h2></div>
+        <p>From offline-first mobile experiences to full-stack systems and intelligent automation — a selection of practical products engineered to solve real problems.</p>
       </div>
       <div id="project-showcase"></div>
     </section>
 
     <section id="services" class="section reveal">
       <div class="container">
-        <h2 class="section-title">Services</h2>
+        <div class="section-heading compact"><div><p class="eyebrow">What I do</p><h2 class="section-title">Ways I can <span>help.</span></h2></div></div>
         <div class="services-grid">
-          <article class="panel service-card"><h3>Flutter App Development</h3></article>
-          <article class="panel service-card"><h3>Bug Fixing & Optimization</h3></article>
-          <article class="panel service-card"><h3>API Integration</h3></article>
-          <article class="panel service-card"><h3>Play Store Deployment</h3></article>
-          <article class="panel service-card"><h3>Website hosting in cloud</h3></article>
+          <article class="panel service-card"><span class="service-number">01</span><div class="service-icon">◫</div><h3>Flutter App Development</h3><p>Fast, polished, cross-platform applications designed around real user needs.</p></article>
+          <article class="panel service-card"><span class="service-number">02</span><div class="service-icon">⌁</div><h3>Bug Fixing &amp; Optimization</h3><p>Performance diagnosis, dependable fixes, and smoother product experiences.</p></article>
+          <article class="panel service-card"><span class="service-number">03</span><div class="service-icon">↔</div><h3>API Integration</h3><p>Secure, maintainable connections between apps, services, and data.</p></article>
+          <article class="panel service-card"><span class="service-number">04</span><div class="service-icon">↥</div><h3>Play Store Deployment</h3><p>Release-ready builds and guided deployment from testing to production.</p></article>
+          <article class="panel service-card"><span class="service-number">05</span><div class="service-icon">☁</div><h3>Cloud Website Hosting</h3><p>Reliable cloud deployment and hosting configured for scale and availability.</p></article>
         </div>
       </div>
     </section>
 
     <section id="tech" class="section reveal">
       <div class="container">
-        <h2 class="section-title">Tech Stack</h2>
+        <div class="section-heading"><div><p class="eyebrow">Toolbox</p><h2 class="section-title">Technology I use to <span>ship.</span></h2></div><p>A versatile stack across mobile, backend, databases, version control, and cloud infrastructure.</p></div>
         <div class="tech-grid">
-          <div class="panel tech-item"><img src="assets/skills/flutter.png" alt="Flutter" /><span>Flutter</span></div>
-          <div class="panel tech-item"><img src="assets/skills/dart.png" alt="Dart" /><span>Dart</span></div>
-          <div class="panel tech-item"><img src="assets/skills/python.png" alt="Python" /><span>Python</span></div>
-          <div class="panel tech-item"><img src="assets/skills/flask.png" alt="Flask" /><span>Flask</span></div>
-          <div class="panel tech-item"><img src="assets/skills/mysql.png" alt="MySQL" /><span>MySQL</span></div>
-          <div class="panel tech-item"><img src="assets/skills/git.png" alt="Git" /><span>Git</span></div>
-          <div class="panel tech-item"><img src="assets/skills/cloud.png" alt="Cloud" /><span>Cloud</span></div>
-          <div class="panel tech-item"><img src="assets/skills/android.png" alt="Android" /><span>Android</span></div>
+          <div class="panel tech-item"><img src="assets/skills/flutter.png" alt="" loading="lazy" /><span>Flutter</span><small>Mobile</small></div>
+          <div class="panel tech-item"><img src="assets/skills/dart.png" alt="" loading="lazy" /><span>Dart</span><small>Language</small></div>
+          <div class="panel tech-item"><img src="assets/skills/python.png" alt="" loading="lazy" /><span>Python</span><small>Language</small></div>
+          <div class="panel tech-item"><img src="assets/skills/flask.png" alt="" loading="lazy" /><span>Flask</span><small>Backend</small></div>
+          <div class="panel tech-item"><img src="assets/skills/mysql.png" alt="" loading="lazy" /><span>MySQL</span><small>Database</small></div>
+          <div class="panel tech-item"><img src="assets/skills/git.png" alt="" loading="lazy" /><span>Git</span><small>Workflow</small></div>
+          <div class="panel tech-item"><img src="assets/skills/cloud.png" alt="" loading="lazy" /><span>Cloud</span><small>Infrastructure</small></div>
+          <div class="panel tech-item"><img src="assets/skills/android.png" alt="" loading="lazy" /><span>Android</span><small>Platform</small></div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section reveal">
+    <section id="contact" class="section contact-section reveal">
       <div class="container">
-        <article class="panel contact-card">
-          <h2>Let’s Build Your App 🚀</h2>
-          <p>Available for freelance Flutter app development, optimization, and deployment engagements.</p>
-          <a href="mailto:gengadharan4656s@gmail.com" class="btn">Email Me</a>
+        <article class="contact-card">
+          <div class="contact-glow" aria-hidden="true"></div>
+          <p class="eyebrow">Have an idea?</p>
+          <h2>Let’s create something<br /><span>remarkable together.</span></h2>
+          <p>I’m available for internships, freelance development, optimization, and product collaborations.</p>
+          <a href="mailto:gengadharan4656s@gmail.com" class="btn btn-primary">Start a conversation <span aria-hidden="true">↗</span></a>
+          <a class="contact-email" href="mailto:gengadharan4656s@gmail.com">gengadharan4656s@gmail.com</a>
         </article>
       </div>
     </section>
   </main>
 
+  <footer><div class="container footer-inner"><a class="brand" href="#home"><span class="brand-mark">GS</span></a><p>Designed &amp; built by Gengadharan S</p><p>© <span id="year"></span> — All rights reserved</p></div></footer>
   <button id="to-top" class="icon-btn to-top" aria-label="Back to top">↑</button>
-
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button id="lightbox-close" class="icon-btn lightbox-close" aria-label="Close preview">✕</button>
-    <img id="lightbox-image" src="" alt="Project screenshot preview" />
-  </div>
-
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project image preview"><button id="lightbox-close" class="icon-btn lightbox-close" aria-label="Close preview">✕</button><img id="lightbox-image" src="" alt="Project screenshot preview" /></div>
   <script src="script.js"></script>
 </body>
 </html>
