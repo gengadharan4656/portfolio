@@ -11,7 +11,96 @@ const lightboxClose = document.getElementById('lightbox-close');
 const avatarVideo = document.getElementById('avatar-video');
 const avatarImage = document.getElementById('avatar-image');
 const videoStatus = document.querySelector('.video-status');
+const svg = document.getElementById("space-svg");
 
+const path = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "path"
+);
+
+path.setAttribute(
+    "d",
+    "M-100 600 C300 300 900 850 2100 250"
+);
+
+path.setAttribute("class","orbit");
+
+svg.appendChild(path);
+
+const total = 60;
+
+for(let i=0;i<total;i++){
+
+    const dot = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "circle"
+    );
+
+    dot.setAttribute("r",1.6);
+
+    dot.setAttribute("class","particle");
+
+    svg.appendChild(dot);
+
+    animateParticle(dot,i);
+
+}
+function animateParticle(dot,index){
+
+    const length = path.getTotalLength();
+
+    function frame(time){
+
+        const speed = 0.015;
+
+        const progress =
+            ((time*speed)+(index*40))
+            % length;
+
+        const point =
+            path.getPointAtLength(progress);
+
+        dot.setAttribute("cx",point.x);
+
+        dot.setAttribute("cy",point.y);
+
+        requestAnimationFrame(frame);
+
+    }
+
+    requestAnimationFrame(frame);
+
+}
+const rocket=document.createElement("div");
+
+rocket.className="rocket";
+
+rocket.innerHTML="🚀";
+
+document.body.appendChild(rocket);
+function animateRocket(){
+
+    const length=path.getTotalLength();
+
+    function frame(time){
+
+        const progress=(time*0.02)%length;
+
+        const point=path.getPointAtLength(progress);
+
+        rocket.style.left=point.x+"px";
+
+        rocket.style.top=point.y+"px";
+
+        requestAnimationFrame(frame);
+
+    }
+
+    requestAnimationFrame(frame);
+
+}
+
+animateRocket();
 const projects = [
   {
     title: 'Offline Music Player',
@@ -29,8 +118,87 @@ const projects = [
       ],
     features: ['Background playback', 'Smooth UI', 'Offline support'],
     tech: ['Flutter', 'Dart'],
+playstore: 'https://play.google.com/store/apps/details?id=com.gengadharan.musicplayer',
     images: ['assets/projects/music-1.png', 'assets/projects/music-2.png', 'assets/projects/music-3.png']
   },
+ {
+  title: 'FarmGen AI CLI',
+  tag: 'CLI Application • OpenHands AI',
+
+  problem:
+    'Farmers and agricultural professionals often lack quick access to reliable farming guidance and technical assistance through simple command-line tools, making information retrieval slower and less accessible.',
+
+  solution:
+    'Developed FarmGen AI CLI, an AI-powered command-line assistant built with OpenHands AI that enables farmers to interact using natural language commands. The application provides farming guidance, crop management support, development assistance, report generation, and AI-driven recommendations directly from the terminal.',
+
+  implementation: [
+    'Built a Python-based command-line interface (CLI)',
+    'Integrated OpenHands AI for intelligent natural language interactions',
+    'Implemented modular command handling for farming and development queries',
+    'Designed an extensible architecture supporting future AI skills and plugins'
+  ],
+
+  features: [
+    'Interactive CLI interface',
+    'Natural language AI assistance',
+    'Crop and irrigation guidance',
+    'AI-generated reports',
+    'Development support',
+    '54+ integrated AI skills'
+  ],
+
+  tech: [
+    'Python',
+    'OpenHands AI',
+    'LLM',
+    'CLI',
+    'Prompt Engineering'
+  ],
+
+  images: [
+    'assets/projects/farmgen-1.png',
+    'assets/projects/farmgen-2.png',
+    'assets/projects/farmgen-3.png',
+  ]
+},
+{
+  title: 'AI Photo Enhancer',
+  tag: 'Desktop Application • Real-ESRGAN AI',
+
+  problem:
+    'Traditional image scaling methods produce blurry and low-quality results when enlarging images, making them unsuitable for high-resolution restoration.',
+
+  solution:
+    'Developed an AI-powered desktop application that enhances image quality using the Real-ESRGAN deep learning model. The application restores details, reduces noise, sharpens images, and upscales low-resolution images while preserving natural textures.',
+
+  implementation: [
+    'Built the desktop application using Flutter',
+    'Integrated the Real-ESRGAN AI model for image enhancement',
+    'Implemented a Python-based image processing pipeline',
+    'Optimized AI inference for faster processing and improved output quality'
+  ],
+
+  features: [
+    'AI image enhancement',
+    '2× & 4× upscaling',
+    'Noise reduction',
+    'Image sharpening',
+    'High-resolution export'
+  ],
+
+  tech: [
+    'Flutter',
+    'Python',
+    'Real-ESRGAN',
+    'NCNN'
+  ],
+
+  github: 'https://github.com/gengadharan4656/ai_photo_enhancer',
+
+ images: [
+    'assets/projects/photo-1.png',
+  ]
+},
   {
     title: 'Blog Application',
     tag: 'Full-stack Mobile + API',
@@ -46,6 +214,7 @@ const projects = [
     ],
     features: ['Secure login', 'REST API', 'Cloud deployment'],
     tech: ['Flutter', 'Flask', 'MySQL', 'Dart'],
+    github: 'https://github.com/gengadharan4656/blog-app',
     images: ['assets/projects/blog-1.png', 'assets/projects/blog-2.png']
   },
   {
@@ -62,6 +231,7 @@ const projects = [
     ],
     features: ['Location tracking', 'Map integration', 'Backend simulation'],
     tech: ['Flutter', 'Python'],
+     github: 'https://github.com/gengadharan4656/live_bus_tracking',
     images: ['assets/projects/bus-1.png', 'assets/projects/bus-2.png']
   },
   {
@@ -154,14 +324,93 @@ function renderProjects() {
               ${textBlock('The solution', project.solution)}
               ${listBlock('Implementation', project.implementation)}
               ${listBlock('Key features', project.features)}
-              <div class="content-block"><h4>Technology</h4><div class="tech-tags">${project.tech.map((tech) => `<span>${tech}</span>`).join('')}</div></div>
+              <div class="content-block">
+    <h4>Technology</h4>
+
+    <div class="tech-tags">
+        ${project.tech.map((tech) => `<span>${tech}</span>`).join('')}
+    </div>
+
+    <div class="project-links">
+
+        ${
+            project.playstore
+                ? `
+                <a href="${project.playstore}"
+                   target="_blank"
+                   class="project-btn playstore-btn">
+                   📱 View on Play Store
+                </a>
+                `
+                : ''
+        }
+
+        ${
+            project.github
+                ? `
+                <a href="${project.github}"
+                   target="_blank"
+                   class="project-btn github-btn">
+                   💻 View GitHub
+                </a>
+                `
+                : ''
+        }
+
+    </div>
+</div>
             </div>
           </div>
           <div class="right-images" aria-label="${project.title} screenshots">
-            ${project.title === 'Workflow Automation'
-              ? `<figure class="workflow-shot"><img src="${project.images[0]}" alt="${project.title} workflow overview" loading="lazy" /></figure>`
-              : project.images.map((img, imageIndex) => `<figure class="phone-shot"><img src="${img}" alt="${project.title} mobile screenshot ${imageIndex + 1}" loading="lazy" /></figure>`).join('')}
-          </div>
+
+  ${
+  project.images && project.images.length > 0
+    ? (
+        project.title === 'Workflow Automation'
+          ? `
+            <figure class="workflow-shot">
+              <img
+                src="${project.images[0]}"
+                alt="${project.title}"
+                loading="lazy" />
+            </figure>
+          `
+
+        : project.title === 'AI Photo Enhancer'
+
+          ? `
+            <figure class="desktop-shot">
+              <img
+                src="${project.images[0]}"
+                alt="${project.title}"
+                loading="lazy" />
+            </figure>
+          `
+
+          : project.images.map((img, imageIndex) => `
+              <figure class="phone-shot">
+                <img
+                  src="${img}"
+                  alt="${project.title} screenshot ${imageIndex + 1}"
+                  loading="lazy" />
+              </figure>
+            `).join('')
+      )
+
+    : `
+      <div class="github-project">
+        <div class="github-icon">💻</div>
+        <h3>Source Code Available</h3>
+        <p>This project is available on GitHub.</p>
+        <a href="${project.github}"
+           target="_blank"
+           class="btn btn-primary">
+           View GitHub Repository
+        </a>
+      </div>
+    `
+}
+</div>
         </div>
       </div>
     </article>`).join('');
