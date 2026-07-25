@@ -1,0 +1,175 @@
+/* ===========================
+   SPACE BACKGROUND ENGINE
+   =========================== */
+
+:root {
+    --space-background-color: #ffffff;
+    --space-element-color: 0, 0, 0;
+}
+
+body.dark {
+    --space-background-color: #070a12;
+    --space-element-color: 255, 255, 255;
+}
+
+body {
+    background: var(--space-background-color);
+}
+
+.space-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    color: rgb(var(--space-element-color));
+    background:
+        radial-gradient(circle at 20% 8%, rgba(var(--space-element-color), 0.055), transparent 24rem),
+        radial-gradient(circle at 78% 28%, rgba(var(--space-element-color), 0.035), transparent 22rem),
+        var(--space-background-color);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.space-background svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.space-background__parallax {
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+}
+
+.space-background__star {
+    fill: currentColor;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-name: space-star-twinkle;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: opacity, transform;
+}
+
+.space-background__stream-path {
+    fill: none;
+    stroke: transparent;
+}
+
+.space-background__particle {
+    fill: currentColor;
+    opacity: 0.16;
+    will-change: transform, opacity;
+}
+
+.space-background__orbit {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1;
+    opacity: 0.07;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: space-orbit-rotate linear infinite;
+}
+
+.space-background__constellation {
+    stroke: currentColor;
+    stroke-width: 0.65;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+}
+
+.space-background__constellation.is-visible {
+    opacity: 0.08;
+}
+
+.space-background__moon {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1;
+    opacity: 0.11;
+    animation: space-moon-float 18s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.space-background__rocket {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.space-background__shooting-star {
+    position: absolute;
+    width: 92px;
+    height: 1px;
+    border-radius: 999px;
+    opacity: 0;
+    background: linear-gradient(90deg, transparent, currentColor);
+    filter: drop-shadow(0 0 8px rgba(var(--space-element-color), 0.25));
+    will-change: transform, opacity;
+}
+
+body > *:not(.space-background) {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes space-star-twinkle {
+    0%, 100% {
+        opacity: var(--star-opacity);
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        opacity: calc(var(--star-opacity) * 0.35);
+        transform: translate3d(var(--star-drift-x), var(--star-drift-y), 0) scale(0.82);
+    }
+}
+
+@keyframes space-orbit-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes space-moon-float {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translate3d(10px, -14px, 0) rotate(4deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .space-background__star,
+    .space-background__orbit,
+    .space-background__moon {
+        animation: none;
+    }
+}
+
+/* Keep portfolio section backgrounds translucent so the universe remains continuous. */
+
+.hero,
+.project-story,
+#tech {
+    background-color: transparent;
+}
+
+.project-story,
+#tech {
+    background: color-mix(in srgb, var(--space-background-color) 72%, transparent);
+}
