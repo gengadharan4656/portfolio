@@ -10,42 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/background.css" />
 </head>
 
-<div class="space-bg">
-
-<svg class="orbit-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
-
-    <!-- Orbit 1 -->
-    <path class="orbit"
-        d="M-100 650
-           C300 450,
-           900 850,
-           2050 300" />
-
-    <!-- Orbit 2 -->
-    <path class="orbit"
-        d="M1800 950
-           C1200 750,
-           800 250,
-           -100 400" />
-
-    <!-- Orbit 3 -->
-    <path class="orbit"
-        d="M300 1000
-           C700 650,
-           1200 650,
-           1700 200" />
-
-</svg>
-
-<div class="rocket">🚀</div>
-
-<div class="shooting-star"></div>
-
-</div>
-
 <body class="dark">
+  <div id="space-background" class="space-background" aria-hidden="true"></div>
   <div id="scroll-progress" aria-hidden="true"></div>
   <div class="page-noise" aria-hidden="true"></div>
 
@@ -197,6 +166,7 @@
   <footer><div class="container footer-inner"><a class="brand" href="#home"><span class="brand-mark">GS</span></a><p>Designed &amp; built by Gengadharan S</p><p>© <span id="year"></span> — All rights reserved</p></div></footer>
   <button id="to-top" class="icon-btn to-top" aria-label="Back to top">↑</button>
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project image preview"><button id="lightbox-close" class="icon-btn lightbox-close" aria-label="Close preview">✕</button><img id="lightbox-image" src="" alt="Project screenshot preview" /></div>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+  <script src="assets/js/background.js" defer></script>
 </body>
 </html>
