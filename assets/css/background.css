@@ -1,175 +1,91 @@
-/* ===========================
-   SPACE BACKGROUND ENGINE
-   =========================== */
-
-:root {
-    --space-background-color: #ffffff;
-    --space-element-color: 0, 0, 0;
-}
-
-body.dark {
-    --space-background-color: #070a12;
-    --space-element-color: 255, 255, 255;
-}
-
-body {
-    background: var(--space-background-color);
-}
+/* ============================================================
+   SPACE ENVIRONMENT & OBSERVATORY STYLES
+   Futuristic, subtle, theme-aware cosmic canvas
+   ============================================================ */
 
 .space-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    pointer-events: none;
-    color: rgb(var(--space-element-color));
-    background:
-        radial-gradient(circle at 20% 8%, rgba(var(--space-element-color), 0.055), transparent 24rem),
-        radial-gradient(circle at 78% 28%, rgba(var(--space-element-color), 0.035), transparent 22rem),
-        var(--space-background-color);
-    transition: background-color 0.25s ease, color 0.25s ease;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -3;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 20%, #ffffff 0%, #f4f7fc 55%, #e9eef7 100%);
+  transition: background 0.4s ease, opacity 0.5s ease;
 }
 
-.space-background svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
+body.dark .space-background {
+  background: radial-gradient(circle at 50% 25%, #0d1222 0%, #060913 55%, #03050a 100%);
 }
 
-.space-background__parallax {
-    position: absolute;
-    inset: 0;
-    will-change: transform;
+#space-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
 }
 
-.space-background__star {
-    fill: currentColor;
-    transform-box: fill-box;
-    transform-origin: center;
-    animation-name: space-star-twinkle;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    will-change: opacity, transform;
+/* Subtle observatory grid overlay */
+.space-observatory-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, var(--space-grid-color, rgba(100, 116, 150, 0.08)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--space-grid-color, rgba(100, 116, 150, 0.08)) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
+  transition: opacity 0.4s ease;
 }
 
-.space-background__stream-path {
-    fill: none;
-    stroke: transparent;
+body.dark .space-observatory-grid {
+  opacity: 0.18;
 }
 
-.space-background__particle {
-    fill: currentColor;
-    opacity: 0.16;
-    will-change: transform, opacity;
+/* Observatory hud compass / telemetry markers in corners */
+.space-hud-marker {
+  position: absolute;
+  pointer-events: none;
+  font-family: var(--display);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+.space-hud-tl { top: 90px; left: 24px; }
+.space-hud-tr { top: 90px; right: 24px; text-align: right; }
+.space-hud-bl { bottom: 20px; left: 24px; }
+.space-hud-br { bottom: 20px; right: 24px; text-align: right; }
+
+@media (max-width: 768px) {
+  .space-hud-marker { display: none; }
+  .space-observatory-grid { opacity: 0.08; background-size: 50px 50px; }
 }
 
-.space-background__orbit {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1;
-    opacity: 0.07;
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: space-orbit-rotate linear infinite;
+/* Theme variables for the space system */
+body.dark {
+  --space-grid-color: rgba(129, 116, 255, 0.07);
+  --space-glow-accent: rgba(45, 225, 209, 0.12);
+  --space-orbit-color: rgba(129, 116, 255, 0.18);
+  --farm-accent: #22c55e;
+  --farm-accent-glow: rgba(34, 197, 94, 0.25);
+  --farm-accent-soft: rgba(34, 197, 94, 0.1);
+  --farm-border: rgba(34, 197, 94, 0.3);
 }
 
-.space-background__constellation {
-    stroke: currentColor;
-    stroke-width: 0.65;
-    opacity: 0;
-    transition: opacity 1.8s ease;
-}
-
-.space-background__constellation.is-visible {
-    opacity: 0.08;
-}
-
-.space-background__moon {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1;
-    opacity: 0.11;
-    animation: space-moon-float 18s ease-in-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-.space-background__rocket {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.25;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: 0;
-    will-change: transform, opacity;
-}
-
-.space-background__shooting-star {
-    position: absolute;
-    width: 92px;
-    height: 1px;
-    border-radius: 999px;
-    opacity: 0;
-    background: linear-gradient(90deg, transparent, currentColor);
-    filter: drop-shadow(0 0 8px rgba(var(--space-element-color), 0.25));
-    will-change: transform, opacity;
-}
-
-body > *:not(.space-background) {
-    position: relative;
-    z-index: 2;
-}
-
-@keyframes space-star-twinkle {
-    0%, 100% {
-        opacity: var(--star-opacity);
-        transform: translate3d(0, 0, 0) scale(1);
-    }
-
-    50% {
-        opacity: calc(var(--star-opacity) * 0.35);
-        transform: translate3d(var(--star-drift-x), var(--star-drift-y), 0) scale(0.82);
-    }
-}
-
-@keyframes space-orbit-rotate {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes space-moon-float {
-    0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(-4deg);
-    }
-
-    50% {
-        transform: translate3d(10px, -14px, 0) rotate(4deg);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .space-background__star,
-    .space-background__orbit,
-    .space-background__moon {
-        animation: none;
-    }
-}
-
-/* Keep portfolio section backgrounds translucent so the universe remains continuous. */
-
-.hero,
-.project-story,
-#tech {
-    background-color: transparent;
-}
-
-.project-story,
-#tech {
-    background: color-mix(in srgb, var(--space-background-color) 72%, transparent);
+body:not(.dark) {
+  --space-grid-color: rgba(102, 87, 247, 0.05);
+  --space-glow-accent: rgba(4, 191, 196, 0.08);
+  --space-orbit-color: rgba(102, 87, 247, 0.12);
+  --farm-accent: #15803d;
+  --farm-accent-glow: rgba(21, 128, 61, 0.18);
+  --farm-accent-soft: rgba(21, 128, 61, 0.08);
+  --farm-border: rgba(21, 128, 61, 0.25);
 }
