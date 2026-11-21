@@ -1,14 +1,13 @@
 /**
- * Space Background Engine
- * High-performance, canvas-based continuous celestial environment
- * Theme-aware (Deep Space in Dark Mode, Daylight Observatory in Light Mode)
+ * Space Background Engine — High-Performance Realistic Celestial Environment
+ * Theme-aware (Deep Interstellar Space in Dark Mode, Daylight Observatory in Light Mode)
  * Features:
- * - Multi-layered parallax starfield with twinkle
- * - Distant nebula glow & deep space dust
- * - Orbit rings with subtle orbital movement
- * - Constellation line connections
- * - Interactive mouse parallax & subtle shooting stars
- * - Automatically pauses when window is blurred or prefers-reduced-motion is active
+ * - Multi-tiered logarithmic star distribution (deep cosmic dust, stellar bodies, luminous foreground stars)
+ * - Subtle organic nebulae with deep violet, teal, and electric cyan gradients
+ * - Gentle inertia-damped mouse parallax and scroll-depth simulation
+ * - Orbit telemetry paths with micro orbital markers
+ * - Subtle shooting stars with gentle trailing luminescence
+ * - Performance throttling: Pauses on tab blur / off-screen, respects prefers-reduced-motion
  */
 
 (function initSpaceEngine() {
@@ -21,7 +20,7 @@
   container.innerHTML = '';
   container.appendChild(canvas);
 
-  // Add subtle HUD overlay
+  // Subtle observatory grid overlay
   const gridOverlay = document.createElement('div');
   gridOverlay.className = 'space-observatory-grid';
   container.appendChild(gridOverlay);
@@ -33,7 +32,7 @@
   let height = 0;
   let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-  // Mouse parallax state
+  // Parallax physics state
   let targetMouseX = 0;
   let targetMouseY = 0;
   let mouseX = 0;
@@ -41,15 +40,17 @@
   let scrollY = 0;
   let targetScrollY = 0;
 
-  // Stars state
-  const STAR_COUNT = window.innerWidth < 768 ? 65 : 140;
+  // Stars and particle tiers
   const stars = [];
+  const cosmicDust = [];
   const shootingStars = [];
 
-  // Orbit ring configs
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Orbit ring telemetry
   const orbits = [
-    { radiusX: 320, radiusY: 140, angle: -0.3, speed: 0.0004, currentAngle: 0, dotSize: 3 },
-    { radiusX: 580, radiusY: 260, angle: 0.45, speed: -0.00025, currentAngle: 2, dotSize: 3.5 }
+    { radiusX: 380, radiusY: 160, angle: -0.28, speed: 0.00035, currentAngle: 0.5, dotSize: 2.8 },
+    { radiusX: 680, radiusY: 290, angle: 0.42, speed: -0.0002, currentAngle: 3.1, dotSize: 3.2 }
   ];
 
   function resize() {
@@ -61,43 +62,84 @@
     canvas.style.width = width + 'px';
     canvas.style.height = height + 'px';
     ctx.scale(dpr, dpr);
-    initStars();
+    initStarfield();
   }
 
-  function initStars() {
+  function initStarfield() {
     stars.length = 0;
-    for (let i = 0; i < STAR_COUNT; i++) {
+    cosmicDust.length = 0;
+
+    const isMobile = window.innerWidth < 768;
+    const starCount = isMobile ? 80 : 160;
+    const dustCount = isMobile ? 40 : 90;
+
+    // 1. Deep cosmic dust particles (far background, slow drift)
+    for (let i = 0; i < dustCount; i++) {
+      cosmicDust.push({
+        x: Math.random() * width,
+        y: Math.random() * height * 2,
+        radius: Math.random() * 0.8 + 0.3,
+        alpha: Math.random() * 0.35 + 0.1,
+        layer: 0.5
+      });
+    }
+
+    // 2. Multi-tier stars
+    for (let i = 0; i < starCount; i++) {
+      const rand = Math.random();
+      let layer = 1;
+      let radius = Math.random() * 0.9 + 0.5;
+      let baseAlpha = Math.random() * 0.5 + 0.3;
+
+      // 15% bright foreground stars with subtle halos
+      if (rand < 0.15) {
+        layer = 3;
+        radius = Math.random() * 0.8 + 1.4;
+        baseAlpha = Math.random() * 0.3 + 0.65;
+      } else if (rand < 0.55) {
+        layer = 2;
+        radius = Math.random() * 0.7 + 0.9;
+        baseAlpha = Math.random() * 0.4 + 0.4;
+      }
+
+      // Color classification (cool white, cyan/ice blue, warm lavender)
+      let hue = 0;
+      const hueRand = Math.random();
+      if (hueRand < 0.28) hue = 180; // Electric cyan
+      else if (hueRand < 0.52) hue = 250; // Deep lavender / violet
+      else hue = 0; // Diamond white
+
       stars.push({
         x: Math.random() * width,
-        y: Math.random() * height * 2, // extend beyond viewport for parallax
-        radius: Math.random() * 1.5 + 0.5,
-        baseAlpha: Math.random() * 0.7 + 0.2,
-        twinkleSpeed: Math.random() * 0.02 + 0.008,
+        y: Math.random() * height * 2,
+        radius,
+        baseAlpha,
+        twinkleSpeed: Math.random() * 0.018 + 0.007,
         twinkleOffset: Math.random() * Math.PI * 2,
-        layer: Math.random() < 0.3 ? 3 : Math.random() < 0.6 ? 2 : 1, // parallax depth
-        hue: Math.random() < 0.25 ? 180 : Math.random() < 0.4 ? 250 : 0 // cyan, purple, or crisp white
+        layer,
+        hue
       });
     }
   }
 
   function spawnShootingStar() {
-    if (Math.random() < 0.008 && shootingStars.length < 2) {
+    if (Math.random() < 0.007 && shootingStars.length < 2) {
       shootingStars.push({
-        x: Math.random() * width * 0.8 + width * 0.1,
-        y: Math.random() * height * 0.5,
-        length: Math.random() * 80 + 50,
-        speed: Math.random() * 7 + 9,
-        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.2,
+        x: Math.random() * width * 0.85 + width * 0.05,
+        y: Math.random() * height * 0.45,
+        length: Math.random() * 70 + 45,
+        speed: Math.random() * 6 + 8,
+        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.18,
         alpha: 1,
         life: 1
       });
     }
   }
 
-  // Smooth mouse tracker
+  // Smooth mouse input
   window.addEventListener('mousemove', (e) => {
-    targetMouseX = (e.clientX - width / 2) * 0.05;
-    targetMouseY = (e.clientY - height / 2) * 0.05;
+    targetMouseX = (e.clientX - width / 2) * 0.04;
+    targetMouseY = (e.clientY - height / 2) * 0.04;
   }, { passive: true });
 
   window.addEventListener('scroll', () => {
@@ -106,103 +148,95 @@
 
   window.addEventListener('resize', resize, { passive: true });
 
-  let animationFrameId = null;
   let isRunning = true;
 
-  // Page visibility check for battery/performance savings
+  // Visibility and throttling
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       isRunning = false;
     } else {
       isRunning = true;
-      lastTime = performance.now();
       requestAnimationFrame(render);
     }
   });
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  let lastTime = performance.now();
-
   function render(time) {
     if (!isRunning) return;
 
-    // Smooth lerp
-    mouseX += (targetMouseX - mouseX) * 0.06;
-    mouseY += (targetMouseY - mouseY) * 0.06;
+    // Inertial lerp
+    mouseX += (targetMouseX - mouseX) * 0.05;
+    mouseY += (targetMouseY - mouseY) * 0.05;
     scrollY += (targetScrollY - scrollY) * 0.08;
 
     const isDark = document.body.classList.contains('dark');
-
     ctx.clearRect(0, 0, width, height);
 
-    // 1. Distant ambient nebulae / soft cosmic lighting
+    // 1. Organic Interstellar Nebulae
     if (isDark) {
-      // Midnight cosmic nebula top-left (electric cyan/blue)
+      // Cosmic Cyan/Teal Nebula (Top Left)
       const g1 = ctx.createRadialGradient(
-        width * 0.2 + mouseX * 0.5,
-        height * 0.25 + mouseY * 0.5,
-        20,
-        width * 0.2,
-        height * 0.25,
+        width * 0.22 + mouseX * 0.4,
+        height * 0.22 + mouseY * 0.4,
+        30,
+        width * 0.22,
+        height * 0.22,
         width * 0.55
       );
-      g1.addColorStop(0, 'rgba(45, 225, 209, 0.05)');
-      g1.addColorStop(0.5, 'rgba(129, 116, 255, 0.035)');
+      g1.addColorStop(0, 'rgba(45, 225, 209, 0.06)');
+      g1.addColorStop(0.45, 'rgba(129, 116, 255, 0.035)');
       g1.addColorStop(1, 'transparent');
       ctx.fillStyle = g1;
       ctx.fillRect(0, 0, width, height);
 
-      // Deep space nebula bottom-right (subtle indigo/violet + farm green hint)
+      // Deep Violet / Indigo Nebula (Bottom Right)
       const g2 = ctx.createRadialGradient(
-        width * 0.8 - mouseX * 0.4,
-        height * 0.7 - mouseY * 0.4,
+        width * 0.82 - mouseX * 0.35,
+        height * 0.72 - mouseY * 0.35,
         40,
-        width * 0.8,
-        height * 0.7,
+        width * 0.82,
+        height * 0.72,
         width * 0.6
       );
-      g2.addColorStop(0, 'rgba(129, 116, 255, 0.055)');
-      g2.addColorStop(0.6, 'rgba(34, 197, 94, 0.025)');
+      g2.addColorStop(0, 'rgba(129, 116, 255, 0.065)');
+      g2.addColorStop(0.55, 'rgba(34, 197, 94, 0.02)');
       g2.addColorStop(1, 'transparent');
       ctx.fillStyle = g2;
       ctx.fillRect(0, 0, width, height);
     } else {
-      // LIGHT MODE: Subtle cool daylight observatory nebula (soft sky-blue & cool lavender wash)
-      // Must NOT be a dark patch — very subtle light cool hue
-      const gLight1 = ctx.createRadialGradient(
-        width * 0.25 + mouseX * 0.3,
-        height * 0.2 + mouseY * 0.3,
+      // Light Mode: Daylight Atmospheric Gradients
+      const gLight = ctx.createRadialGradient(
+        width * 0.3 + mouseX * 0.2,
+        height * 0.25 + mouseY * 0.2,
         30,
-        width * 0.25,
-        height * 0.2,
+        width * 0.3,
+        height * 0.25,
         width * 0.5
       );
-      gLight1.addColorStop(0, 'rgba(4, 191, 196, 0.035)');
-      gLight1.addColorStop(0.6, 'rgba(102, 87, 247, 0.025)');
-      gLight1.addColorStop(1, 'transparent');
-      ctx.fillStyle = gLight1;
-      ctx.fillRect(0, 0, width, height);
-
-      const gLight2 = ctx.createRadialGradient(
-        width * 0.75 - mouseX * 0.3,
-        height * 0.65 - mouseY * 0.3,
-        30,
-        width * 0.75,
-        height * 0.65,
-        width * 0.55
-      );
-      gLight2.addColorStop(0, 'rgba(102, 87, 247, 0.03)');
-      gLight2.addColorStop(0.5, 'rgba(22, 163, 74, 0.018)');
-      gLight2.addColorStop(1, 'transparent');
-      ctx.fillStyle = gLight2;
+      gLight.addColorStop(0, 'rgba(99, 102, 241, 0.035)');
+      gLight.addColorStop(0.6, 'rgba(2, 132, 199, 0.02)');
+      gLight.addColorStop(1, 'transparent');
+      ctx.fillStyle = gLight;
       ctx.fillRect(0, 0, width, height);
     }
 
-    // 2. Orbit lines with moving telemetry dots
+    // 2. Cosmic Background Dust
+    for (let i = 0; i < cosmicDust.length; i++) {
+      const d = cosmicDust[i];
+      const scrollOffset = scrollY * (0.015 * d.layer);
+      let dustY = (d.y - scrollOffset) % (height * 1.5);
+      if (dustY < 0) dustY += height * 1.5;
+      const dustX = d.x + mouseX * (0.15 * d.layer);
+
+      ctx.beginPath();
+      ctx.arc(dustX, dustY, d.radius, 0, Math.PI * 2);
+      ctx.fillStyle = isDark ? `rgba(200, 215, 255, ${d.alpha})` : `rgba(40, 50, 75, ${d.alpha * 0.6})`;
+      ctx.fill();
+    }
+
+    // 3. Orbit Telemetry Paths
     const orbitCenter = {
-      x: width * 0.5 + mouseX * 0.3,
-      y: height * 0.45 + mouseY * 0.3 - (scrollY * 0.05) % height
+      x: width * 0.5 + mouseX * 0.25,
+      y: height * 0.42 + mouseY * 0.25 - (scrollY * 0.04) % height
     };
 
     orbits.forEach((orb) => {
@@ -213,15 +247,13 @@
       ctx.translate(orbitCenter.x, orbitCenter.y);
       ctx.rotate(orb.angle);
 
-      // Orbit ellipse line (dark navy/grey in light mode, faint lavender in dark mode)
       ctx.beginPath();
       ctx.ellipse(0, 0, orb.radiusX, orb.radiusY, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = isDark ? 'rgba(129, 116, 255, 0.07)' : 'rgba(30, 41, 69, 0.14)';
-      ctx.setLineDash([4, 9]);
+      ctx.strokeStyle = isDark ? 'rgba(129, 116, 255, 0.08)' : 'rgba(30, 41, 69, 0.12)';
+      ctx.setLineDash([4, 10]);
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      // Satellite/telemetry marker dot moving along orbit
       const dotX = Math.cos(orb.currentAngle) * orb.radiusX;
       const dotY = Math.sin(orb.currentAngle) * orb.radiusY;
 
@@ -229,68 +261,36 @@
       ctx.arc(dotX, dotY, orb.dotSize, 0, Math.PI * 2);
       ctx.fillStyle = isDark ? '#2de1d1' : '#0284c7';
       ctx.shadowColor = isDark ? '#2de1d1' : '#0284c7';
-      ctx.shadowBlur = isDark ? 8 : 4;
+      ctx.shadowBlur = isDark ? 7 : 3;
       ctx.fill();
 
-      // Satellite ping halo
+      // Satellite pulse ring
       ctx.beginPath();
-      ctx.arc(dotX, dotY, orb.dotSize * 2.4, 0, Math.PI * 2);
-      ctx.strokeStyle = isDark ? 'rgba(45, 225, 209, 0.25)' : 'rgba(2, 132, 199, 0.28)';
+      ctx.arc(dotX, dotY, orb.dotSize * 2.2, 0, Math.PI * 2);
+      ctx.strokeStyle = isDark ? 'rgba(45, 225, 209, 0.22)' : 'rgba(2, 132, 199, 0.25)';
       ctx.setLineDash([]);
-      ctx.lineWidth = 0.8;
+      ctx.lineWidth = 0.7;
       ctx.stroke();
 
       ctx.restore();
     });
 
-    // 3. Constellation lines between nearby stars (sparingly for elegance)
-    const maxDist = 85;
-    ctx.lineWidth = 0.6;
-    for (let i = 0; i < stars.length; i += 3) {
-      for (let j = i + 1; j < Math.min(i + 4, stars.length); j++) {
-        const s1 = stars[i];
-        const s2 = stars[j];
-        if (s1.layer !== s2.layer) continue;
-
-        const y1 = (s1.y - scrollY * (0.04 * s1.layer)) % height;
-        const y2 = (s2.y - scrollY * (0.04 * s2.layer)) % height;
-        const normY1 = y1 < 0 ? y1 + height : y1;
-        const normY2 = y2 < 0 ? y2 + height : y2;
-
-        const dx = (s1.x + mouseX * s1.layer) - (s2.x + mouseX * s2.layer);
-        const dy = normY1 - normY2;
-        const dist = Math.hypot(dx, dy);
-
-        if (dist < maxDist) {
-          const lineAlpha = (1 - dist / maxDist) * (isDark ? 0.12 : 0.10);
-          ctx.strokeStyle = isDark ? `rgba(129, 116, 255, ${lineAlpha})` : `rgba(30, 41, 69, ${lineAlpha})`;
-          ctx.beginPath();
-          ctx.moveTo(s1.x + mouseX * s1.layer, normY1);
-          ctx.lineTo(s2.x + mouseX * s2.layer, normY2);
-          ctx.stroke();
-        }
-      }
-    }
-
-    // 4. Render Stars with parallax and twinkle
+    // 4. Starfield with Parallax & Sparkle
     for (let i = 0; i < stars.length; i++) {
       const s = stars[i];
       const twinkle = Math.sin(time * s.twinkleSpeed + s.twinkleOffset);
-      const alpha = Math.max(0.12, s.baseAlpha + twinkle * 0.28);
+      const alpha = Math.max(0.15, s.baseAlpha + twinkle * 0.26);
 
-      // Parallax scroll position
-      const scrollOffset = scrollY * (0.03 * s.layer);
+      const scrollOffset = scrollY * (0.025 * s.layer);
       let starY = (s.y - scrollOffset) % (height * 1.5);
       if (starY < 0) starY += height * 1.5;
 
-      // Mouse parallax shift
-      const starX = s.x + mouseX * (0.4 * s.layer);
+      const starX = s.x + mouseX * (0.35 * s.layer);
 
       ctx.beginPath();
       ctx.arc(starX, starY, s.radius, 0, Math.PI * 2);
 
       if (isDark) {
-        // DARK MODE: Bright sparkling stars
         if (s.hue === 180) {
           ctx.fillStyle = `rgba(45, 225, 209, ${alpha})`;
         } else if (s.hue === 250) {
@@ -301,38 +301,44 @@
 
         if (s.radius > 1.4) {
           ctx.shadowColor = s.hue === 180 ? '#2de1d1' : '#8174ff';
-          ctx.shadowBlur = 5;
+          ctx.shadowBlur = 6;
+          // Subtle cross flare for bright foreground stars
+          if (s.layer === 3 && s.radius > 1.8) {
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.4})`;
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(starX - s.radius * 2.5, starY);
+            ctx.lineTo(starX + s.radius * 2.5, starY);
+            ctx.moveTo(starX, starY - s.radius * 2.5);
+            ctx.lineTo(starX, starY + s.radius * 2.5);
+            ctx.stroke();
+          }
         } else {
           ctx.shadowBlur = 0;
         }
       } else {
-        // LIGHT MODE: Dark stars and particles (dark navy, charcoal, with subtle teal/indigo accents)
-        // Clearly visible on white/light background, perfectly elegant
+        // Light mode
         if (s.hue === 180) {
-          // Subtle deep teal/cyan particle
-          ctx.fillStyle = `rgba(14, 116, 144, ${Math.min(1, alpha + 0.15)})`;
+          ctx.fillStyle = `rgba(14, 116, 144, ${Math.min(1, alpha + 0.2)})`;
         } else if (s.hue === 250) {
-          // Subtle deep indigo/violet particle
-          ctx.fillStyle = `rgba(67, 56, 202, ${Math.min(1, alpha + 0.15)})`;
+          ctx.fillStyle = `rgba(67, 56, 202, ${Math.min(1, alpha + 0.2)})`;
         } else {
-          // Dark charcoal/navy stars
-          ctx.fillStyle = `rgba(30, 41, 69, ${Math.min(1, alpha + 0.2)})`;
+          ctx.fillStyle = `rgba(30, 41, 69, ${Math.min(1, alpha + 0.25)})`;
         }
         ctx.shadowBlur = 0;
       }
-
       ctx.fill();
     }
     ctx.shadowBlur = 0;
 
-    // 5. Shooting stars
+    // 5. Shooting Stars
     if (!prefersReduced.matches) {
       spawnShootingStar();
       for (let i = shootingStars.length - 1; i >= 0; i--) {
         const ss = shootingStars[i];
         ss.x += Math.cos(ss.angle) * ss.speed;
         ss.y += Math.sin(ss.angle) * ss.speed;
-        ss.alpha -= 0.016;
+        ss.alpha -= 0.015;
 
         if (ss.alpha <= 0 || ss.x > width || ss.y > height) {
           shootingStars.splice(i, 1);
@@ -355,11 +361,9 @@
       }
     }
 
-    lastTime = time;
-    animationFrameId = requestAnimationFrame(render);
+    requestAnimationFrame(render);
   }
 
-  // Initialize
   resize();
-  animationFrameId = requestAnimationFrame(render);
+  requestAnimationFrame(render);
 })();
