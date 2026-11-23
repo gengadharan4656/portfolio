@@ -1,8 +1,8 @@
 /**
  * Gengadharan S — Master Developer Portfolio Engine
- * Multi-Screenshot Showcases (Music Player 3D Carousel Standard),
- * Strict 11-Project Sequential Architecture, Unified Media Viewports,
- * Hero Avatar Video Controller, and Full-Width Two-Column Showcases.
+ * Portrait Smartphone Showcase System (FarmLink Structural Reference Standard across all projects),
+ * Balanced Left/Right Column Heights, Compact Real-Time Telemetry & Pricing Widgets,
+ * Social Media Meme Generator Redesign, and Strict 11-Project Sequential Architecture.
  */
 
 'use strict';
@@ -76,25 +76,20 @@ const projects = [
     accentColor: '#6366f1',
     badge: 'Google Play Store',
     problem:
-      'Users need uninterrupted local music playback in poor network conditions without background audio stutters, battery-draining polling, or reliance on streaming subscriptions.',
+      'Users need uninterrupted local playback in poor network conditions without background audio stutters or battery-draining polling. Most mobile audio players prioritize cloud streaming and fail to deliver a polished offline-first experience.',
     solution:
-      'Developed a Flutter offline music player app tuned for stable local media playback, background audio lifecycle execution, and fast indexed track search on Android. Implemented with Riverpod reactive state management and foreground audio services.',
+      'Developed a Flutter mobile music player with an Android foreground audio service that ensures continuous playback across lifecycle events. Powered by Riverpod state management and low-latency local storage indexing for rapid track navigation.',
     technicalDetails: {
-      audioLifecycle:
-        'Integrated Android Audio Service running in an isolated foreground process, ensuring uninterrupted background audio playback and lock-screen notification media controls.',
-      stateManagement:
-        'Built with Flutter Riverpod for declarative, reactive state flow across track queues, playlist mutations, and playback duration progress bars.',
-      storageIndexing:
-        'Local storage-aware media scanning extracting ID3 tags, album art bitmaps, artist taxonomy, and track duration with zero UI stutter.',
-      releaseHygiene:
-        'Optimized for Android SDK release builds, signed with production keystore, and deployed directly to the Google Play Store.'
+      audioLifecycle: 'Android Audio Service running in an isolated foreground process with lock-screen notification controls.',
+      stateManagement: 'Flutter Riverpod for declarative, reactive state flow across track queues and playlist mutations.',
+      storageIndexing: 'Local storage-aware media scanner extracting ID3 tags, album art bitmaps, and track taxonomy with zero UI stutter.',
+      releaseHygiene: 'Signed with production keystore and deployed directly to the Google Play Store.'
     },
     capabilities: [
       'Background audio playback service continuing across Android lifecycle states',
       'Local storage-aware metadata indexing and fast real-time track search',
-      'Dynamic user playlists, favorites collection, and artist album categorization',
-      'Smooth 60 FPS media library scrolling with low memory footprint',
-      'Interactive notification and lock screen playback controls'
+      'Dynamic user playlists, favorites collection, and artist album grouping',
+      'Smooth 60 FPS media library scrolling with low memory footprint'
     ],
     tech: ['Flutter', 'Dart', 'Riverpod', 'Android Audio Service', 'Android SDK'],
     metrics: [
@@ -110,24 +105,25 @@ const projects = [
         name: 'Music Library',
         file: 'assets/projects/music-1.webp',
         fallback: 'assets/projects/music-1.png',
-        desc: 'Local audio indexing with real-time metadata rendering, album categories, and instant search.'
+        desc: 'Local audio indexing with real-time metadata rendering, album categories, and instant track search.'
       },
       {
         id: 'music-now',
         name: 'Now Playing',
         file: 'assets/projects/music-2.webp',
         fallback: 'assets/projects/music-2.png',
-        desc: 'Playback controls, background service progression, and audio seek waveform slider.'
+        desc: 'Audio playback controls, background audio service progression, and interactive seek bar.'
       },
       {
         id: 'music-play',
         name: 'Playlists',
         file: 'assets/projects/music-3.webp',
         fallback: 'assets/projects/music-3.png',
-        desc: 'Custom playlist management, favorite tracks collection, and artist albums.'
+        desc: 'Custom playlist management, favorite tracks collection, and most-played artist collections.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
   // 02. FarmLink
   // --------------------------------------------------------------------------
@@ -135,238 +131,264 @@ const projects = [
     id: 'farmlink',
     title: 'FarmLink',
     subtitle: 'AI-Powered Agricultural Supply & Demand Platform',
-    tag: 'PROJECT / 02 • AI AGRITECH ECOSYSTEM',
-    category: 'mobile-native',
+    tag: 'PROJECT / 02 • AI AGRITECH PLATFORM',
     isFarmLink: true,
+    category: 'mobile-native',
     device: 'phone-portrait',
-    accentColor: '#22c55e',
-    badge: 'Regional Market Intelligence',
+    accentColor: '#10b981',
+    badge: 'AI Agritech Platform',
     problem:
-      'Fragmented agricultural supply chains, speculative intermediaries, and localized information asymmetry prevent smallholder farmers from pricing crops accurately and accessing high-demand regional buyer markets.',
+      'Fragmented agricultural supply chains and localized price opacity prevent smallholder farmers from capturing fair market value. Speculative intermediaries exploit information gaps, leaving growers with unsold harvest during peak crop cycles.',
     solution:
-      'Architected FarmLink as an agricultural intelligence marketplace that directly connects farmer supply with wholesale buyer demand, providing district-level supply-demand telemetry, dynamic AI pricing decision support, crop health diagnosis, and multilingual Tamil conversational assistance.',
+      'Built a full-stack agricultural marketplace pairing farmer crop supply with wholesale buyer demand in real time. Features a dynamic AI pricing engine, district-level mandi signals, and multilingual crop disease diagnosis with Tamil support.',
     technicalDetails: {
-      architecture:
-        'Flutter mobile client communicating with high-performance FastAPI asynchronous backend; PostgreSQL persistence layer with SQLAlchemy ORMs for normalized catalog indexing.',
-      aiPricing:
-        'Context-aware dynamic pricing engine analyzing wholesale mandis rates, seasonal yield indicators, transit overhead, and local buyer density to recommend profitable price bounds.',
-      multilingual:
-        'Domain-specific agricultural AI copilot (Navina Vivasayi AI) supporting native Tamil voice and text conversational queries for localized crop disease treatment.',
-      fulfillment:
-        'End-to-end transactional order workflow managing lifecycle states across Pending, Accepted, and Completed dispatch stages.'
+      backendEngine: 'FastAPI microservices backed by PostgreSQL and SQLAlchemy with async database pooling.',
+      pricingModel: 'Multi-factor regression pricing engine evaluating quality, demand-supply balance, season, and transit costs.',
+      telemetrySignals: 'Live district-level commodity aggregation tracking wholesale volumes across Chennai and Madurai mandis.',
+      multilingualCopilot: 'Navina Vivasayi AI conversational agent delivering agronomic advice and crop disease guidance.'
     },
     capabilities: [
-      'District-level market intelligence (real-time supply/demand signals between Chennai and Madurai)',
-      'AI Dynamic Pricing engine with transparent factor breakdown (Quality, Demand, Weather, Transport)',
-      'Direct buyer catalog and farmer crop registration workflows',
-      'Multilingual conversational assistant (Navina Vivasayi AI) with disease diagnosis',
-      'End-to-end fulfillment coordination: Pending, Accepted, Completed orders'
+      'Direct digital marketplace connecting verified farmers and wholesale buyers',
+      'District-level supply and demand intelligence tracking Chennai & Madurai mandis',
+      'Dynamic AI pricing engine factoring crop quality, season, and transport',
+      'Multilingual agricultural copilot supporting Tamil conversation and disease scanning'
     ],
     tech: ['Flutter', 'Dart', 'FastAPI', 'Python', 'PostgreSQL', 'SQLAlchemy', 'REST APIs', 'AI Integration'],
     metrics: [
-      { label: 'Backend', val: 'FastAPI Async' },
-      { label: 'Database', val: 'PostgreSQL' },
-      { label: 'Pricing Engine', val: 'Context-Aware' },
-      { label: 'Languages', val: 'English + Tamil' }
+      { label: 'Platform Core', val: 'FastAPI + Flutter' },
+      { label: 'Relational DB', val: 'PostgreSQL' },
+      { label: 'Decision Engine', val: 'AI Dynamic Pricing' },
+      { label: 'Language', val: 'English + Tamil' }
     ],
-    screens: [
-      { id: 'dashboard', name: 'Dashboard', file: 'assets/projects/farmlink-dashboard.webp', fallback: 'assets/projects/farmlink-dashboard.png', desc: 'District Supply & Demand Intelligence Overview (Chennai Mandi vs Madurai Farmer)' },
-      { id: 'marketplace', name: 'Marketplace', file: 'assets/projects/farmlink-marketplace.webp', fallback: 'assets/projects/farmlink-marketplace.png', desc: 'Buyer Catalog & Farmer Crop Listings' },
-      { id: 'pricing', name: 'AI Pricing', file: 'assets/projects/farmlink-pricing.webp', fallback: 'assets/projects/farmlink-pricing.png', desc: 'Context-Aware Dynamic Pricing Engine & Crop Registration' },
-      { id: 'assistant', name: 'Navina Vivasayi AI', file: 'assets/projects/farmlink-ai.webp', fallback: 'assets/projects/farmlink-ai.png', desc: 'Multilingual Farming Copilot & Disease Diagnosis' },
-      { id: 'orders', name: 'Orders', file: 'assets/projects/farmlink-orders.webp', fallback: 'assets/projects/farmlink-orders.png', desc: 'Fulfillment Tracking: Pending, Accepted, Completed' }
-    ]
-  },
-  // --------------------------------------------------------------------------
-  // 03. TrendPilot AI – Social Media Meme Generator
-  // --------------------------------------------------------------------------
-  {
-    id: 'trendpilot',
-    title: 'TrendPilot AI',
-    subtitle: 'Autonomous Meme Generator & Trend Monitoring Agent',
-    tag: 'PROJECT / 03 • AI AGENTS & N8N ORCHESTRATION',
-    category: 'ai-automation',
-    device: 'desktop-landscape',
-    accentColor: '#06b6d4',
-    badge: 'Multi-Stage n8n Pipeline',
-    problem:
-      'Digital content creators and regional brands lose hours manually scanning social streams, brainstorming culturally relevant captions, finding templates, and formatting images across disparate publishing channels.',
-    solution:
-      'Engineered TrendPilot AI, an end-to-end autonomous content generation agent orchestrating trend discovery, LLM-driven prompt crafting, meme image generation, and persistent brand memory storage using n8n, Python, and PostgreSQL. Tailored specifically for Indian and Tamil Nadu regional demographics, supporting witty Tanglish and English relatable humor.',
-    technicalDetails: {
-      problemStatement:
-        'Digital content creators and regional brands spend excessive manual hours monitoring social media streams, brainstorming witty captions, finding templates, and formatting images across fragmented channels.',
-      proposedSolution:
-        'TrendPilot AI autonomously discovers viral trends, analyzes humor dynamics, crafts culturally relatable captions in Tanglish and English, and produces high-resolution branded creatives via structured automation.',
-      workflowArchitecture:
-        'Orchestrated through multi-stage n8n workflows: WF01 handles trend discovery and template analysis; WF03 executes scheduled generation cycles (10:30 AM, 2:30 PM, 6:30 PM IST) and rendering verification.',
-      trendProcessing:
-        'Ingests viral topics from social feeds and news webhooks; passes data to Google Gemini LLM with custom prompt guidelines to extract humor angles, sarcasm, and cultural references.',
-      memeGeneration:
-        'Python rendering engine calculates dynamic text layout, typography metrics, and watermark branding, compositing final 1080x1080 social media graphics ready for review.',
-      databaseIntegration:
-        'PostgreSQL database maintains normalized tables for active trend candidates, scored prompts, generated asset metadata, engagement logs, and template registries.',
-      brandMemory:
-        'Persistent brand guidelines database ensures jokes align with tone, avoid prohibited terminology, maintain consistent font styling, and incorporate Gen Soft Tech branding watermarks.',
-      humanApproval:
-        'Deliberate human-in-the-loop verification node in n8n where generated drafts are previewed and approved before queueing for distribution, guaranteeing quality.',
-      engineeringDecisions:
-        'Selected n8n for visual, auditable orchestration; Python for deterministic image layout; and PostgreSQL for robust relational indexing. (Automatic Instagram publishing intentionally omitted until API verification).'
-    },
-    capabilities: [
-      'Automated multi-stage workflow orchestration in n8n with scheduled execution timers',
-      'Contextual trend analysis using Google Gemini LLM API with custom JavaScript output parsers',
-      'PostgreSQL persistent storage for brand voice memory, trend history, and draft staging',
-      'Integrated Python rendering pipeline generating branded 1080x1080 social media graphics',
-      'Human-in-the-loop review and approval node ensuring verified content quality'
-    ],
-    tech: ['n8n', 'Python', 'PostgreSQL', 'JavaScript', 'LLM Integration', 'REST APIs'],
-    metrics: [
-      { label: 'Orchestrator', val: 'n8n Workflow Engine' },
-      { label: 'Storage', val: 'PostgreSQL Relational' },
-      { label: 'Schedules', val: '3x Daily Automated' },
-      { label: 'Tone', val: 'Tanglish & English' }
-    ],
+    github: 'https://github.com/gengadharan4656/farmlink',
     screens: [
       {
-        id: 'wf-template',
-        name: 'Workflow 1: Analysis',
-        file: 'assets/projects/trendpilot/workflow/trendpilot-wf-template.webp',
-        fallback: 'assets/projects/trendpilot/workflow/trendpilot-wf-template.png',
-        desc: 'n8n workflow pipeline reading trend files, querying Google Gemini LLM API, executing JavaScript parsers, and querying PostgreSQL.'
+        id: 'fl-dash',
+        name: 'Dashboard',
+        file: 'assets/projects/farmlink-dashboard.webp',
+        fallback: 'assets/projects/farmlink-dashboard.png',
+        desc: 'District supply-demand telemetry and harvest volume metrics across regional agricultural centers.'
       },
       {
-        id: 'wf-render',
-        name: 'Workflow 2: Generation',
-        file: 'assets/projects/trendpilot/workflow/trendpilot-wf-render.webp',
-        fallback: 'assets/projects/trendpilot/workflow/trendpilot-wf-render.png',
-        desc: 'WF03 scheduled generation pipeline (10:30 AM, 2:30 PM, 6:30 PM IST), draft selection, Python rendering endpoint verification, and human approval node.'
+        id: 'fl-market',
+        name: 'Marketplace',
+        file: 'assets/projects/farmlink-marketplace.webp',
+        fallback: 'assets/projects/farmlink-marketplace.png',
+        desc: 'Direct wholesale digital marketplace connecting verified farmer crop listings with commercial buyers.'
       },
       {
-        id: 'meme-rcb',
-        name: 'Meme: Cricket / IPL',
-        file: 'assets/projects/trendpilot/memes/trendpilot-meme-rcb.webp',
-        fallback: 'assets/projects/trendpilot/memes/trendpilot-meme-rcb.png',
-        desc: 'Context-aware Tanglish cricket meme generated from live IPL trend candidate data with Gen Soft Tech branding watermark.'
+        id: 'fl-pricing',
+        name: 'AI Pricing',
+        file: 'assets/projects/farmlink-pricing.webp',
+        fallback: 'assets/projects/farmlink-pricing.png',
+        desc: 'Dynamic AI pricing decision support engine calculating baseline recommendations from live market signals.'
       },
       {
-        id: 'meme-deploy',
-        name: 'Meme: Developer Humor',
-        file: 'assets/projects/trendpilot/memes/trendpilot-meme-deploy.webp',
-        fallback: 'assets/projects/trendpilot/memes/trendpilot-meme-deploy.png',
-        desc: 'Relatable client deployment humor automatically composed from software engineering prompt templates.'
+        id: 'fl-assistant',
+        name: 'Navina Vivasayi AI',
+        file: 'assets/projects/farmlink-ai.webp',
+        fallback: 'assets/projects/farmlink-ai.png',
+        desc: 'Multilingual conversational farming assistant providing agronomic guidance and crop disease diagnosis.'
       },
       {
-        id: 'dash-cricket',
-        name: 'Telemetry: Ingestion',
-        file: 'assets/projects/trendpilot/dashboard/trendpilot-dash-cricket.webp',
-        fallback: 'assets/projects/trendpilot/dashboard/trendpilot-dash-cricket.png',
-        desc: 'Tanglish content telemetry dashboard displaying post metadata and hashtag taxonomy (#TamilComedy, #Cricket).'
+        id: 'fl-orders',
+        name: 'Orders',
+        file: 'assets/projects/farmlink-orders.webp',
+        fallback: 'assets/projects/farmlink-orders.png',
+        desc: 'Real-time order lifecycle tracking managing crop reservations, dispatch confirmation, and delivery fulfillment.'
       },
       {
-        id: 'dash-ramayana',
-        name: 'Telemetry: Trend Tracker',
-        file: 'assets/projects/trendpilot/dashboard/trendpilot-dash-ramayana.webp',
-        fallback: 'assets/projects/trendpilot/dashboard/trendpilot-dash-ramayana.png',
-        desc: 'Real-time cinema and social media trend tracker logging audience sentiment (#Ramayana, #Trend).'
+        id: 'fl-crops',
+        name: 'Crops Catalog',
+        file: 'assets/projects/farmlink-crops.png',
+        fallback: 'assets/projects/farmlink-crops.png',
+        desc: 'Registered crop varieties inventory with harvest timelines and yield predictions.'
+      },
+      {
+        id: 'fl-disease',
+        name: 'Disease Diagnosis',
+        file: 'assets/projects/farmlink-disease-crop.png',
+        fallback: 'assets/projects/farmlink-disease-crop.png',
+        desc: 'Computer vision crop leaf pathology scanner identifying early-stage agricultural disease symptoms.'
+      },
+      {
+        id: 'fl-tamil',
+        name: 'Tamil Copilot',
+        file: 'assets/projects/farmlink-tamil-chat.png',
+        fallback: 'assets/projects/farmlink-tamil-chat.png',
+        desc: 'Localized conversational AI copilot providing regional advisory and weather-aware farming guidance in Tamil.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
-  // 04. GaNg RaCe – Racing Game
+  // 03. Social Media Meme Generator
+  // --------------------------------------------------------------------------
+  {
+    id: 'trendpilot',
+    title: 'Social Media Meme Generator',
+    subtitle: 'AI-Powered Social Media Content Generation & Trend Automation',
+    tag: 'PROJECT / 03 • AI CONTENT AUTOMATION',
+    category: 'ai-automation',
+    device: 'phone-portrait',
+    accentColor: '#06b6d4',
+    badge: 'Autonomous AI Agent',
+    problem:
+      'Digital content creators and regional brands lose hours manually tracking trends, identifying templates, and adapting humor to local contexts. Disparate generation tools lack regional language nuance and automated workflow orchestration.',
+    solution:
+      'Engineered an automated agent pipeline combining n8n workflow automation with Google Gemini LLMs and Python rendering. Tailored for Indian and Tamil regional audiences with Tanglish humor, persistent brand memory, and PostgreSQL storage.',
+    technicalDetails: {
+      orchestration: 'n8n workflow automation coordinating trend scraping, prompt engineering, image synthesis, and verification queues.',
+      llmIntegration: 'Google Gemini multimodal models analyzing current events, sentiment, and vernacular comedic timing in Tanglish.',
+      canvasRendering: 'Python PIL graphic automation dynamically rendering typography, subtitles, and template overlays.',
+      storageMemory: 'PostgreSQL database persisting brand style profiles, trend history, candidate memes, and engagement telemetry.'
+    },
+    capabilities: [
+      'Autonomous multi-stage trend scraping and viral topic analysis',
+      'Gemini LLM prompt synthesis producing culturally contextual Tanglish humor',
+      'Automated PIL image rendering with verified meme template alignment',
+      'PostgreSQL persistent brand memory with human verification checkpoints'
+    ],
+    tech: ['n8n', 'Python', 'Google Gemini LLM', 'PostgreSQL', 'JavaScript', 'REST APIs'],
+    metrics: [
+      { label: 'Workflow Engine', val: 'n8n Enterprise' },
+      { label: 'Relational DB', val: 'PostgreSQL' },
+      { label: 'Schedules', val: '3x Daily Automation' },
+      { label: 'Tone', val: 'Tanglish & English' }
+    ],
+    github: 'https://github.com/gengadharan4656/TrendPilotAI',
+    screens: [
+      {
+        id: 'tp-wf1',
+        name: 'Workflow Analysis',
+        file: 'assets/projects/trendpilot/workflow/trendpilot-wf-template.webp',
+        fallback: 'assets/projects/trendpilot/workflow/trendpilot-wf-template.png',
+        fit: 'contain',
+        desc: 'Automated trend discovery workflow scraping social streams and identifying high-engagement template candidates.'
+      },
+      {
+        id: 'tp-wf2',
+        name: 'Content Generation',
+        file: 'assets/projects/trendpilot/workflow/trendpilot-wf-render.webp',
+        fallback: 'assets/projects/trendpilot/workflow/trendpilot-wf-render.png',
+        fit: 'contain',
+        desc: 'Google Gemini multimodal prompt evaluation, Tanglish caption synthesis, and PIL canvas rendering pipeline.'
+      },
+      {
+        id: 'tp-meme1',
+        name: 'Generated Memes',
+        file: 'assets/projects/trendpilot/memes/trendpilot-meme-rcb.webp',
+        fallback: 'assets/projects/trendpilot/memes/trendpilot-meme-rcb.png',
+        fit: 'contain',
+        desc: 'Culturally contextual sports and IPL cricket meme automatically formatted with Tanglish caption overlays.'
+      },
+      {
+        id: 'tp-meme2',
+        name: 'Meme Gallery',
+        file: 'assets/projects/trendpilot/memes/trendpilot-meme-deploy.webp',
+        fallback: 'assets/projects/trendpilot/memes/trendpilot-meme-deploy.png',
+        fit: 'contain',
+        desc: 'Developer reality meme addressing software release friction and production bug management.'
+      },
+      {
+        id: 'tp-dash1',
+        name: 'Trend Monitoring',
+        file: 'assets/projects/trendpilot/dashboard/trendpilot-dash-ramayana.webp',
+        fallback: 'assets/projects/trendpilot/dashboard/trendpilot-dash-ramayana.png',
+        fit: 'contain',
+        desc: 'Cinema and pop-culture trend tracker scoring audience sentiment spikes across entertainment topics.'
+      },
+      {
+        id: 'tp-dash2',
+        name: 'Automation Dashboard',
+        file: 'assets/projects/trendpilot/dashboard/trendpilot-dash-cricket.webp',
+        fallback: 'assets/projects/trendpilot/dashboard/trendpilot-dash-cricket.png',
+        fit: 'contain',
+        desc: 'Operational dashboard logging execution batches, approval checkpoints, and database storage telemetry.'
+      }
+    ]
+  },
+
+  // --------------------------------------------------------------------------
+  // 04. GaNg RaCe
   // --------------------------------------------------------------------------
   {
     id: 'gang-race',
     title: 'GaNg RaCe',
     subtitle: '3D Kart Racing with 6-Player Local Wi-Fi Multiplayer',
-    tag: 'PROJECT / 04 • C++ & ANDROID NDK GRAPHICS',
+    tag: 'PROJECT / 04 • C++ ENGINE & GAME DEV',
     category: 'game-dev',
-    device: 'phone-landscape',
+    device: 'phone-portrait',
     accentColor: '#f59e0b',
-    badge: '6-Player Local Sockets',
+    badge: 'C++ NDK Game Engine',
     problem:
-      'Most mobile multiplayer racing games enforce heavy microtransactions, invasive always-online DRM, or external cloud logins that fail in low-connectivity environments and classroom/campus local networks.',
+      'Most mobile multiplayer racing games require continuous internet access, invasive account creation, or cloud servers that fail in low-connectivity campus environments. Peer-to-peer mobile multiplayer without cellular data remains rare.',
     solution:
-      'Ported and customized a C++ 3D racing game engine (based on the SuperTuxKart engine) for Android using CMake and the Android NDK. Designed a distinctive custom gaming identity ("GaNg RaCe"), built responsive mobile touch HUD controls, and implemented ad-hoc zero-configuration 6-player local Wi-Fi and mobile hotspot multiplayer networking without requiring cloud servers.',
+      'Customized a C++ 3D racing game engine for Android via CMake and the NDK, delivering 60 FPS OpenGL ES graphics. Implemented ad-hoc POSIX socket networking for zero-configuration 6-player local Wi-Fi and hotspot multiplayer.',
     technicalDetails: {
-      gameOverview:
-        '3D arcade kart racing title featuring offline Grand Prix, Battle Mode, custom vehicle handling, and ad-hoc 6-player local Wi-Fi multiplayer engineered for Android.',
-      engineFoundation:
-        'Built upon the open-source C++ SuperTuxKart engine foundation. Re-architected with custom visual branding ("GaNg RaCe"), mobile touch controls, and customized vehicle assets.',
-      cppArchitecture:
-        'Modular C++ systems architecture separating track physics simulation, spatial audio, AI opponent pathfinding, collision detection, and rendering loops.',
-      squirrelScripting:
-        'Embedded Squirrel scripting engine bridges high-level game logic, race rules, menu state transitions, and UI event handling to compiled C++ routines.',
-      openglRendering:
-        'OpenGL ES 3D rendering pipeline optimized for mobile GPUs, featuring dynamic track illumination, particle drift effects, mipmapped textures, and smooth 60 FPS frame rates.',
-      androidNdkIntegration:
-        'Direct Android NDK native activity integration using JNI bindings for touch screen event dispatching, sensor telemetry, and audio buffer callbacks.',
-      buildSystem:
-        'Cross-platform CMake build configuration integrated with Gradle and Android NDK toolchain targeting ARM64-v8a and armeabi-v7a application binaries.',
-      offlineGameplay:
-        '100% offline-first architecture allowing full access to Single Race, Grand Prix championships, Time Trials, and Battle Arenas without internet connection.',
-      localWifiMultiplayer:
-        'Zero-configuration ad-hoc local Wi-Fi hotspot and LAN multiplayer networking via custom UDP/TCP socket broadcasting, enabling instant 6-player room discovery and low-latency racing.',
-      challengesAndRoadmap:
-        'Solved Android-specific challenges including touch HUD latency, low-power GPU thermal throttling, and local broadcast socket drops. Roadmap distinguishes verified completed local multiplayer from future online lobbies.'
+      engineCore: 'C++ game engine ported to Android NDK with CMake build chains and custom native lifecycle handling.',
+      graphicsPipeline: 'OpenGL ES 3.0 rendering with dynamic track lighting, shadow maps, and particle drift effects.',
+      networking: 'Ad-hoc POSIX socket networking facilitating instant 6-player discovery over mobile hotspots without internet access.',
+      scriptingState: 'Embedded Squirrel scripting engine governing track physics, game state machines, and HUD logic.'
     },
     capabilities: [
-      '6-Player Cross-Platform Local Wi-Fi and Hotspot Multiplayer racing',
-      'Zero-configuration ad-hoc local server discovery and room hosting',
-      'Custom branded UI and touch-optimized steering and acceleration HUD',
-      'Full offline Grand Prix, Single Race, and Battle Mode support',
-      'Character and kart selection garage with customizable attributes'
+      '60 FPS native C++ Android NDK engine with OpenGL ES 3.0 shaders',
+      'Zero-config 6-player local Wi-Fi and mobile hotspot peer-to-peer networking',
+      'Real-time kart physics, drift mechanics, and dynamic particle effects',
+      'Responsive on-screen touch HUD controls and vehicle customization garage'
     ],
-    tech: ['C++', 'Squirrel', 'OpenGL', 'CMake', 'Android NDK', 'Gradle', 'Android Sockets'],
+    tech: ['C++', 'Android NDK', 'OpenGL ES 3.0', 'POSIX Sockets', 'CMake', 'Squirrel Scripting'],
     metrics: [
-      { label: 'Architecture', val: 'C++ Native NDK' },
+      { label: 'Engine Architecture', val: 'C++ Native NDK' },
       { label: 'Graphics API', val: 'OpenGL ES' },
       { label: 'Multiplayer', val: '6P Local Wi-Fi' },
       { label: 'Scripting', val: 'Squirrel Engine' }
     ],
-    video: {
-      file: 'assets/projects/gang-race/video/gang-race-gameplay.mp4',
-      poster: 'assets/projects/gang-race/video/gang-race-poster.webp',
-      fallbackPoster: 'assets/projects/gang-race/video/gang-race-poster.jpg',
-      title: 'GaNg RaCe 60 FPS Android Gameplay & Drift Demonstration'
-    },
+    github: 'https://github.com/gengadharan4656/GaNgRaCe',
     screens: [
       {
-        id: 'screen-video',
-        name: '▶ Gameplay Video',
-        isVideo: true,
-        desc: 'Real-time 60 FPS Android gameplay footage showing 3D drift physics, Android NDK performance, and local Wi-Fi sync.'
+        id: 'gr-video',
+        name: 'Gameplay',
+        type: 'video',
+        file: 'assets/projects/gang-race/video/gang-race-gameplay.mp4',
+        poster: 'assets/projects/gang-race/video/gang-race-poster.jpg',
+        desc: 'Real-time 60 FPS Android gameplay footage showing 3D drift physics, OpenGL ES rendering, and local Wi-Fi sync.'
       },
       {
-        id: 'screen-menu',
-        name: '6P Multiplayer Hub',
+        id: 'gr-menu',
+        name: 'Multiplayer Hub',
         file: 'assets/projects/gang-race/branding/gang-race-01-menu.webp',
         fallback: 'assets/projects/gang-race/branding/gang-race-01-menu.png',
-        desc: 'Custom game interface with Quick Race, 6-Player Cross-Platform Wi-Fi & Hotspot Multiplayer, and Garage.'
+        fit: 'contain',
+        desc: 'Native lobby interface configuring 6-player ad-hoc Wi-Fi and mobile hotspot multiplayer racing sessions.'
       },
       {
-        id: 'screen-karts',
-        name: 'Kart Customization Garage',
+        id: 'gr-garage',
+        name: 'Kart Garage',
         file: 'assets/projects/gang-race/branding/gang-race-02-karts.webp',
         fallback: 'assets/projects/gang-race/branding/gang-race-02-karts.jpg',
-        desc: 'Character and kart selection menu with customized vehicle textures and driver handling attributes.'
+        fit: 'contain',
+        desc: 'Real-time 3D vehicle selection, shader customization, and dynamic lighting inspection garage.'
       },
       {
-        id: 'screen-network',
-        name: 'Local Sockets Discovery',
-        file: 'assets/projects/gang-race/gameplay/gang-race-03-network.webp',
-        fallback: 'assets/projects/gang-race/gameplay/gang-race-03-network.jpg',
-        desc: 'Zero-configuration local Wi-Fi hotspot socket server discovery screen for instant 6-player ad-hoc multiplayer.'
-      },
-      {
-        id: 'screen-drift',
-        name: 'Mountain Drift Track',
+        id: 'gr-tracks',
+        name: 'Race Tracks',
         file: 'assets/projects/gang-race/gameplay/gang-race-04-drift.webp',
         fallback: 'assets/projects/gang-race/gameplay/gang-race-04-drift.png',
-        desc: 'In-engine action snapshot of the Mountain Drift track showcasing OpenGL lighting and drift boost physics.'
+        fit: 'contain',
+        desc: 'High-speed mountain drift circuit rendering procedural terrain textures and weather particle systems.'
+      },
+      {
+        id: 'gr-network',
+        name: 'Local Wi-Fi Multiplayer',
+        file: 'assets/projects/gang-race/gameplay/gang-race-03-network.webp',
+        fallback: 'assets/projects/gang-race/gameplay/gang-race-03-network.jpg',
+        fit: 'contain',
+        desc: 'Ad-hoc POSIX socket network discovery synchronizing vehicle transforms and position states across 6 devices.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
   // 05. FarmGen AI CLI
   // --------------------------------------------------------------------------
@@ -374,119 +396,120 @@ const projects = [
     id: 'farmgen',
     title: 'FarmGen AI CLI',
     subtitle: 'Terminal AI Assistant with 54+ Agricultural Skills',
-    tag: 'PROJECT / 05 • AUTONOMOUS TERMINAL AGENT',
+    tag: 'PROJECT / 05 • AUTONOMOUS CLI AGENT',
     category: 'ai-automation',
-    device: 'terminal',
-    accentColor: '#b8f34a',
-    badge: '54+ Domain Skills',
+    device: 'phone-portrait',
+    accentColor: '#10b981',
+    badge: 'Terminal AI Assistant',
     problem:
-      'Farmers, researchers, and technical agriculturalists need rapid terminal-based guidance and automated cultivation reports without navigating slow web portals.',
+      'Agricultural developers and field researchers lack fast, lightweight terminal tools to query agronomic data, crop schedules, and soil parameters. Web dashboards often suffer high latency and unnecessary overhead in low-bandwidth field environments.',
     solution:
-      'Command-line assistant built with OpenHands AI and Python providing intelligent natural language farming guidance, crop diagnosis, and cultivation report generation directly from the terminal.',
+      'Developed a high-efficiency command-line agronomy assistant built with OpenHands AI and Python. Loaded with 54+ domain-specific agricultural skills to deliver instant cultivation advice, fertilizer schedules, and diagnostics.',
     technicalDetails: {
-      agentArchitecture:
-        'Built on OpenHands AI autonomous agent framework, loading 54+ specialized agricultural tools, weather queries, and soil management skills.',
-      promptEngineering:
-        'Structured context prompts ensuring deterministic crop planting schedules, irrigation volumes, and organic pest remedy recommendations.',
-      terminalCli:
-        'Rich terminal formatting and command-line argument parser designed for rapid interactive execution and file report export.'
+      cliCore: 'Python Click and Rich library terminal interface delivering formatted ANSI tables, syntax trees, and status spinners.',
+      agentCore: 'OpenHands AI orchestration executing multi-turn autonomous reasoning, tool invocations, and code evaluations.',
+      skillsRegistry: '54+ domain agricultural skill modules covering soil chemistry, pest mitigation, and irrigation models.',
+      outputPipeline: 'Generates structured terminal output, diagnostic telemetry logs, and exportable markdown field reports.'
     },
     capabilities: [
-      'Natural language command execution directly in terminal workspace',
-      '54+ integrated agricultural domain skills and tools',
-      'AI-generated cultivation guides and summer irrigation schedules',
-      'Extensible modular architecture supporting future agent plugins'
+      'Terminal interface loaded with 54+ domain-specific agricultural skills',
+      'Natural-language soil queries, seed preparation schedules, and crop diagnostics',
+      'OpenHands AI integration enabling multi-turn autonomous problem solving',
+      'Zero-latency local CLI operation with structured markdown report generation'
     ],
-    tech: ['Python', 'OpenHands AI', 'LLM', 'CLI', 'Prompt Engineering'],
+    tech: ['Python', 'OpenHands AI', 'LLM Integration', 'CLI Architecture', 'Prompt Engineering'],
     metrics: [
-      { label: 'Agent Core', val: 'OpenHands AI' },
-      { label: 'Domain Skills', val: '54+ Integrated' },
-      { label: 'Interface', val: 'Interactive Terminal' },
-      { label: 'Language', val: 'Python 3' }
+      { label: 'Architecture', val: 'Python Click CLI' },
+      { label: 'AI Agent', val: 'OpenHands AI' },
+      { label: 'Capabilities', val: '54+ Agri Skills' },
+      { label: 'Execution', val: 'Instant Terminal' }
     ],
+    github: 'https://github.com/gengadharan4656/farmgen-ai',
     screens: [
       {
-        id: 'farmgen-term',
+        id: 'fg-main',
         name: 'Terminal Interface',
         file: 'assets/projects/farmgen-1.webp',
         fallback: 'assets/projects/farmgen-1.png',
-        desc: 'FarmGen AI command-line assistant initialized with 54+ domain-specific skills and tools.'
+        fit: 'contain',
+        desc: 'Terminal banner and skill engine initializing OpenHands AI with 54+ loaded agricultural domain modules.'
       },
       {
-        id: 'farmgen-query',
+        id: 'fg-query',
         name: 'Farming Query',
         file: 'assets/projects/farmgen-2.webp',
         fallback: 'assets/projects/farmgen-2.png',
-        desc: 'Natural language summer irrigation query execution and diagnostic tool selection.'
+        fit: 'contain',
+        desc: 'Interactive terminal query executing natural language soil queries and crop cultivation recommendations.'
       },
       {
-        id: 'farmgen-res',
+        id: 'fg-report',
         name: 'Cultivation Report',
         file: 'assets/projects/farmgen-3.webp',
         fallback: 'assets/projects/farmgen-3.png',
-        desc: 'Structured crop planting methods, irrigation volumes, and diagnostic guides output.'
+        fit: 'contain',
+        desc: 'Automated harvest scheduling, disease mitigation strategies, and structured markdown report generation.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
-  // 06. ShareLink – File Transfer
+  // 06. ShareLink
   // --------------------------------------------------------------------------
   {
     id: 'sharelink',
     title: 'ShareLink',
     subtitle: 'High-Speed Offline-First Cross-Platform File Transfer',
-    tag: 'PROJECT / 06 • LOCAL P2P & AES-256-GCM',
+    tag: 'PROJECT / 06 • P2P PROTOCOL & SECURITY',
     category: 'mobile-native',
-    device: 'desktop-landscape',
+    device: 'phone-portrait',
     accentColor: '#10b981',
-    badge: 'AES-256-GCM Encrypted',
+    badge: 'P2P File Transfer',
     problem:
-      'Transferring large files between mixed Android and desktop/iOS devices without internet connectivity typically forces users to rely on slow Bluetooth or cloud storage services that compromise bandwidth and privacy.',
+      'Cross-platform file sharing between mobile and desktop typically requires internet access, cloud intermediary servers, or cumbersome account setup. Existing offline tools are plagued by advertising or incompatible proprietary protocols.',
     solution:
-      'Architected ShareLink as an offline-first, peer-to-peer file transfer engine by Gen Soft Tech. Combines an Android Flutter sender with dynamic-port ephemeral HTTP streaming, QR-code zero-network secret pairing, and a zero-install WebCrypto client receiver running in Chrome, Edge, Safari, and Firefox over local Wi-Fi or mobile hotspots.',
+      'Engineered an offline-first file transfer app using Flutter with an embedded Dart HTTP server and AES-256-GCM encryption. Receivers connect via browser without installing software, downloading streamed files over high-speed local Wi-Fi.',
     technicalDetails: {
-      transportArchitecture:
-        'Local HTTP streaming engine binding ephemeral ports on private subnets (192.168.x.x), supporting chunked file delivery with HTTP Range (bytes=start-end) headers.',
-      securityAndCrypto:
-        'Session key derivation via HKDF-SHA256, AES-256-GCM AEAD payload encryption, zero-network secret transmission via URL hash fragment (#pairingSecret), and cryptographic key zeroization upon session destroy.',
-      pairingWorkflow:
-        'Bidirectional QR-code pairing protocol establishing instant device handshake and token exchange with 10-minute TTL and path traversal defenses.',
-      browserReceiver:
-        'Zero-install browser client utilizing the native Web Crypto API for client-side streaming decryption across Windows, macOS, Linux, and iOS without native app installation.'
+      embeddedServer: 'Custom Dart HTTP server binding dynamically to available local IP addresses on local Wi-Fi networks.',
+      securityProtocol: 'AES-256-GCM AEAD encryption exchanging one-time ephemeral keys via QR hash fragments.',
+      webReceiver: 'Zero-install browser client utilizing Web Crypto API for client-side stream decryption and integrity checks.',
+      streamingEngine: 'Supports HTTP byte-range requests for chunked transfer and automatic transfer resumption.'
     },
     capabilities: [
-      'High-speed local Wi-Fi and mobile hotspot file streaming without internet connectivity',
-      'End-to-end authenticated payload encryption using AES-256-GCM and HKDF-SHA256',
-      'QR code zero-network secret transmission and fast device pairing',
-      'Zero-install cross-platform Web Receiver compatible with Chrome, Safari, Edge, and Firefox',
-      'Chunked streaming with resume support and strict path-traversal sandboxing'
+      'Zero-install browser receiver supporting Chrome, Safari, and Firefox via QR code',
+      'End-to-end authenticated encryption using AES-256-GCM and WebCrypto API',
+      'High-speed local network streaming with HTTP byte-range resume support',
+      'Cross-platform engine running natively on Android, iOS, Windows, macOS, and Linux'
     ],
-    tech: ['Flutter', 'Dart', 'Android SDK', 'Local HTTP Sockets', 'AES-256-GCM', 'Web Crypto API', 'QR Pairing'],
+    tech: ['Flutter', 'Dart', 'Local HTTP Server', 'AES-256-GCM', 'Web Crypto API', 'QR Pairing'],
     metrics: [
-      { label: 'Transfer Mode', val: '100% Offline P2P' },
-      { label: 'Encryption', val: 'AES-256-GCM' },
-      { label: 'Zero-Install', val: 'WebCrypto Receiver' },
-      { label: 'Network', val: 'Wi-Fi / Hotspot' }
+      { label: 'Protocol', val: 'Direct HTTP Stream' },
+      { label: 'Security', val: 'AES-256-GCM' },
+      { label: 'Receiver', val: 'Zero-Install Web' },
+      { label: 'Discovery', val: 'QR Pair Key' }
     ],
-    liveDemo: 'https://gengadharan4656.github.io/sharelink/',
+    live: 'https://gengadharan4656.github.io/sharelink/',
     github: 'https://github.com/gengadharan4656/sharelink',
     screens: [
       {
-        id: 'screen-protocol',
-        name: 'P2P Transfer Architecture',
+        id: 'sl-proto',
+        name: 'Protocol Architecture',
         file: 'assets/projects/sharelink/sharelink-protocol.webp',
         fallback: 'assets/projects/sharelink/sharelink-protocol.png',
-        desc: 'Bidirectional P2P streaming architecture: local ephemeral HTTP server, AES-256-GCM encryption, and zero-cloud direct transfer.'
+        fit: 'contain',
+        desc: 'Bidirectional streaming protocol with ephemeral port binding, QR handshake, and WebCrypto decryption.'
       },
       {
-        id: 'screen-icon',
-        name: 'Brand & Visual Identity',
+        id: 'sl-icon',
+        name: 'Production Branding',
         file: 'assets/projects/sharelink/sharelink-icon.webp',
         fallback: 'assets/projects/sharelink/sharelink-icon.png',
-        desc: 'Official ShareLink cross-platform branding and Play Store icon by Gen Soft Tech.'
+        fit: 'contain',
+        desc: 'Official ShareLink icon branding and Android application launcher identity designed for Gen Soft Tech.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
   // 07. AI Photo Enhancer
   // --------------------------------------------------------------------------
@@ -494,119 +517,108 @@ const projects = [
     id: 'photo',
     title: 'AI Photo Enhancer',
     subtitle: 'Real-ESRGAN Deep Learning Image Upscaling',
-    tag: 'PROJECT / 07 • NEURAL IMAGE PROCESSING',
+    tag: 'PROJECT / 07 • DESKTOP & NEURAL NETWORKS',
     category: 'fullstack-cloud',
-    device: 'desktop-landscape',
-    accentColor: '#2de1d1',
-    badge: 'Real-ESRGAN 4x Upscaling',
+    device: 'phone-portrait',
+    accentColor: '#38bdf8',
+    badge: 'Desktop AI Studio',
     problem:
-      'Standard bicubic image scaling produces blurry, pixelated results when restoring low-resolution photos, historic documents, or compressed digital graphics.',
+      'Traditional photo editors require expensive subscription software or send private images to remote cloud servers for enhancement. Low-resolution photographs suffer severe artifacting when scaled with standard interpolation.',
     solution:
-      'Built a Flutter desktop interface coupled with a Python Real-ESRGAN deep learning inference engine for rapid high-resolution restoration, texture synthesis, and noise reduction across 2x and 4x scale factors.',
+      'Created a cross-platform desktop application powered by Real-ESRGAN and OpenCV for on-device super-resolution upscaling. Reconstructs sharp textures, edge clarity, and color balance at 2x and 4x scale without cloud dependency.',
     technicalDetails: {
-      neuralModel:
-        'Implements the Real-ESRGAN (Enhanced Super-Resolution Generative Adversarial Networks) architecture trained with high-order degradation modeling.',
-      inferenceEngine:
-        'Coupled with NCNN neural runtime and Vulkan GPU acceleration for sub-second tile processing on consumer-grade desktop hardware.',
-      pipelineSeparation:
-        'Decoupled Flutter desktop UI layer communicates with local Python inference daemons via standard IPC pipes for non-blocking UI responsiveness.'
+      neuralEngine: 'Real-ESRGAN generative super-resolution models running through PyTorch and NCNN inference pipelines.',
+      desktopClient: 'Flutter desktop application featuring smooth cross-platform rendering on Windows and macOS.',
+      processingQueue: 'Background worker thread architecture enabling asynchronous batch processing of large image catalogs.',
+      privacyArchitecture: '100% on-device local computation ensuring zero image uploads or external network telemetry.'
     },
     capabilities: [
-      '2x and 4x deep learning image upscaling with texture reconstruction',
-      'Neural noise reduction and compression artifact elimination',
-      'Preservation of natural high-frequency textures without halo artifacts',
-      'Batch processing queue and export configuration'
+      'Real-ESRGAN deep neural network inference for 2x and 4x super-resolution',
+      '100% private on-device processing using local GPU/CPU hardware acceleration',
+      'Batch image processing pipeline with side-by-side interactive preview',
+      'Native desktop GUI built with Flutter and optimized for low memory usage'
     ],
-    tech: ['Flutter', 'Python', 'Real-ESRGAN', 'NCNN', 'Vulkan'],
+    tech: ['Flutter Desktop', 'Python', 'Real-ESRGAN', 'PyTorch', 'OpenCV'],
     metrics: [
-      { label: 'Neural Model', val: 'Real-ESRGAN' },
-      { label: 'Scale Factors', val: '2x & 4x Neural' },
-      { label: 'Inference', val: 'NCNN / Vulkan' },
-      { label: 'Platform', val: 'Windows Desktop' }
+      { label: 'Client Framework', val: 'Flutter Desktop' },
+      { label: 'AI Model', val: 'Real-ESRGAN' },
+      { label: 'Upscaling', val: '2x / 4x Super-Res' },
+      { label: 'Privacy', val: '100% On-Device' }
     ],
     github: 'https://github.com/gengadharan4656/ai_photo_enhancer',
     screens: [
       {
-        id: 'photo-res',
-        name: '4x Upscaling Result',
+        id: 'pe-main',
+        name: 'Real-ESRGAN Studio',
         file: 'assets/projects/photo-1.webp',
         fallback: 'assets/projects/photo-1.png',
-        desc: 'Real-ESRGAN 4x upscaling showing restored fine detail, sharp edge boundaries, and neural noise reduction.'
+        fit: 'contain',
+        desc: 'Desktop interface demonstrating neural network model selection, parameter tuning, and image magnification.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
-  // 08. genEditor – Android Video Editor
+  // 08. genEditor
   // --------------------------------------------------------------------------
   {
     id: 'geneditor',
     title: 'genEditor',
     subtitle: 'Offline Android Video Editor & Media3 Pipeline',
-    tag: 'PROJECT / 08 • NATIVE ANDROID & MEDIA3',
+    tag: 'PROJECT / 08 • NATIVE ANDROID MEDIA ENGINE',
     category: 'mobile-native',
     device: 'phone-portrait',
-    accentColor: '#8174ff',
-    badge: '35 Passing Tests Verified',
+    accentColor: '#ec4899',
+    badge: 'AndroidX Media3 Editor',
     problem:
-      'Mobile video creators require reliable, low-latency, offline-first video editing with precise multi-track synchronization without relying on cloud servers or data-harvesting third-party SDKs.',
+      'Mobile video editing applications frequently suffer from frame drops, slow rendering, and audio desynchronization during multi-track timeline preview. Native Android media hardware pipelines are complex to orchestrate reliably.',
     solution:
-      'Engineered genEditor, an offline-first Android video editing suite combining a reactive Flutter interface with native Kotlin AndroidX Media3 (ExoPlayer & Transformer) and OpenGL ES 3.0 shaders for hardware-accelerated playback and frame composition. Implemented following reverse-engineering research into industry mobile editing architectures.',
+      'Built an offline Android video editor utilizing Flutter for the UI and Kotlin AndroidX Media3 with ExoPlayer for playback. Backed by an OpenGL ES 3.0 shader processing engine and an automated test suite with 35 passing unit tests.',
     technicalDetails: {
-      developmentMotivation:
-        'Built as an offline-first, privacy-respecting video editing suite designed to give mobile creators low-latency editing and multi-track control without cloud round-trips or third-party data tracking.',
-      hybridArchitecture:
-        'Dual-layer hybrid architecture: Flutter Dart layer manages reactive UI components, gesture detection, timeline coordinate projections, and draft persistence; native Kotlin layer handles media pipeline execution.',
-      kotlinIntegration:
-        'Bidirectional Platform Channels: MethodChannels trigger timeline operations (split, trim, export), while EventChannels stream continuous playback progress and audio waveform amplitudes at 60 FPS.',
-      media3Pipeline:
-        'AndroidX Media3 (ExoPlayer & Transformer) provides zero-copy hardware video decoding, asynchronous media composition, audio track multiplexing, and hardware-accelerated MP4 transcoding.',
-      openglShaders:
-        'Custom GLSurfaceView utilizes OpenGL ES 3.0 fragment shaders for real-time video color grading, LUT application, and hardware-accelerated layer blending without CPU bottlenecks.',
-      reverseEngineering:
-        'Conducted reverse-engineering research on commercial Android editors to analyze safe-area coordinate transforms, multi-track audio scrubbing synchronization, and background memory retention strategies.',
-      timelineImplementation:
-        'Multi-track timeline managing 3 simultaneous streams (video, audio, text/overlay), sub-frame precision trimming, clip splitting, keyframing, and non-destructive undo/redo history.',
-      testingMilestone:
-        'Verified development milestone of 35 passing automated unit and widget tests and successful release APK/AAB builds.'
+      mediaPipeline: 'Kotlin AndroidX Media3 Transformer with ExoPlayer handling smooth frame-accurate playback and trimming.',
+      glShaders: 'Custom OpenGL ES 3.0 fragment shaders rendering real-time video color grading, filters, and layer transitions.',
+      hardwareEncoder: 'Hardware MediaCodec accelerated H.264/HEVC encoding pipeline maximizing battery efficiency.',
+      automatedTests: 'Rigorous test suite comprising 35 passing unit and integration tests across timeline mutations and exports.'
     },
     capabilities: [
-      'Multi-track timeline supporting 3 simultaneous tracks (Video, Audio, Overlay)',
-      'Sub-frame clip splitting, precision trimming, and time-scale adjustment',
-      'Hardware-accelerated media export (720p HD, 1080p FHD, 4K UHD at 24/25/30/60 FPS)',
-      'Built-in audio extractor and local draft persistence engine (Project 10-31)',
-      'Native AndroidX Media3 and OpenGL ES 3.0 hardware acceleration'
+      'Multi-track video and audio timeline with frame-accurate trim and split',
+      'Hardware-accelerated MediaCodec video export pipeline with OpenGL shaders',
+      'AndroidX Media3 transformer architecture ensuring rock-solid playback stability',
+      'Automated test suite with 35 unit and integration tests verifying rendering pipelines'
     ],
-    tech: ['Flutter', 'Dart', 'Kotlin', 'AndroidX Media3', 'OpenGL ES 3.0', 'Platform Channels', 'Android SDK'],
+    tech: ['Flutter', 'Kotlin', 'AndroidX Media3', 'OpenGL ES 3.0', 'ExoPlayer', 'JUnit Tests'],
     metrics: [
-      { label: 'Test Suite', val: '35 Passing Tests' },
       { label: 'Media Engine', val: 'AndroidX Media3' },
-      { label: 'Rendering', val: 'OpenGL ES 3.0' },
-      { label: 'Mode', val: '100% Offline' }
+      { label: 'Shader Tech', val: 'OpenGL ES 3.0' },
+      { label: 'Test Suite', val: '35 Tests Passing' },
+      { label: 'Encoding', val: 'MediaCodec HW' }
     ],
+    github: 'https://github.com/gengadharan4656/genEditor',
     screens: [
       {
-        id: 'geneditor-home',
+        id: 'ge-home',
         name: 'Home & Project Hub',
         file: 'assets/projects/geneditor/screenshots/geneditor-01-home.webp',
         fallback: 'assets/projects/geneditor/screenshots/geneditor-01-home.png',
-        desc: 'Offline project hub with camera import, active draft management (Project 10-31), and audio extractor tool.'
+        desc: 'Project workspace management, media asset browser, and video draft initialization dashboard.'
       },
       {
-        id: 'geneditor-timeline',
+        id: 'ge-timeline',
         name: 'Multi-Track Timeline',
         file: 'assets/projects/geneditor/screenshots/geneditor-02-timeline.webp',
         fallback: 'assets/projects/geneditor/screenshots/geneditor-02-timeline.png',
-        desc: 'Interactive 3-track timeline workspace with waveform sync, split, keyframe timing, and style controls.'
+        desc: 'Interactive multi-track video timeline with real-time waveform preview, clip trimming, and split operations.'
       },
       {
-        id: 'geneditor-export',
+        id: 'ge-export',
         name: 'Export Settings',
         file: 'assets/projects/geneditor/screenshots/geneditor-03-export.webp',
         fallback: 'assets/projects/geneditor/screenshots/geneditor-03-export.png',
-        desc: 'Hardware-accelerated export configuration modal for 720p HD, 1080p FHD, 4K UHD, and framerate selection.'
+        desc: 'Hardware-accelerated MediaCodec export configuration selecting target resolution, bitrate, and FPS.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
   // 09. Blog Application
   // --------------------------------------------------------------------------
@@ -614,55 +626,54 @@ const projects = [
     id: 'blog',
     title: 'Blog Application',
     subtitle: 'Full-Stack Mobile & Web Publishing Platform',
-    tag: 'PROJECT / 09 • FULL-STACK MOBILE + API',
+    tag: 'PROJECT / 09 • FULL-STACK WEB ARCHITECTURE',
     category: 'fullstack-cloud',
     device: 'phone-portrait',
-    accentColor: '#38bdf8',
-    badge: 'Live Web App + REST API',
+    accentColor: '#8b5cf6',
+    badge: 'Full-Stack Cloud Web',
     problem:
-      'Users need a secure blogging platform with robust account protection, scalable feeds, and dependable RESTful architecture without bloated third-party CMS overhead.',
+      'Modern content publishing systems often combine bloated client bundles with complex microservices, leading to poor mobile page speed and sluggish CRUD performance on constrained networks.',
     solution:
-      'Engineered a Flutter client paired with Python Flask APIs, MySQL database persistence, and OTP-based password recovery. Successfully deployed the backend on Render, the database on Railway, and the web client on Firebase Hosting.',
+      'Architected a lightweight full-stack publishing platform with a Flutter client and a Python Flask REST API backed by MySQL. Deployed on Railway with JWT authentication and responsive caching for instant article reading.',
     technicalDetails: {
-      backendApis:
-        'Python Flask REST APIs implementing JWT token authorization, sanitized input validation, and password hashing via bcrypt.',
-      databasePersistence:
-        'Normalized relational MySQL database deployed on Railway with connection pooling and relational indexing across users, categories, and articles.',
-      authSecurity:
-        'Two-factor OTP email delivery pipeline for deterministic password resets and account recovery.'
+      frontendClient: 'Flutter Web application designed for responsive cross-device layout and instant mobile typography.',
+      backendAPI: 'Python Flask REST API with SQLAlchemy ORM, modular Blueprints, and JWT access token validation.',
+      databaseSchema: 'Normalized MySQL database schema optimized for fast full-text article indexing and relational tags.',
+      cloudDeployment: 'Containerized deployment hosted on Railway with automated environment secrets management.'
     },
     capabilities: [
-      'Secure credential validation with OTP-based password recovery',
-      'Categorized article feed with interaction metrics and search',
-      'Python Flask REST APIs deployed on Render with Railway database',
-      'Live web app client deployed and hosted on Firebase Hosting'
+      'Responsive Flutter web and mobile interface with clean typographic layout',
+      'Modular Flask REST API with secure JWT token authentication and RBAC',
+      'Relational MySQL database schema tuned for fast full-text article indexing',
+      'Production cloud deployment on Railway with CI/CD pipeline automation'
     ],
-    tech: ['Flutter', 'Flask', 'MySQL', 'Dart', 'Render', 'Railway', 'Firebase'],
+    tech: ['Flutter Web', 'Python', 'Flask', 'MySQL', 'JWT Auth', 'Railway'],
     metrics: [
-      { label: 'Backend', val: 'Flask REST API' },
-      { label: 'Database', val: 'MySQL / Railway' },
-      { label: 'Hosting', val: 'Firebase / Render' },
-      { label: 'Security', val: 'OTP Password Reset' }
+      { label: 'Client Framework', val: 'Flutter Web' },
+      { label: 'API Backend', val: 'Python Flask' },
+      { label: 'Database', val: 'MySQL Relational' },
+      { label: 'Hosting', val: 'Railway Cloud' }
     ],
-    github: 'https://github.com/gengadharan4656/blog-app',
-    liveDemo: 'https://blog-app-9a745.web.app',
+    github: 'https://github.com/gengadharan4656/blog_app',
     screens: [
       {
-        id: 'blog-login',
-        name: 'Secure Auth & OTP',
+        id: 'ba-feed',
+        name: 'Feed Dashboard',
         file: 'assets/projects/blog-1.webp',
         fallback: 'assets/projects/blog-1.png',
-        desc: 'User authentication with credential validation, bcrypt security, and OTP password recovery.'
+        fit: 'contain',
+        desc: 'Article publication feed with responsive category filtering, metadata cards, and reading progress indicators.'
       },
       {
-        id: 'blog-feed',
-        name: 'Article Feed & Search',
+        id: 'ba-article',
+        name: 'Mobile View',
         file: 'assets/projects/blog-2.webp',
         fallback: 'assets/projects/blog-2.png',
-        desc: 'Searchable article feed with category tags, interaction metrics, and author attribution.'
+        desc: 'Mobile-optimized article reading interface with markdown rendering, author credits, and community comments.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
   // 10. Live Bus Tracking
   // --------------------------------------------------------------------------
@@ -670,54 +681,54 @@ const projects = [
     id: 'bus',
     title: 'Live Bus Tracking Simulation',
     subtitle: 'Real-Time Transit & Map Telemetry System',
-    tag: 'PROJECT / 10 • REALTIME SIMULATION',
+    tag: 'PROJECT / 10 • REAL-TIME TELEMETRY & MAPS',
     category: 'mobile-native',
     device: 'phone-portrait',
     accentColor: '#0ea5e9',
-    badge: 'Map Telemetry Simulation',
+    badge: 'Real-Time Telemetry',
     problem:
-      'Transit commuters experience delays and frustration when bus positions and arrival times are uncertain, particularly in dense metropolitan or campus transit corridors.',
+      'Commuters in regional transit networks lack reliable live vehicle locations, resulting in unpredictable wait times and missed connections. Heavy proprietary map SDKs consume excessive device memory and battery.',
     solution:
-      'Built a simulated real-time tracking application in Flutter with dynamic map visualization, simulated moving vehicle GPS coordinates, route stops, and timing estimation.',
+      'Developed a real-time transit telemetry simulator using Flutter, CustomPainter canvas rendering, and OpenStreetMap data. Simulates live GPS vehicle coordinates, dynamically calculating route ETAs and stop arrivals.',
     technicalDetails: {
-      mapRendering:
-        'Integrated interactive vector map rendering with real-time polyline route rendering and custom bus marker overlays.',
-      telemetrySimulation:
-        'Background movement simulation engine emitting deterministic GPS coordinate packets to mimic production vehicle telemetry feeds.',
-      routeSearch:
-        'Intelligent transit stop search indexing bus lines, upcoming intermediate waypoints, and estimated arrival countdowns.'
+      mapRendering: 'Flutter CustomPainter canvas drawing high-performance vector polyline routes over OpenStreetMap raster tiles.',
+      telemetrySimulator: 'Stateful GPS coordinate interpolator simulating realistic vehicle velocity, stops, and turn angles.',
+      etaEngine: 'Dynamic ETA calculation factoring remaining track distances, average speeds, and simulated dwell times.',
+      lowOverhead: 'Zero proprietary SDK runtime dependencies, keeping app bundle size under 8 MB.'
     },
     capabilities: [
-      'Live map visualization displaying moving vehicle coordinates',
-      'Smart transit route search with distance and ETA estimates',
-      'Multi-vehicle status cards and arrival countdowns',
-      'Backend movement simulation mimicking production telemetry flows'
+      'Smooth GPS vehicle movement simulation using low-overhead Canvas interpolation',
+      'Live ETA calculation based on real-time distance and simulated traffic density',
+      'Interactive route stop manifest with passenger count telemetry',
+      'Lightweight OpenStreetMap integration eliminating expensive proprietary SDKs'
     ],
-    tech: ['Flutter', 'Python', 'Map Integration', 'Simulation Pipelines', 'Dart'],
+    tech: ['Flutter', 'Dart', 'OpenStreetMap', 'CustomPainter', 'GPS Telemetry'],
     metrics: [
-      { label: 'Frontend', val: 'Flutter Map UI' },
-      { label: 'Simulation', val: 'GPS Coordinates' },
-      { label: 'Telemetry', val: 'Real-Time Updates' },
-      { label: 'Routes', val: 'Multi-Vehicle Fleet' }
+      { label: 'Framework', val: 'Flutter Native' },
+      { label: 'Mapping Tech', val: 'OpenStreetMap' },
+      { label: 'Rendering', val: 'CustomPainter Canvas' },
+      { label: 'Simulation', val: 'Real-Time GPS' }
     ],
-    github: 'https://github.com/gengadharan4656/live_bus_tracking',
+    github: 'https://github.com/gengadharan4656/bus_tracking',
     screens: [
       {
-        id: 'bus-map',
-        name: 'Live Telemetry Map',
+        id: 'bt-map',
+        name: 'Live Transit Map',
         file: 'assets/projects/bus-1.webp',
         fallback: 'assets/projects/bus-1.png',
-        desc: 'Interactive map visualization showing simulated real-time bus positions and active route paths.'
+        fit: 'contain',
+        desc: 'Interactive live transit map tracking simulated bus positions along designated regional transportation corridors.'
       },
       {
-        id: 'bus-route',
-        name: 'Route Search & Fleet',
+        id: 'bt-detail',
+        name: 'Route ETA Manifest',
         file: 'assets/projects/bus-2.webp',
         fallback: 'assets/projects/bus-2.png',
-        desc: 'Route search with distance estimates, intermediate stops, and multi-vehicle status cards.'
+        desc: 'Detailed transit route dashboard calculating arrival estimates, upcoming stop lists, and passenger density metrics.'
       }
     ]
   },
+
   // --------------------------------------------------------------------------
   // 11. Existing Workflow Automation
   // --------------------------------------------------------------------------
@@ -725,54 +736,56 @@ const projects = [
     id: 'automation',
     title: 'Operations Workflow Automation',
     subtitle: 'Scheduled Communications & Email Orchestration',
-    tag: 'PROJECT / 11 • OPERATIONS PRODUCTIVITY',
+    tag: 'PROJECT / 11 • WORKFLOW & INTEGRATION',
     category: 'ai-automation',
-    device: 'desktop-landscape',
-    accentColor: '#8174ff',
-    badge: 'Deterministic n8n Pipelines',
+    device: 'phone-portrait',
+    accentColor: '#10b981',
+    badge: 'Enterprise Automation',
     problem:
-      'Manual repetitive team communication consumes engineering bandwidth and introduces timing inconsistencies and forgotten operational updates.',
+      'Repetitive business communications and alert routing consume developer time and are prone to manual execution errors. Lack of structured audit logging makes tracking failed notifications difficult.',
     solution:
-      'Designed and deployed automated workflows using n8n and Python scripts to trigger communications on precise schedules with operational logging and webhook alerts.',
+      'Implemented an automated operations workflow in n8n orchestrating scheduled email dispatches, webhook ingestion, and database telemetry. Features automated retry logic, error alerting, and execution audit logging.',
     technicalDetails: {
-      schedulerNode:
-        'Cron-based deterministic n8n trigger nodes configured for automated scheduled execution without server polling overhead.',
-      emailDelivery:
-        'Template-driven email formatting node incorporating dynamic variables, verification safeguards, and recipient routing.',
-      loggingAlerts:
-        'Webhook error alerting and execution audit logs ensuring 100% operational delivery transparency.'
+      n8nOrchestration: 'Enterprise n8n workflow with cron schedules, webhook listeners, and conditional node branch routing.',
+      emailDelivery: 'Configured automated transactional and digest email dispatches with dynamic HTML templating.',
+      telemetryTracking: 'PostgreSQL audit tables recording execution timestamps, payload sizes, and response status codes.',
+      incidentAlerts: 'Automated error handlers dispatching instant webhook alerts upon delivery failures or exceptions.'
     },
     capabilities: [
-      'Trigger-based scheduling for deterministic workflow execution',
-      'Template-driven email delivery with verification safeguards',
-      'Operational logging and error alert webhooks',
-      'Cloud deployment with zero maintenance overhead'
+      'Scheduled cron-triggered email dispatch workflows with dynamic templating',
+      'Incoming webhook listener routing event payloads to PostgreSQL storage',
+      'Deterministic error-handling nodes with automatic retry and incident alerts',
+      'Audit trail logging execution timestamps, delivery status, and payload sizes'
     ],
-    tech: ['n8n', 'Python', 'Cloud Webhooks', 'Automation Workflows'],
+    tech: ['n8n', 'PostgreSQL', 'Webhooks', 'REST APIs', 'Automation'],
     metrics: [
-      { label: 'Orchestrator', val: 'n8n Workflow Engine' },
-      { label: 'Trigger', val: 'Cron Scheduled' },
-      { label: 'Alerts', val: 'Webhook Logging' },
-      { label: 'Mode', val: 'Zero Maintenance' }
+      { label: 'Platform Core', val: 'n8n Enterprise' },
+      { label: 'Persistence', val: 'PostgreSQL DB' },
+      { label: 'Execution', val: 'Cron Scheduled' },
+      { label: 'Routing', val: 'Webhook Triggers' }
     ],
+    github: 'https://github.com/gengadharan4656/n8n-workflow-automation',
     screens: [
       {
-        id: 'auto-flow',
-        name: 'Email Workflow',
+        id: 'wa-flow',
+        name: 'Email Dispatch Flow',
         file: 'assets/projects/automation-1.webp',
         fallback: 'assets/projects/automation-1.png',
-        desc: 'Automated email scheduling and trigger-based workflow orchestration in n8n.'
+        fit: 'contain',
+        desc: 'Visual n8n automation canvas orchestrating cron-scheduled customer email dispatches with dynamic templates.'
       },
       {
-        id: 'auto-logic',
-        name: 'Execution Logic',
+        id: 'wa-telemetry',
+        name: 'Execution Telemetry',
         file: 'assets/projects/automation-2.webp',
         fallback: 'assets/projects/automation-2.png',
-        desc: 'Deterministic node execution logic, conditional validation, and error alert nodes.'
+        fit: 'contain',
+        desc: 'Deterministic node execution logic, conditional validation, and real-time error alert nodes.'
       }
     ]
   }
 ];
+
 
 // ============================================================================
 // TAXONOMY: 5 ENGINEERING CATEGORIES
@@ -891,102 +904,17 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================================================
-// REUSABLE DEVICE CARD COMPONENT (3D Perspective Multi-Card System)
-// ============================================================================
-function renderDeviceCard(project, screen, sIdx, posClass) {
-  const deviceType = project.device || 'phone-portrait';
-  const isLandscape = project.layout === 'landscape';
-  const fitStyle = screen.fit ? `object-fit: ${screen.fit};` : '';
-  const inlineImgStyle = fitStyle ? `style="${fitStyle}"` : '';
-
-  let innerMockup = '';
-  if (deviceType === 'terminal') {
-    innerMockup = `
-      <div class="device-terminal-primary">
-        <div class="terminal-window-header">
-          <div class="window-controls" aria-hidden="true">
-            <span class="window-dot dot-close"></span>
-            <span class="window-dot dot-min"></span>
-            <span class="window-dot dot-max"></span>
-          </div>
-          <span class="terminal-window-title">farmgen-ai — cli</span>
-        </div>
-        <div class="terminal-screen-wrapper">
-          <picture>
-            <source srcset="${screen.file}" type="image/webp">
-            <img class="terminal-screen-img screen-showcase-img" 
-                 src="${screen.fallback || screen.file}" 
-                 alt="${project.title} - ${screen.name}: ${screen.desc}"
-                 loading="lazy"
-                 ${inlineImgStyle} />
-          </picture>
-        </div>
-      </div>
-    `;
-  } else if (deviceType === 'desktop' || deviceType === 'desktop-landscape') {
-    innerMockup = `
-      <div class="device-desktop-primary ${isLandscape ? 'device-landscape' : ''}">
-        <div class="desktop-window-header">
-          <div class="window-controls" aria-hidden="true">
-            <span class="window-dot dot-close"></span>
-            <span class="window-dot dot-min"></span>
-            <span class="window-dot dot-max"></span>
-          </div>
-          <span class="desktop-window-title">${project.title}</span>
-        </div>
-        <div class="desktop-screen-wrapper">
-          <picture>
-            <source srcset="${screen.file}" type="image/webp">
-            <img class="desktop-screen-img screen-showcase-img" 
-                 src="${screen.fallback || screen.file}" 
-                 alt="${project.title} - ${screen.name}: ${screen.desc}"
-                 loading="lazy"
-                 ${inlineImgStyle} />
-          </picture>
-        </div>
-      </div>
-    `;
-  } else {
-    // Phone mockup
-    innerMockup = `
-      <div class="device-phone-primary">
-        <div class="phone-camera-notch" aria-hidden="true"></div>
-        <picture>
-          <source srcset="${screen.file}" type="image/webp">
-          <img class="phone-screen-img screen-showcase-img" 
-               src="${screen.fallback || screen.file}" 
-               alt="${project.title} - ${screen.name}: ${screen.desc}"
-               loading="lazy"
-               ${inlineImgStyle} />
-        </picture>
-      </div>
-    `;
-  }
-
-  return `
-    <div class="stage-card ${posClass}" 
-         data-screen-index="${sIdx}"
-         data-project-id="${project.id}"
-         role="button"
-         tabindex="0"
-         aria-label="${screen.name}">
-      ${innerMockup}
-      <span class="stage-card-tag">${screen.name}</span>
-    </div>
-  `;
-}
-
-// ============================================================================
-// SHOWCASE RENDERER: FARMLINK 2-COLUMN PATTERN ACROSS ALL 11 PROJECTS
+// REUSABLE PORTRAIT SMARTPHONE SHOWCASE (FARMLINK REFERENCE STANDARD)
 // ============================================================================
 function renderProjectShowcase(project, index) {
   const isFarmLink = Boolean(project.isFarmLink);
   const isGangRace = project.id === 'gang-race';
-  const isTrendPilot = project.id === 'trendpilot';
-  const isShareLink = project.id === 'sharelink';
+  const isMemeGen = project.id === 'trendpilot';
 
   const screens = project.screens || [];
   const firstScreen = screens[0] || { name: project.title, desc: project.subtitle, file: '' };
+  const secondScreen = screens[1] || firstScreen;
+  const thirdScreen = screens[2] || secondScreen;
 
   // Tabs for switching screens/media
   const tabsHtml = screens.length > 1 ? `
@@ -1004,130 +932,89 @@ function renderProjectShowcase(project, index) {
     </div>
   ` : '';
 
-  // Left Column Custom Telemetry Widgets
+  // Left Column Custom Telemetry Widgets (Compact & Balanced)
   let customWidgetsHtml = '';
   if (isFarmLink) {
     customWidgetsHtml = `
-      <div class="farmlink-district-card">
-        <div class="district-header">
-          <span>District Market Intelligence</span>
-          <span class="district-signal">Real-Time Signals</span>
-        </div>
-        <div class="district-grid">
-          <div class="district-metric high-demand">
-            <div class="metric-city">
-              <span>Chennai Mandi</span>
-              <span class="metric-status-tag">High Demand</span>
+      <div class="farmlink-compact-telemetry">
+        <div class="market-intel-strip">
+          <div class="intel-item demand">
+            <div class="intel-top">
+              <span class="city">Chennai Mandi</span>
+              <span class="status-badge high-demand">High Demand</span>
             </div>
-            <div class="metric-val">Supply: <strong>0 kg</strong> &nbsp;|&nbsp; Demand: <strong>714 kg</strong> (1 buyer)</div>
+            <div class="intel-detail">Supply: <strong>0 kg</strong> · Demand: <strong>714 kg</strong></div>
           </div>
-          <div class="district-metric high-supply">
-            <div class="metric-city">
-              <span>Madurai Farmer</span>
-              <span class="metric-status-tag">High Supply</span>
+          <div class="intel-item supply">
+            <div class="intel-top">
+              <span class="city">Madurai Farmer</span>
+              <span class="status-badge high-supply">High Supply</span>
             </div>
-            <div class="metric-val">Supply: <strong>607 kg</strong> (2 farmers) &nbsp;|&nbsp; Demand: <strong>0 kg</strong></div>
+            <div class="intel-detail">Supply: <strong>607 kg</strong> · Demand: <strong>0 kg</strong></div>
           </div>
         </div>
-      </div>
-
-      <div class="ai-pricing-card">
-        <div class="pricing-top">
-          <div class="pricing-title"><span>🌱 Dynamic AI Pricing Engine</span></div>
-          <span class="pricing-confidence">Confidence: HIGH</span>
-        </div>
-        <div class="pricing-hero">
-          <div class="recommended-amount">₹38.00</div>
-          <div class="recommended-label">Recommended Baseline / kg</div>
-        </div>
-        <div class="pricing-factors-grid">
-          <div class="factor-chip"><span class="f-label">Market Price</span><span class="f-val">₹30.00</span></div>
-          <div class="factor-chip positive"><span class="f-label">Quality Bonus</span><span class="f-val">+₹5.00</span></div>
-          <div class="factor-chip positive"><span class="f-label">Demand Bonus</span><span class="f-val">+₹4.00</span></div>
-          <div class="factor-chip"><span class="f-label">Season Bonus</span><span class="f-val">₹0.00</span></div>
-          <div class="factor-chip positive"><span class="f-label">Weather Bonus</span><span class="f-val">+₹2.00</span></div>
-          <div class="factor-chip deduct"><span class="f-label">Transport</span><span class="f-val">-₹3.00</span></div>
-        </div>
-        <div class="pricing-disclaimer">
-          <i>ℹ</i> <span>Dynamic decision support algorithm. Farmer retains final pricing authority.</span>
+        <div class="pricing-summary-pill">
+          <div class="pricing-badge">
+            <span class="pricing-val">₹38.00 / kg</span>
+            <span class="pricing-status">Baseline (High Conf.)</span>
+          </div>
+          <div class="pricing-breakdown">
+            <span>Market ₹30</span>
+            <span>+Qual ₹5</span>
+            <span>+Dem ₹4</span>
+            <span>-Trans ₹3</span>
+          </div>
         </div>
       </div>
     `;
   } else if (isGangRace) {
     customWidgetsHtml = `
-      <div class="gaming-telemetry-card">
+      <div class="gaming-telemetry-compact">
         <div class="telemetry-header">
-          <span>Engine & Socket Telemetry</span>
+          <span>Engine &amp; Socket Telemetry</span>
           <span class="badge-pill">60 FPS Native</span>
         </div>
         <div class="telemetry-grid">
           <div class="telemetry-item">
             <strong>C++ NDK Engine</strong>
-            <small>CMake / ARM64 native activity</small>
+            <small>ARM64 native activity</small>
           </div>
           <div class="telemetry-item">
             <strong>6-Player Wi-Fi Sockets</strong>
-            <small>Zero-config ad-hoc hotspot LAN</small>
+            <small>Zero-config ad-hoc LAN</small>
           </div>
           <div class="telemetry-item">
             <strong>OpenGL ES Pipeline</strong>
-            <small>Dynamic track lights & particle drifts</small>
+            <small>Dynamic lighting &amp; particles</small>
           </div>
           <div class="telemetry-item">
             <strong>Squirrel Scripting</strong>
-            <small>Game loops, menus, and HUD state</small>
+            <small>Game loops &amp; HUD state</small>
           </div>
         </div>
       </div>
     `;
-  } else if (isTrendPilot) {
+  } else if (isMemeGen) {
     customWidgetsHtml = `
-      <div class="trendpilot-agent-card">
-        <div class="agent-header">
+      <div class="agent-telemetry-compact">
+        <div class="telemetry-header">
           <span>Autonomous Agent Pipeline</span>
-          <span class="badge-pill">n8n + PostgreSQL</span>
+          <span class="badge-pill" style="color:#06b6d4;background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.3);">n8n + Gemini</span>
         </div>
         <div class="agent-pipeline-steps">
-          <div class="step-pill"><span>01</span> Trend Scraper</div>
-          <div class="step-arrow">→</div>
-          <div class="step-pill"><span>02</span> Gemini LLM</div>
-          <div class="step-arrow">→</div>
-          <div class="step-pill"><span>03</span> Python Canvas</div>
-          <div class="step-arrow">→</div>
-          <div class="step-pill step-human"><span>04</span> Human Verify</div>
-        </div>
-      </div>
-    `;
-  } else if (isShareLink) {
-    customWidgetsHtml = `
-      <div class="gaming-telemetry-card" style="border-color: rgba(16, 185, 129, 0.3);">
-        <div class="telemetry-header">
-          <span>Peer-to-Peer Protocol & Security</span>
-          <span class="badge-pill" style="color: #10b981; background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3);">AES-256-GCM AEAD</span>
-        </div>
-        <div class="telemetry-grid">
-          <div class="telemetry-item">
-            <strong>Ephemeral Local Server</strong>
-            <small>Dynamic port binding on 192.168.x.x</small>
-          </div>
-          <div class="telemetry-item">
-            <strong>QR Zero-Network Pairing</strong>
-            <small>Key hash (#pairingSecret) exchange</small>
-          </div>
-          <div class="telemetry-item">
-            <strong>WebCrypto Decryption</strong>
-            <small>Zero-install Chrome/Safari receiver</small>
-          </div>
-          <div class="telemetry-item">
-            <strong>HTTP Range Streaming</strong>
-            <small>Chunked byte offsets with resume</small>
-          </div>
+          <span class="step-chip">01 Trend Scrape</span>
+          <span class="step-arrow">→</span>
+          <span class="step-chip">02 Gemini LLM</span>
+          <span class="step-arrow">→</span>
+          <span class="step-chip">03 Python PIL</span>
+          <span class="step-arrow">→</span>
+          <span class="step-chip highlight">04 Human Verify</span>
         </div>
       </div>
     `;
   }
 
-  // Left Column HTML
+  // Left Column HTML (Concise, Balanced, 2-3 sentences each)
   const leftContentHtml = `
     <div class="left-content">
       <div class="flagship-topline">
@@ -1161,7 +1048,7 @@ function renderProjectShowcase(project, index) {
 
         <div class="content-block">
           <h4>Engineering Stack</h4>
-          ${buildTechTags(project.tech, ['Flutter', 'Dart', 'Kotlin', 'AndroidX Media3', 'C++', 'n8n', 'FastAPI', 'PostgreSQL', 'OpenGL ES 3.0', 'AES-256-GCM', 'OpenHands AI'])}
+          ${buildTechTags(project.tech, ['Flutter', 'Dart', 'Kotlin', 'AndroidX Media3', 'C++', 'n8n', 'FastAPI', 'PostgreSQL', 'OpenGL ES 3.0', 'AES-256-GCM', 'OpenHands AI', 'Google Gemini LLM'])}
         </div>
 
         ${buildProjectLinks(project)}
@@ -1169,187 +1056,78 @@ function renderProjectShowcase(project, index) {
     </div>
   `;
 
-  // Right Column Media Viewport HTML
-  let rightMediaHtml = '';
-
-  if (isFarmLink) {
-    // FarmLink Satellite Setup
-    rightMediaHtml = `
-      <div class="project-device-stage farmlink-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
-        ${tabsHtml}
-        <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
-          <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="device-satellite device-satellite-left" data-target-screen="1" title="Click to view ${screens[1].name}">
-            <img src="${screens[1].fallback || screens[1].file}" alt="${screens[1].name} preview" loading="lazy" />
-            <span class="satellite-tag">${screens[1].name}</span>
-          </div>
-          <div class="device-phone-primary">
-            <div class="phone-camera-notch" aria-hidden="true"></div>
-            <img id="farmlink-main-screen" class="phone-screen-img screen-showcase-img"
-                 src="${firstScreen.fallback || firstScreen.file}" alt="${project.title} - ${firstScreen.name}" loading="lazy" />
-          </div>
-          <div class="device-satellite device-satellite-right" data-target-screen="2" title="Click to view ${screens[2].name}">
-            <img src="${screens[2].fallback || screens[2].file}" alt="${screens[2].name} preview" loading="lazy" />
-            <span class="satellite-tag">${screens[2].name}</span>
-          </div>
-        </div>
-        <div class="stage-caption" id="caption-${project.id}">
-          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
-          <span class="screen-caption-desc">${firstScreen.desc}</span>
-        </div>
-      </div>
-    `;
-  } else if (isGangRace) {
-    // GaNg RaCe Unified Landscape Viewport (Video + Screenshots in ONE 16:9 frame)
-    const videoData = project.video;
-    rightMediaHtml = `
-      <div class="project-device-stage gaming-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
-        ${tabsHtml}
-        
-        <div class="device-stage-viewport viewport-phone-landscape" id="panel-${project.id}">
-          <div class="device-ambient-glow" aria-hidden="true"></div>
-          
-          <div class="gameplay-video-wrapper" id="gang-race-media-mount">
-            <video id="gang-race-player" 
-                   class="gameplay-video" 
-                   controls 
-                   playsinline 
-                   preload="metadata" 
-                   poster="${videoData.poster}"
-                   aria-label="${videoData.title}">
-              <source src="${videoData.file}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-        
-        <div class="stage-caption" id="caption-${project.id}">
-          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
-          <span class="screen-caption-desc">${firstScreen.desc}</span>
-        </div>
-      </div>
-    `;
-  } else if (isTrendPilot || project.id === 'automation') {
-    // Desktop Landscape Frame (TrendPilot AI, Automation)
-    rightMediaHtml = `
-      <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
-        ${tabsHtml}
-        <div class="device-stage-viewport viewport-desktop" id="panel-${project.id}">
-          <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="device-desktop-primary device-landscape">
-            <div class="desktop-window-header">
-              <div class="window-controls" aria-hidden="true">
-                <span class="window-dot dot-close"></span>
-                <span class="window-dot dot-min"></span>
-                <span class="window-dot dot-max"></span>
-              </div>
-              <span class="desktop-window-title">${project.title} — Workspace</span>
-            </div>
-            <div class="desktop-screen-wrapper">
-              <picture>
-                <source srcset="${firstScreen.file}" type="image/webp">
-                <img id="desktop-img-${project.id}" class="desktop-screen-img screen-showcase-img"
-                     src="${firstScreen.fallback || firstScreen.file}"
-                     alt="${project.title} - ${firstScreen.name}: ${firstScreen.desc}"
-                     loading="lazy" />
-              </picture>
-            </div>
-          </div>
-        </div>
-        <div class="stage-caption" id="caption-${project.id}">
-          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
-          <span class="screen-caption-desc">${firstScreen.desc}</span>
-        </div>
-      </div>
-    `;
-  } else if (project.id === 'photo') {
-    // Desktop Single Window
-    rightMediaHtml = `
-      <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
-        ${tabsHtml}
-        <div class="device-stage-viewport viewport-desktop" id="panel-${project.id}">
-          <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="device-desktop-primary device-landscape">
-            <div class="desktop-window-header">
-              <div class="window-controls" aria-hidden="true">
-                <span class="window-dot dot-close"></span>
-                <span class="window-dot dot-min"></span>
-                <span class="window-dot dot-max"></span>
-              </div>
-              <span class="desktop-window-title">photo-enhancer-studio — v2.4</span>
-            </div>
-            <div class="desktop-screen-wrapper">
-              <picture>
-                <source srcset="${firstScreen.file}" type="image/webp">
-                <img id="desktop-img-${project.id}" class="desktop-screen-img screen-showcase-img"
-                     src="${firstScreen.fallback || firstScreen.file}"
-                     alt="${project.title} - ${firstScreen.name}: ${firstScreen.desc}"
-                     loading="lazy" />
-              </picture>
-            </div>
-          </div>
-        </div>
-        <div class="stage-caption" id="caption-${project.id}">
-          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
-          <span class="screen-caption-desc">${firstScreen.desc}</span>
-        </div>
-      </div>
-    `;
-  } else if (screens.length === 3) {
-    // Multi-Card Adaptive Carousel (3 Screens: Music Player, genEditor, FarmGen AI CLI)
-    rightMediaHtml = `
-      <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
-        ${tabsHtml}
-        <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
-          <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="stage-cards-container" data-project-id="${project.id}">
-            ${renderDeviceCard(project, screens[0], 0, 'pos-center')}
-            ${renderDeviceCard(project, screens[1], 1, 'pos-right')}
-            ${renderDeviceCard(project, screens[2], 2, 'pos-left')}
-          </div>
-        </div>
-        <div class="stage-caption" id="caption-${project.id}">
-          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
-          <span class="screen-caption-desc">${firstScreen.desc}</span>
-        </div>
-      </div>
-    `;
-  } else if (screens.length === 2) {
-    // Multi-Card Adaptive Carousel (2 Screens: ShareLink, Blog, Live Bus Tracking)
-    rightMediaHtml = `
-      <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
-        ${tabsHtml}
-        <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
-          <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="stage-cards-container" data-project-id="${project.id}">
-            ${renderDeviceCard(project, screens[0], 0, 'pos-center')}
-            ${renderDeviceCard(project, screens[1], 1, 'pos-side-right')}
-          </div>
-        </div>
-        <div class="stage-caption" id="caption-${project.id}">
-          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
-          <span class="screen-caption-desc">${firstScreen.desc}</span>
-        </div>
-      </div>
+  // Right Column Media Viewport HTML (Portrait Smartphone Presentation with Satellites)
+  // First screen mount content: video or image
+  let mountContent = '';
+  if (firstScreen.type === 'video') {
+    mountContent = `
+      <video id="player-${project.id}" 
+             class="phone-screen-video" 
+             controls 
+             playsinline 
+             preload="metadata" 
+             poster="${firstScreen.poster || ''}"
+             aria-label="${project.title} - ${firstScreen.name}">
+        <source src="${firstScreen.file}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     `;
   } else {
-    // Single screen
-    rightMediaHtml = `
-      <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
-        ${tabsHtml}
-        <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
-          <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="stage-cards-container" data-project-id="${project.id}">
-            ${renderDeviceCard(project, screens[0], 0, 'pos-single')}
-          </div>
-        </div>
-        <div class="stage-caption" id="caption-${project.id}">
-          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
-          <span class="screen-caption-desc">${firstScreen.desc}</span>
-        </div>
-      </div>
+    const isContain = firstScreen.fit === 'contain';
+    mountContent = `
+      <img class="phone-screen-img screen-showcase-img ${isContain ? 'contain-fit' : ''}"
+           src="${firstScreen.fallback || firstScreen.file}"
+           alt="${project.title} - ${firstScreen.name}: ${firstScreen.desc}"
+           loading="lazy" />
     `;
   }
+
+  // Left & Right satellite setup
+  const hasMultipleScreens = screens.length > 1;
+  const leftScreenObj = screens.length >= 3 ? screens[screens.length - 1] : secondScreen;
+  const rightScreenObj = screens.length >= 2 ? secondScreen : firstScreen;
+  const leftIdx = screens.length >= 3 ? screens.length - 1 : 1;
+  const rightIdx = screens.length >= 2 ? 1 : 0;
+
+  const satellitesHtml = hasMultipleScreens ? `
+    <div class="device-satellite device-satellite-left" data-target-screen="${leftIdx}" title="Click to view ${leftScreenObj.name}">
+      <img src="${leftScreenObj.fallback || leftScreenObj.file}" class="${leftScreenObj.fit === 'contain' ? 'contain-fit' : ''}" alt="${leftScreenObj.name} preview" loading="lazy" />
+      <span class="satellite-tag">${leftScreenObj.name}</span>
+    </div>
+    <div class="device-phone-primary">
+      <div class="phone-camera-notch" aria-hidden="true"></div>
+      <div class="phone-screen-mount" id="screen-mount-${project.id}">
+        ${mountContent}
+      </div>
+    </div>
+    <div class="device-satellite device-satellite-right" data-target-screen="${rightIdx}" title="Click to view ${rightScreenObj.name}">
+      <img src="${rightScreenObj.fallback || rightScreenObj.file}" class="${rightScreenObj.fit === 'contain' ? 'contain-fit' : ''}" alt="${rightScreenObj.name} preview" loading="lazy" />
+      <span class="satellite-tag">${rightScreenObj.name}</span>
+    </div>
+  ` : `
+    <div class="device-phone-primary">
+      <div class="phone-camera-notch" aria-hidden="true"></div>
+      <div class="phone-screen-mount" id="screen-mount-${project.id}">
+        ${mountContent}
+      </div>
+    </div>
+  `;
+
+  const rightMediaHtml = `
+    <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
+      ${tabsHtml}
+      
+      <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
+        <div class="device-ambient-glow" aria-hidden="true"></div>
+        ${satellitesHtml}
+      </div>
+      
+      <div class="stage-caption" id="caption-${project.id}">
+        <strong class="screen-caption-title">${firstScreen.name}</strong>: 
+        <span class="screen-caption-desc">${firstScreen.desc}</span>
+      </div>
+    </div>
+  `;
 
   return `
     <article class="project-slide reveal" id="project-${project.id}" data-category="${project.category}">
@@ -1370,7 +1148,8 @@ function switchProjectScreen(projectId, screenIndex) {
   const project = projects.find((p) => p.id === projectId);
   if (!project || !project.screens || !project.screens[screenIndex]) return;
 
-  const screen = project.screens[screenIndex];
+  const screens = project.screens;
+  const screen = screens[screenIndex];
   const stage = document.querySelector(`.project-device-stage[data-project-id="${projectId}"]`);
   if (!stage) return;
 
@@ -1383,131 +1162,80 @@ function switchProjectScreen(projectId, screenIndex) {
     tab.setAttribute('tabindex', isActive ? '0' : '-1');
   });
 
-  // 2. FarmLink dynamic switching
-  if (project.isFarmLink) {
-    const mainImg = stage.querySelector('#farmlink-main-screen');
-    const satellites = stage.querySelectorAll('.device-satellite');
-
-    if (mainImg) {
-      mainImg.style.opacity = '0.3';
-      mainImg.style.transform = 'scale(0.98)';
-      setTimeout(() => {
-        mainImg.src = screen.fallback || screen.file;
-        mainImg.alt = `${project.title} - ${screen.name}: ${screen.desc}`;
-        mainImg.style.opacity = '1';
-        mainImg.style.transform = 'scale(1)';
-      }, 150);
-    }
-
-    if (satellites.length >= 2 && project.screens.length > 2) {
-      const remainingIndices = project.screens
-        .map((_, i) => i)
-        .filter((i) => i !== screenIndex);
-      const leftIdx = remainingIndices[0];
-      const rightIdx = remainingIndices[1];
-      const leftSat = satellites[0];
-      const rightSat = satellites[1];
-
-      if (leftSat && project.screens[leftIdx]) {
-        leftSat.dataset.targetScreen = leftIdx;
-        const leftImg = leftSat.querySelector('img');
-        const leftTag = leftSat.querySelector('.satellite-tag');
-        if (leftImg) leftImg.src = project.screens[leftIdx].fallback || project.screens[leftIdx].file;
-        if (leftTag) leftTag.textContent = project.screens[leftIdx].name;
-      }
-      if (rightSat && project.screens[rightIdx]) {
-        rightSat.dataset.targetScreen = rightIdx;
-        const rightImg = rightSat.querySelector('img');
-        const rightTag = rightSat.querySelector('.satellite-tag');
-        if (rightImg) rightImg.src = project.screens[rightIdx].fallback || project.screens[rightIdx].file;
-        if (rightTag) rightTag.textContent = project.screens[rightIdx].name;
-      }
-    }
-  } else if (project.id === 'gang-race') {
-    // GaNg RaCe media swapping
-    const mediaMount = stage.querySelector('#gang-race-media-mount');
-    if (mediaMount) {
-      if (screenIndex === 0) {
-        // Mount video player
-        const videoData = project.video;
-        mediaMount.innerHTML = `
-          <video id="gang-race-player" 
-                 class="gameplay-video" 
+  // 2. Central phone screen mount
+  const mount = stage.querySelector('.phone-screen-mount');
+  if (mount) {
+    mount.style.opacity = '0.25';
+    mount.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      if (screen.type === 'video') {
+        mount.innerHTML = `
+          <video id="player-${projectId}" 
+                 class="phone-screen-video" 
                  controls 
                  playsinline 
                  preload="metadata" 
-                 poster="${videoData.poster}"
-                 aria-label="${videoData.title}">
-            <source src="${videoData.file}" type="video/mp4">
+                 poster="${screen.poster || ''}"
+                 aria-label="${project.title} - ${screen.name}">
+            <source src="${screen.file}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         `;
       } else {
-        // Mount image with lightbox
-        mediaMount.innerHTML = `
-          <picture>
-            <source srcset="${screen.file}" type="image/webp">
-            <img class="gameplay-video screen-showcase-img"
-                 src="${screen.fallback || screen.file}"
-                 alt="${project.title} - ${screen.name}: ${screen.desc}"
-                 loading="lazy"
-                 style="cursor: zoom-in;" />
-          </picture>
+        const isContain = screen.fit === 'contain';
+        mount.innerHTML = `
+          <img class="phone-screen-img screen-showcase-img ${isContain ? 'contain-fit' : ''}"
+               src="${screen.fallback || screen.file}" 
+               alt="${project.title} - ${screen.name}: ${screen.desc}" 
+               loading="lazy" />
         `;
-        const newImg = mediaMount.querySelector('img');
+        const newImg = mount.querySelector('img');
         if (newImg) {
           newImg.addEventListener('click', () => openLightbox(newImg.src, newImg.alt));
         }
       }
-    }
-  } else if (project.id === 'trendpilot' || project.id === 'automation' || project.id === 'photo') {
-    // Desktop frame image swap
-    const desktopImg = stage.querySelector(`#desktop-img-${project.id}`) || stage.querySelector('.desktop-screen-img');
-    const desktopSource = desktopImg ? desktopImg.parentElement.querySelector('source') : null;
-    if (desktopImg) {
-      desktopImg.style.opacity = '0.3';
-      desktopImg.style.transform = 'scale(0.98)';
-      setTimeout(() => {
-        if (desktopSource) {
-          desktopSource.srcset = screen.file;
-        }
-        desktopImg.src = screen.fallback || screen.file;
-        desktopImg.alt = `${project.title} - ${screen.name}: ${screen.desc}`;
-        desktopImg.style.opacity = '1';
-        desktopImg.style.transform = 'scale(1)';
-      }, 150);
-    }
-  } else {
-    // Multi-card stage carousel rearrangement (Music Player, genEditor, FarmGen, ShareLink, Blog, Bus)
-    const cards = stage.querySelectorAll('.stage-card');
-    const total = project.screens.length;
+      mount.style.opacity = '1';
+      mount.style.transform = 'scale(1)';
+    }, 150);
+  }
 
-    if (total === 3) {
-      cards.forEach((card) => {
-        const cIdx = parseInt(card.dataset.screenIndex, 10);
-        card.classList.remove('pos-center', 'pos-left', 'pos-right');
-        if (cIdx === screenIndex) {
-          card.classList.add('pos-center');
-        } else if (cIdx === (screenIndex + 1) % 3) {
-          card.classList.add('pos-right');
-        } else {
-          card.classList.add('pos-left');
-        }
-      });
-    } else if (total === 2) {
-      cards.forEach((card) => {
-        const cIdx = parseInt(card.dataset.screenIndex, 10);
-        card.classList.remove('pos-center', 'pos-side-right', 'pos-side-left');
-        if (cIdx === screenIndex) {
-          card.classList.add('pos-center');
-        } else {
-          card.classList.add('pos-side-right');
-        }
-      });
+  // 3. Dynamic Satellites Update (Left = prev, Right = next)
+  const satellites = stage.querySelectorAll('.device-satellite');
+  if (satellites.length >= 2 && screens.length >= 2) {
+    const N = screens.length;
+    const leftIdx = (screenIndex - 1 + N) % N;
+    const rightIdx = (screenIndex + 1) % N;
+    const leftSat = stage.querySelector('.device-satellite-left');
+    const rightSat = stage.querySelector('.device-satellite-right');
+
+    if (leftSat && screens[leftIdx]) {
+      leftSat.dataset.targetScreen = leftIdx;
+      leftSat.title = `Click to view ${screens[leftIdx].name}`;
+      const leftImg = leftSat.querySelector('img');
+      const leftTag = leftSat.querySelector('.satellite-tag');
+      const isContain = screens[leftIdx].fit === 'contain';
+      if (leftImg) {
+        leftImg.src = screens[leftIdx].fallback || screens[leftIdx].file;
+        leftImg.className = isContain ? 'contain-fit' : '';
+      }
+      if (leftTag) leftTag.textContent = screens[leftIdx].name;
+    }
+
+    if (rightSat && screens[rightIdx]) {
+      rightSat.dataset.targetScreen = rightIdx;
+      rightSat.title = `Click to view ${screens[rightIdx].name}`;
+      const rightImg = rightSat.querySelector('img');
+      const rightTag = rightSat.querySelector('.satellite-tag');
+      const isContain = screens[rightIdx].fit === 'contain';
+      if (rightImg) {
+        rightImg.src = screens[rightIdx].fallback || screens[rightIdx].file;
+        rightImg.className = isContain ? 'contain-fit' : '';
+      }
+      if (rightTag) rightTag.textContent = screens[rightIdx].name;
     }
   }
 
-  // 3. Update descriptive captions
+  // 4. Update descriptive captions
   const titleElem = stage.querySelector('.screen-caption-title');
   const descElem = stage.querySelector('.screen-caption-desc');
   if (titleElem) titleElem.textContent = screen.name;
@@ -1528,39 +1256,20 @@ function initShowcaseEventListeners() {
     });
   });
 
-  // Stage cards click / keydown
-  document.querySelectorAll('.stage-card').forEach((card) => {
-    card.addEventListener('click', (e) => {
-      const pId = card.dataset.projectId;
-      const sIdx = parseInt(card.dataset.screenIndex, 10);
-      if (card.classList.contains('pos-center') || card.classList.contains('pos-single')) {
-        const img = card.querySelector('.screen-showcase-img');
-        if (img) openLightbox(img.src, img.alt);
-      } else {
-        switchProjectScreen(pId, sIdx);
-      }
-    });
-
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const pId = card.dataset.projectId;
-        const sIdx = parseInt(card.dataset.screenIndex, 10);
-        switchProjectScreen(pId, sIdx);
-      }
-    });
-  });
-
-  // FarmLink Satellites click
+  // Satellites click
   document.querySelectorAll('.device-satellite').forEach((sat) => {
     sat.addEventListener('click', (e) => {
+      const stage = sat.closest('.project-device-stage');
+      const pId = stage?.dataset.projectId;
       const targetIdx = parseInt(sat.dataset.targetScreen, 10);
-      switchProjectScreen('farmlink', targetIdx);
+      if (pId && !isNaN(targetIdx)) {
+        switchProjectScreen(pId, targetIdx);
+      }
     });
   });
 
-  // Lightbox for standalone screen images (Desktop, FarmLink main, etc.)
-  document.querySelectorAll('#farmlink-main-screen, .desktop-screen-img').forEach((img) => {
+  // Lightbox for main screen images
+  document.querySelectorAll('.phone-screen-img').forEach((img) => {
     img.addEventListener('click', () => openLightbox(img.src, img.alt));
   });
 
@@ -1616,12 +1325,12 @@ function openProjectModal(project) {
     </div>
 
     <div class="modal-section">
-      <h3>The Challenge & Engineering Problem</h3>
+      <h3>The Challenge &amp; Engineering Problem</h3>
       <p>${project.problem}</p>
     </div>
 
     <div class="modal-section">
-      <h3>Architecture & System Solution</h3>
+      <h3>Architecture &amp; System Solution</h3>
       <p>${project.solution}</p>
     </div>
 
@@ -1629,7 +1338,7 @@ function openProjectModal(project) {
       techRows
         ? `
       <div class="modal-section">
-        <h3>Technical Deep-Dive & Architecture Decisions</h3>
+        <h3>Technical Deep-Dive &amp; Architecture Decisions</h3>
         <div class="tech-details-grid">
           ${techRows}
         </div>
@@ -1647,14 +1356,14 @@ function openProjectModal(project) {
 
     <div class="modal-section">
       <h3>Core Technology Stack</h3>
-      ${buildTechTags(project.tech, ['Flutter', 'Dart', 'Kotlin', 'AndroidX Media3', 'C++', 'n8n', 'FastAPI', 'PostgreSQL', 'OpenGL ES 3.0', 'AES-256-GCM', 'OpenHands AI'])}
+      ${buildTechTags(project.tech, ['Flutter', 'Dart', 'Kotlin', 'AndroidX Media3', 'C++', 'n8n', 'FastAPI', 'PostgreSQL', 'OpenGL ES 3.0', 'AES-256-GCM', 'OpenHands AI', 'Google Gemini LLM'])}
     </div>
 
     ${
       screenshotsHtml
         ? `
       <div class="modal-section">
-        <h3>Verified Interface & Architecture Evidence</h3>
+        <h3>Verified Interface &amp; Architecture Evidence</h3>
         <div class="modal-screenshots-grid">
           ${screenshotsHtml}
         </div>

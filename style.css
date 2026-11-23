@@ -235,7 +235,8 @@ body:not(.dark) .filter-pill.active .pill-count { background: rgba(255,255,255,0
 .project-story { background: transparent; }
 .project-showcase { display:grid; gap:40px; }
 .project-slide { width: 100%; transition: opacity 0.35s ease; }
-.project-section { display:grid; grid-template-columns:minmax(0,.94fr) minmax(380px,1.06fr); gap:48px; padding:44px; overflow:hidden; }
+.project-section { display:grid; grid-template-columns:minmax(0, 1fr) minmax(360px, 1.05fr); align-items:center; gap:40px; padding:36px 40px; overflow:hidden; }
+.left-content { display:flex; flex-direction:column; justify-content:center; }
 .panel { border:1px solid var(--border); border-radius:24px; background:var(--surface); box-shadow:var(--shadow); backdrop-filter:blur(16px); }
 .flagship-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
 .project-index { color:var(--muted); font:600 .74rem var(--display); letter-spacing:.12em; }
@@ -272,14 +273,14 @@ body:not(.dark) .filter-pill.active .pill-count { background: rgba(255,255,255,0
 .detail-btn:hover { border-color: var(--primary); transform: translateY(-2px); color: var(--primary); }
 
 /* Device Stages General */
-.project-device-stage { position: relative; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 20px; border-radius: 20px; border: 1px solid var(--border); background: var(--stage-bg); overflow: visible; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.project-device-stage { position: relative; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px 16px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--stage-bg); overflow: visible; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
 .project-device-stage:hover { border-color: color-mix(in srgb, var(--proj-accent, var(--primary)) 35%, var(--border)); box-shadow: 0 20px 60px color-mix(in srgb, var(--proj-accent, var(--primary)) 12%, transparent); }
-.screen-selector-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 16px; z-index: 10; width: 100%; }
+.screen-selector-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 14px; z-index: 10; width: 100%; }
 .screen-tab-btn { padding: 5px 12px; border-radius: 99px; border: 1px solid var(--border); background: var(--surface-solid); color: var(--muted); font-family: var(--display); font-size: 0.67rem; font-weight: 700; cursor: pointer; transition: all 0.25s ease; white-space: nowrap; }
 body.dark .screen-tab-btn { background: var(--surface); }
 .screen-tab-btn:hover { color: var(--text); border-color: var(--proj-accent, var(--primary)); transform: translateY(-2px); }
 .screen-tab-btn.active { color: #fff !important; background: linear-gradient(135deg, var(--proj-accent, var(--primary)), color-mix(in srgb, var(--proj-accent, var(--primary)) 70%, #000)) !important; border-color: var(--proj-accent, var(--primary)); box-shadow: 0 4px 14px color-mix(in srgb, var(--proj-accent, var(--primary)) 30%, transparent); }
-.device-stage-viewport { position: relative; width: 100%; max-width: 500px; min-height: 490px; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
+.device-stage-viewport { position: relative; width: 100%; max-width: 480px; min-height: 450px; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
 .device-ambient-glow { position: absolute; width: 290px; height: 420px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--proj-accent, var(--primary)) 30%, transparent) 0%, transparent 70%); filter: blur(40px); pointer-events: none; z-index: 1; opacity: 0.6; }
 .stage-caption { margin-top: 14px; text-align: center; font-size: 0.72rem; color: var(--muted); max-width: 90%; line-height: 1.5; }
 .stage-caption strong { color: var(--text); font-family: var(--display); }
@@ -414,11 +415,68 @@ body.dark .screen-tab-btn { background: var(--surface); }
   z-index: 8;
 }
 
-/* Portrait Phone Frame */
-.device-phone-primary { position: relative; z-index: 4; width: 236px; aspect-ratio: 9 / 19.5; border-radius: 32px; border: 7px solid #141b24; background: #000; box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.12); overflow: hidden; transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
-.device-phone-primary:hover { transform: translateY(-6px) scale(1.02); }
-.phone-camera-notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 72px; height: 16px; background: #05070a; border-radius: 20px; z-index: 6; }
-.phone-screen-img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+/* Portrait Phone Frame (Universal Reference Component) */
+.device-phone-primary {
+  position: relative;
+  z-index: 4;
+  width: 236px;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 32px;
+  border: 7px solid #141b24;
+  background: #000;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 35px color-mix(in srgb, var(--proj-accent, #6366f1) 18%, transparent);
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+}
+.device-phone-primary:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 28px 65px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 0 45px color-mix(in srgb, var(--proj-accent, #6366f1) 28%, transparent);
+}
+.phone-camera-notch {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 16px;
+  background: #05070a;
+  border-radius: 20px;
+  z-index: 6;
+}
+.phone-screen-mount {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.phone-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.phone-screen-img.contain-fit {
+  object-fit: contain;
+  background: #000;
+}
+.phone-screen-video {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
 
 /* Unified Media Viewports Across 11 Projects */
 /* Landscape Phone Frame (GaNg RaCe Unified Viewport) */
@@ -621,50 +679,179 @@ body.dark .screen-tab-btn { background: var(--surface); }
 .device-satellite-left { left: 6px; top: 50%; transform: translateY(-50%) rotate(-6deg); }
 .device-satellite-right { right: 6px; top: 50%; transform: translateY(-50%) rotate(6deg); }
 
-/* Custom FarmLink District and Dynamic AI Pricing Cards */
-.farmlink-district-card { padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--surface-solid) 85%, transparent); border: 1px solid var(--border); }
-.district-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
-.district-signal { color: var(--farm-accent); }
-.district-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.district-metric { padding: 8px 11px; border-radius: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 95%, transparent); }
-.metric-city { display: flex; align-items: center; justify-content: space-between; font-family: var(--display); font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-.metric-status-tag { font-size: 0.56rem; font-weight: 800; padding: 2px 6px; border-radius: 99px; text-transform: uppercase; }
-.high-demand .metric-status-tag { color: #04bfc4; background: rgba(4, 191, 196, 0.15); }
-.high-supply .metric-status-tag { color: var(--farm-accent); background: var(--farm-accent-soft); }
-.metric-val { font-size: 0.72rem; color: var(--muted); }
-.metric-val strong { color: var(--text); font-weight: 700; }
-.ai-pricing-card { padding: 13px 15px; border-radius: 14px; background: linear-gradient(145deg, color-mix(in srgb, var(--surface-solid) 92%, transparent), color-mix(in srgb, var(--farm-accent-soft) 40%, transparent)); border: 1px solid var(--farm-border); position: relative; overflow: hidden; }
-.pricing-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.pricing-title { font-family: var(--display); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: var(--text); }
-.pricing-confidence { font-size: 0.58rem; font-weight: 800; padding: 2px 7px; border-radius: 99px; background: var(--farm-accent-soft); color: var(--farm-accent); border: 1px solid var(--farm-border); }
-.pricing-hero { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; padding-bottom: 7px; border-bottom: 1px dashed var(--border); }
-.recommended-amount { font-family: var(--display); font-size: 1.55rem; font-weight: 800; color: var(--farm-accent); line-height: 1; }
-.recommended-label { font-size: 0.7rem; color: var(--muted); font-weight: 600; }
-.pricing-factors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 8px; }
-.factor-chip { padding: 5px 6px; border-radius: 8px; background: color-mix(in srgb, var(--surface) 85%, transparent); border: 1px solid var(--border); text-align: center; }
-.factor-chip .f-label { display: block; font-size: 0.56rem; color: var(--muted); text-transform: uppercase; }
-.factor-chip .f-val { display: block; font-family: var(--display); font-size: 0.74rem; font-weight: 700; color: var(--text); }
-.factor-chip.positive .f-val { color: var(--farm-accent); }
-.factor-chip.deduct .f-val { color: #f15b64; }
-.pricing-disclaimer { display: flex; align-items: center; gap: 5px; font-size: 0.63rem; color: var(--muted); }
+/* Compact FarmLink Market Intelligence & AI Pricing Widget */
+.farmlink-compact-telemetry {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface-solid) 88%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.market-intel-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.intel-item {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+}
+.intel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.intel-top .city {
+  font-family: var(--display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.status-badge {
+  font-size: 0.54rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+.status-badge.high-demand {
+  color: #04bfc4;
+  background: rgba(4, 191, 196, 0.15);
+}
+.status-badge.high-supply {
+  color: var(--farm-accent, #10b981);
+  background: rgba(16, 185, 129, 0.15);
+}
+.intel-detail {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+.intel-detail strong {
+  color: var(--text);
+  font-weight: 700;
+}
+.pricing-summary-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 95%, transparent), rgba(16, 185, 129, 0.08));
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+.pricing-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pricing-val {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--farm-accent, #10b981);
+}
+.pricing-status {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.pricing-breakdown {
+  font-size: 0.64rem;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+}
+.pricing-breakdown span {
+  font-weight: 600;
+}
 
-/* GaNg RaCe Telemetry Widget */
-.gaming-telemetry-card { padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--surface-solid) 85%, transparent); border: 1px solid var(--border); }
-.telemetry-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
-.badge-pill { font-size: 0.56rem; font-weight: 800; padding: 2px 7px; border-radius: 99px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
-.telemetry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.telemetry-item { padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--surface) 95%, transparent); border: 1px solid var(--border); display: flex; flex-direction: column; }
-.telemetry-item strong { font-family: var(--display); font-size: 0.78rem; color: var(--text); }
-.telemetry-item small { font-size: 0.65rem; color: var(--muted); line-height: 1.3; margin-top: 2px; }
+/* Compact GaNg RaCe Telemetry Widget */
+.gaming-telemetry-compact {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface-solid) 85%, transparent);
+  border: 1px solid var(--border);
+}
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.badge-pill {
+  font-size: 0.54rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 99px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.telemetry-item {
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 95%, transparent);
+  border: 1px solid var(--border);
+}
+.telemetry-item strong {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  color: var(--text);
+  display: block;
+}
+.telemetry-item small {
+  font-size: 0.6rem;
+  color: var(--muted);
+}
 
-/* TrendPilot Agent Steps Widget */
-.trendpilot-agent-card { padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--surface-solid) 85%, transparent); border: 1px solid var(--border); }
-.agent-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
-.agent-pipeline-steps { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.step-pill { padding: 4px 9px; border-radius: 8px; background: color-mix(in srgb, var(--surface) 90%, transparent); border: 1px solid var(--border); font-size: 0.68rem; font-weight: 700; color: var(--text); display: inline-flex; align-items: center; gap: 5px; }
-.step-pill span { color: var(--primary-2); font-size: 0.6rem; font-family: var(--display); }
-.step-pill.step-human { border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.12); color: #06b6d4; }
-.step-arrow { color: var(--muted); font-size: 0.75rem; }
+/* Compact Social Media Meme Generator Steps Widget */
+.agent-telemetry-compact {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface-solid) 85%, transparent);
+  border: 1px solid var(--border);
+}
+.agent-pipeline-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.step-chip {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  border: 1px solid var(--border);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.step-chip.highlight {
+  border-color: rgba(6, 182, 212, 0.4);
+  background: rgba(6, 182, 212, 0.12);
+  color: #06b6d4;
+}
+.step-arrow {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
 
 /* Project Detail Modal */
 .project-modal { position: fixed; inset: 0; z-index: 1900; display: flex; align-items: center; justify-content: center; padding: 20px; visibility: hidden; opacity: 0; transition: visibility 0.3s, opacity 0.3s; }
