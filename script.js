@@ -1,8 +1,8 @@
 /**
  * Gengadharan S — Master Developer Portfolio Engine
- * Production Architecture with 11 Full-Width Two-Column Project Showcases
- * (FarmLink Structural Reference Standard across all projects),
- * Category Filtering, Unified Media Viewports, Full Case Study Modals, and Accessible Navigation.
+ * Multi-Screenshot Showcases (Music Player 3D Carousel Standard),
+ * Strict 11-Project Sequential Architecture, Unified Media Viewports,
+ * Hero Avatar Video Controller, and Full-Width Two-Column Showcases.
  */
 
 'use strict';
@@ -25,6 +25,39 @@ const modalContentMount = document.getElementById('modal-content-mount');
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 const lightboxClose = document.getElementById('lightbox-close');
+
+// Hero Avatar Video Introduction Controller (Reference 1)
+const avatarVideo = document.getElementById('avatar-video');
+const avatarImage = document.getElementById('avatar-image');
+const videoStatus = document.querySelector('.video-status');
+const playIntroBtn = document.getElementById('play-intro-btn');
+
+if (playIntroBtn && avatarVideo) {
+  playIntroBtn.addEventListener('click', () => {
+    playIntroBtn.style.display = 'none';
+    avatarVideo.hidden = false;
+    avatarVideo.classList.remove('fade-out');
+    if (avatarImage) avatarImage.classList.remove('visible');
+    avatarVideo.currentTime = 0;
+    avatarVideo.muted = false;
+    avatarVideo.play().then(() => {
+      if (videoStatus) videoStatus.textContent = 'Playing introduction';
+    }).catch(err => {
+      console.log('Video playback note:', err);
+      playIntroBtn.style.display = 'flex';
+    });
+  });
+
+  avatarVideo.addEventListener('ended', () => {
+    if (avatarImage) avatarImage.classList.add('visible');
+    avatarVideo.classList.add('fade-out');
+    setTimeout(() => {
+      avatarVideo.hidden = true;
+    }, 800);
+    playIntroBtn.style.display = 'flex';
+    if (videoStatus) videoStatus.textContent = 'Watch introduction again';
+  });
+}
 
 // ============================================================================
 // DATA REPOSITORY: 11 COMPLETE PROJECTS (STRICT USER SPECIFIED ORDER)
@@ -95,7 +128,6 @@ const projects = [
       }
     ]
   },
-
   // --------------------------------------------------------------------------
   // 02. FarmLink
   // --------------------------------------------------------------------------
@@ -145,7 +177,6 @@ const projects = [
       { id: 'orders', name: 'Orders', file: 'assets/projects/farmlink-orders.webp', fallback: 'assets/projects/farmlink-orders.png', desc: 'Fulfillment Tracking: Pending, Accepted, Completed' }
     ]
   },
-
   // --------------------------------------------------------------------------
   // 03. TrendPilot AI – Social Media Meme Generator
   // --------------------------------------------------------------------------
@@ -241,7 +272,6 @@ const projects = [
       }
     ]
   },
-
   // --------------------------------------------------------------------------
   // 04. GaNg RaCe – Racing Game
   // --------------------------------------------------------------------------
@@ -337,15 +367,75 @@ const projects = [
       }
     ]
   },
-
   // --------------------------------------------------------------------------
-  // 05. ShareLink – File Transfer
+  // 05. FarmGen AI CLI
+  // --------------------------------------------------------------------------
+  {
+    id: 'farmgen',
+    title: 'FarmGen AI CLI',
+    subtitle: 'Terminal AI Assistant with 54+ Agricultural Skills',
+    tag: 'PROJECT / 05 • AUTONOMOUS TERMINAL AGENT',
+    category: 'ai-automation',
+    device: 'terminal',
+    accentColor: '#b8f34a',
+    badge: '54+ Domain Skills',
+    problem:
+      'Farmers, researchers, and technical agriculturalists need rapid terminal-based guidance and automated cultivation reports without navigating slow web portals.',
+    solution:
+      'Command-line assistant built with OpenHands AI and Python providing intelligent natural language farming guidance, crop diagnosis, and cultivation report generation directly from the terminal.',
+    technicalDetails: {
+      agentArchitecture:
+        'Built on OpenHands AI autonomous agent framework, loading 54+ specialized agricultural tools, weather queries, and soil management skills.',
+      promptEngineering:
+        'Structured context prompts ensuring deterministic crop planting schedules, irrigation volumes, and organic pest remedy recommendations.',
+      terminalCli:
+        'Rich terminal formatting and command-line argument parser designed for rapid interactive execution and file report export.'
+    },
+    capabilities: [
+      'Natural language command execution directly in terminal workspace',
+      '54+ integrated agricultural domain skills and tools',
+      'AI-generated cultivation guides and summer irrigation schedules',
+      'Extensible modular architecture supporting future agent plugins'
+    ],
+    tech: ['Python', 'OpenHands AI', 'LLM', 'CLI', 'Prompt Engineering'],
+    metrics: [
+      { label: 'Agent Core', val: 'OpenHands AI' },
+      { label: 'Domain Skills', val: '54+ Integrated' },
+      { label: 'Interface', val: 'Interactive Terminal' },
+      { label: 'Language', val: 'Python 3' }
+    ],
+    screens: [
+      {
+        id: 'farmgen-term',
+        name: 'Terminal Interface',
+        file: 'assets/projects/farmgen-1.webp',
+        fallback: 'assets/projects/farmgen-1.png',
+        desc: 'FarmGen AI command-line assistant initialized with 54+ domain-specific skills and tools.'
+      },
+      {
+        id: 'farmgen-query',
+        name: 'Farming Query',
+        file: 'assets/projects/farmgen-2.webp',
+        fallback: 'assets/projects/farmgen-2.png',
+        desc: 'Natural language summer irrigation query execution and diagnostic tool selection.'
+      },
+      {
+        id: 'farmgen-res',
+        name: 'Cultivation Report',
+        file: 'assets/projects/farmgen-3.webp',
+        fallback: 'assets/projects/farmgen-3.png',
+        desc: 'Structured crop planting methods, irrigation volumes, and diagnostic guides output.'
+      }
+    ]
+  },
+  // --------------------------------------------------------------------------
+  // 06. ShareLink – File Transfer
   // --------------------------------------------------------------------------
   {
     id: 'sharelink',
     title: 'ShareLink',
     subtitle: 'High-Speed Offline-First Cross-Platform File Transfer',
-    tag: 'PROJECT / 05 • LOCAL P2P & AES-256-GCM',
+    tag: 'PROJECT / 06 • LOCAL P2P & AES-256-GCM',
     category: 'mobile-native',
     device: 'desktop-landscape',
     accentColor: '#10b981',
@@ -397,15 +487,14 @@ const projects = [
       }
     ]
   },
-
   // --------------------------------------------------------------------------
-  // 06. AI Photo Enhancer
+  // 07. AI Photo Enhancer
   // --------------------------------------------------------------------------
   {
     id: 'photo',
     title: 'AI Photo Enhancer',
     subtitle: 'Real-ESRGAN Deep Learning Image Upscaling',
-    tag: 'PROJECT / 06 • NEURAL IMAGE PROCESSING',
+    tag: 'PROJECT / 07 • NEURAL IMAGE PROCESSING',
     category: 'fullstack-cloud',
     device: 'desktop-landscape',
     accentColor: '#2de1d1',
@@ -446,15 +535,14 @@ const projects = [
       }
     ]
   },
-
   // --------------------------------------------------------------------------
-  // 07. genEditor – Android Video Editor
+  // 08. genEditor – Android Video Editor
   // --------------------------------------------------------------------------
   {
     id: 'geneditor',
     title: 'genEditor',
     subtitle: 'Offline Android Video Editor & Media3 Pipeline',
-    tag: 'PROJECT / 07 • NATIVE ANDROID & MEDIA3',
+    tag: 'PROJECT / 08 • NATIVE ANDROID & MEDIA3',
     category: 'mobile-native',
     device: 'phone-portrait',
     accentColor: '#8174ff',
@@ -519,15 +607,14 @@ const projects = [
       }
     ]
   },
-
   // --------------------------------------------------------------------------
-  // 08. Blog Application
+  // 09. Blog Application
   // --------------------------------------------------------------------------
   {
     id: 'blog',
     title: 'Blog Application',
     subtitle: 'Full-Stack Mobile & Web Publishing Platform',
-    tag: 'PROJECT / 08 • FULL-STACK MOBILE + API',
+    tag: 'PROJECT / 09 • FULL-STACK MOBILE + API',
     category: 'fullstack-cloud',
     device: 'phone-portrait',
     accentColor: '#38bdf8',
@@ -576,15 +663,14 @@ const projects = [
       }
     ]
   },
-
   // --------------------------------------------------------------------------
-  // 09. Live Bus Tracking
+  // 10. Live Bus Tracking
   // --------------------------------------------------------------------------
   {
     id: 'bus',
     title: 'Live Bus Tracking Simulation',
     subtitle: 'Real-Time Transit & Map Telemetry System',
-    tag: 'PROJECT / 09 • REALTIME SIMULATION',
+    tag: 'PROJECT / 10 • REALTIME SIMULATION',
     category: 'mobile-native',
     device: 'phone-portrait',
     accentColor: '#0ea5e9',
@@ -632,69 +718,6 @@ const projects = [
       }
     ]
   },
-
-  // --------------------------------------------------------------------------
-  // 10. FarmGen AI CLI
-  // --------------------------------------------------------------------------
-  {
-    id: 'farmgen',
-    title: 'FarmGen AI CLI',
-    subtitle: 'Terminal AI Assistant with 54+ Agricultural Skills',
-    tag: 'PROJECT / 10 • AUTONOMOUS TERMINAL AGENT',
-    category: 'ai-automation',
-    device: 'terminal',
-    accentColor: '#b8f34a',
-    badge: '54+ Domain Skills',
-    problem:
-      'Farmers, researchers, and technical agriculturalists need rapid terminal-based guidance and automated cultivation reports without navigating slow web portals.',
-    solution:
-      'Command-line assistant built with OpenHands AI and Python providing intelligent natural language farming guidance, crop diagnosis, and cultivation report generation directly from the terminal.',
-    technicalDetails: {
-      agentArchitecture:
-        'Built on OpenHands AI autonomous agent framework, loading 54+ specialized agricultural tools, weather queries, and soil management skills.',
-      promptEngineering:
-        'Structured context prompts ensuring deterministic crop planting schedules, irrigation volumes, and organic pest remedy recommendations.',
-      terminalCli:
-        'Rich terminal formatting and command-line argument parser designed for rapid interactive execution and file report export.'
-    },
-    capabilities: [
-      'Natural language command execution directly in terminal workspace',
-      '54+ integrated agricultural domain skills and tools',
-      'AI-generated cultivation guides and summer irrigation schedules',
-      'Extensible modular architecture supporting future agent plugins'
-    ],
-    tech: ['Python', 'OpenHands AI', 'LLM', 'CLI', 'Prompt Engineering'],
-    metrics: [
-      { label: 'Agent Core', val: 'OpenHands AI' },
-      { label: 'Domain Skills', val: '54+ Integrated' },
-      { label: 'Interface', val: 'Interactive Terminal' },
-      { label: 'Language', val: 'Python 3' }
-    ],
-    screens: [
-      {
-        id: 'farmgen-term',
-        name: 'Terminal Interface',
-        file: 'assets/projects/farmgen-1.webp',
-        fallback: 'assets/projects/farmgen-1.png',
-        desc: 'FarmGen AI command-line assistant initialized with 54+ domain-specific skills and tools.'
-      },
-      {
-        id: 'farmgen-query',
-        name: 'Farming Query',
-        file: 'assets/projects/farmgen-2.webp',
-        fallback: 'assets/projects/farmgen-2.png',
-        desc: 'Natural language summer irrigation query execution and diagnostic tool selection.'
-      },
-      {
-        id: 'farmgen-res',
-        name: 'Cultivation Report',
-        file: 'assets/projects/farmgen-3.webp',
-        fallback: 'assets/projects/farmgen-3.png',
-        desc: 'Structured crop planting methods, irrigation volumes, and diagnostic guides output.'
-      }
-    ]
-  },
-
   // --------------------------------------------------------------------------
   // 11. Existing Workflow Automation
   // --------------------------------------------------------------------------
@@ -752,91 +775,49 @@ const projects = [
 ];
 
 // ============================================================================
-// THEME & NAVIGATION CONTROLLERS
+// TAXONOMY: 5 ENGINEERING CATEGORIES
 // ============================================================================
-function setTheme(isDark) {
-  body.classList.toggle('dark', isDark);
-  toggle?.setAttribute('aria-pressed', String(isDark));
-  toggle?.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#070a12' : '#f5f7fb');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
+const CATEGORIES = [
+  { id: 'all', label: 'All Projects', count: 11 },
+  { id: 'mobile-native', label: 'Mobile & Native Systems', count: 5 },
+  { id: 'ai-automation', label: 'AI & Automation', count: 3 },
+  { id: 'fullstack-cloud', label: 'Full-Stack & Cloud', count: 2 },
+  { id: 'game-dev', label: 'Game Development', count: 1 }
+];
 
-setTheme(localStorage.getItem('theme') !== 'light');
-toggle?.addEventListener('click', () => setTheme(!body.classList.contains('dark')));
-
-function closeMenu() {
-  body.classList.remove('menu-open');
-  menuToggle?.setAttribute('aria-expanded', 'false');
-  menuToggle?.setAttribute('aria-label', 'Open navigation');
-}
-
-menuToggle?.addEventListener('click', () => {
-  const willOpen = !body.classList.contains('menu-open');
-  body.classList.toggle('menu-open', willOpen);
-  menuToggle.setAttribute('aria-expanded', String(willOpen));
-  menuToggle.setAttribute('aria-label', willOpen ? 'Close navigation' : 'Open navigation');
-});
-
-document.querySelectorAll('.nav-link').forEach((link) => link.addEventListener('click', closeMenu));
+let currentFilter = 'all';
 
 // ============================================================================
-// LIGHTBOX CONTROLLER
+// HELPER FORMATTERS & LINK BUILDERS
 // ============================================================================
-function openLightbox(src, alt) {
-  if (!lightboxImage || !lightbox) return;
-  lightboxImage.src = src;
-  lightboxImage.alt = alt || 'Preview';
-  lightbox.classList.add('open');
-  lightbox.setAttribute('aria-hidden', 'false');
-  lightboxClose?.focus();
-  body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-  if (!lightbox) return;
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden', 'true');
-  body.style.overflow = '';
-}
-
-lightbox?.addEventListener('click', (event) => {
-  if (event.target === lightbox) closeLightbox();
-});
-lightboxClose?.addEventListener('click', closeLightbox);
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closeLightbox();
-    closeProjectModal();
-    closeMenu();
-  }
-});
-
-// ============================================================================
-// REUSABLE HTML BUILDERS
-// ============================================================================
-function buildTechTags(techList, highlightList = []) {
-  if (!techList || !techList.length) return '';
-  return `
-    <div class="tech-tags">
-      ${techList.map((t) => {
-        const isHighlight = highlightList.includes(t);
-        return `<span class="${isHighlight ? 'tech-highlight' : ''}">${t}</span>`;
-      }).join('')}
-    </div>
-  `;
-}
-
 function buildMetricsStrip(metrics) {
-  if (!metrics || !metrics.length) return '';
+  if (!metrics || metrics.length === 0) return '';
   return `
     <div class="project-metrics-strip">
-      ${metrics.map((m) => `
+      ${metrics
+        .map(
+          (m) => `
         <div class="metric-pill">
           <span class="m-val">${m.val}</span>
           <span class="m-label">${m.label}</span>
         </div>
-      `).join('')}
+      `
+        )
+        .join('')}
+    </div>
+  `;
+}
+
+function buildTechTags(techList, highlightTags = []) {
+  if (!techList || techList.length === 0) return '';
+  return `
+    <div class="tech-tags">
+      ${techList
+        .map((t) => {
+          const isHighlight = highlightTags.includes(t);
+          return `<span class="${isHighlight ? 'tech-highlight' : ''}">${t}</span>`;
+        })
+        .join('')}
     </div>
   `;
 }
@@ -845,35 +826,158 @@ function buildProjectLinks(project) {
   const links = [];
   if (project.playstore) {
     links.push(`
-      <a href="${project.playstore}" target="_blank" rel="noopener" class="project-btn playstore-btn">
-        <span>📱</span> View on Play Store
+      <a href="${project.playstore}" target="_blank" rel="noopener" class="project-btn playstore-btn" aria-label="View ${project.title} on Google Play Store">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.5 1.5 0 0 1-.61-.925V2.739c0-.362.22-.705.61-.925zM15.207 13.414l2.793-2.793c.39-.39 1.024-.39 1.414 0l1.986 1.986a1 1 0 0 1 0 1.414l-4.193 4.193-2-2zM4.613.814l10.594 10.593-2 2L2.614 2.814a1 1 0 0 1 1.999-2zM4.613 23.186l8.594-8.593 2 2-10.594 10.593a1 1 0 0 1-2-2z"/></svg>
+        Play Store ↗
       </a>
     `);
   }
-  if (project.liveDemo) {
+  if (project.live) {
     links.push(`
-      <a href="${project.liveDemo}" target="_blank" rel="noopener" class="project-btn live-demo-btn">
-        <span>↗</span> Launch Live App
+      <a href="${project.live}" target="_blank" rel="noopener" class="project-btn live-demo-btn" aria-label="Open Live Demo for ${project.title}">
+        <span>●</span> Live Demo ↗
       </a>
     `);
   }
   if (project.github) {
     links.push(`
-      <a href="${project.github}" target="_blank" rel="noopener" class="project-btn github-btn">
-        <span>💻</span> View GitHub
+      <a href="${project.github}" target="_blank" rel="noopener" class="project-btn github-btn" aria-label="View Source Code on GitHub for ${project.title}">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub ↗
       </a>
     `);
   }
   links.push(`
-    <button type="button" class="project-btn detail-btn" onclick="openProjectModal('${project.id}')">
-      <span>📖</span> Full Case Study
+    <button class="project-btn detail-btn" data-project-id="${project.id}" aria-label="Open Full Engineering Case Study for ${project.title}">
+      Case Study ⚙
     </button>
   `);
   return `<div class="project-links">${links.join('')}</div>`;
 }
 
+function getCategoryLabel(catId) {
+  const match = CATEGORIES.find((c) => c.id === catId);
+  return match ? match.label : catId;
+}
+
 // ============================================================================
-// UNIFIED FARMLINK-STYLE SHOWCASE RENDERER (ALL 11 PROJECTS)
+// LIGHTBOX CONTROLLER
+// ============================================================================
+function openLightbox(src, alt) {
+  if (!lightbox || !lightboxImage) return;
+  lightboxImage.src = src;
+  lightboxImage.alt = alt || 'Enlarged project preview';
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  if (!lightbox || !lightboxImage) return;
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.src = '';
+  document.body.style.overflow = '';
+}
+
+lightboxClose?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox?.classList.contains('open')) {
+    closeLightbox();
+  }
+});
+
+// ============================================================================
+// REUSABLE DEVICE CARD COMPONENT (3D Perspective Multi-Card System)
+// ============================================================================
+function renderDeviceCard(project, screen, sIdx, posClass) {
+  const deviceType = project.device || 'phone-portrait';
+  const isLandscape = project.layout === 'landscape';
+  const fitStyle = screen.fit ? `object-fit: ${screen.fit};` : '';
+  const inlineImgStyle = fitStyle ? `style="${fitStyle}"` : '';
+
+  let innerMockup = '';
+  if (deviceType === 'terminal') {
+    innerMockup = `
+      <div class="device-terminal-primary">
+        <div class="terminal-window-header">
+          <div class="window-controls" aria-hidden="true">
+            <span class="window-dot dot-close"></span>
+            <span class="window-dot dot-min"></span>
+            <span class="window-dot dot-max"></span>
+          </div>
+          <span class="terminal-window-title">farmgen-ai — cli</span>
+        </div>
+        <div class="terminal-screen-wrapper">
+          <picture>
+            <source srcset="${screen.file}" type="image/webp">
+            <img class="terminal-screen-img screen-showcase-img" 
+                 src="${screen.fallback || screen.file}" 
+                 alt="${project.title} - ${screen.name}: ${screen.desc}"
+                 loading="lazy"
+                 ${inlineImgStyle} />
+          </picture>
+        </div>
+      </div>
+    `;
+  } else if (deviceType === 'desktop' || deviceType === 'desktop-landscape') {
+    innerMockup = `
+      <div class="device-desktop-primary ${isLandscape ? 'device-landscape' : ''}">
+        <div class="desktop-window-header">
+          <div class="window-controls" aria-hidden="true">
+            <span class="window-dot dot-close"></span>
+            <span class="window-dot dot-min"></span>
+            <span class="window-dot dot-max"></span>
+          </div>
+          <span class="desktop-window-title">${project.title}</span>
+        </div>
+        <div class="desktop-screen-wrapper">
+          <picture>
+            <source srcset="${screen.file}" type="image/webp">
+            <img class="desktop-screen-img screen-showcase-img" 
+                 src="${screen.fallback || screen.file}" 
+                 alt="${project.title} - ${screen.name}: ${screen.desc}"
+                 loading="lazy"
+                 ${inlineImgStyle} />
+          </picture>
+        </div>
+      </div>
+    `;
+  } else {
+    // Phone mockup
+    innerMockup = `
+      <div class="device-phone-primary">
+        <div class="phone-camera-notch" aria-hidden="true"></div>
+        <picture>
+          <source srcset="${screen.file}" type="image/webp">
+          <img class="phone-screen-img screen-showcase-img" 
+               src="${screen.fallback || screen.file}" 
+               alt="${project.title} - ${screen.name}: ${screen.desc}"
+               loading="lazy"
+               ${inlineImgStyle} />
+        </picture>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="stage-card ${posClass}" 
+         data-screen-index="${sIdx}"
+         data-project-id="${project.id}"
+         role="button"
+         tabindex="0"
+         aria-label="${screen.name}">
+      ${innerMockup}
+      <span class="stage-card-tag">${screen.name}</span>
+    </div>
+  `;
+}
+
+// ============================================================================
+// SHOWCASE RENDERER: FARMLINK 2-COLUMN PATTERN ACROSS ALL 11 PROJECTS
 // ============================================================================
 function renderProjectShowcase(project, index) {
   const isFarmLink = Boolean(project.isFarmLink);
@@ -1075,18 +1179,18 @@ function renderProjectShowcase(project, index) {
         ${tabsHtml}
         <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
           <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="device-satellite device-satellite-left" data-target-screen="1" title="Click to view Marketplace">
-            <img src="${screens[1].file}" alt="Marketplace preview" loading="lazy" />
-            <span class="satellite-tag">Marketplace</span>
+          <div class="device-satellite device-satellite-left" data-target-screen="1" title="Click to view ${screens[1].name}">
+            <img src="${screens[1].fallback || screens[1].file}" alt="${screens[1].name} preview" loading="lazy" />
+            <span class="satellite-tag">${screens[1].name}</span>
           </div>
           <div class="device-phone-primary">
             <div class="phone-camera-notch" aria-hidden="true"></div>
             <img id="farmlink-main-screen" class="phone-screen-img screen-showcase-img"
-                 src="${firstScreen.file}" alt="${project.title} - ${firstScreen.name}" loading="lazy" />
+                 src="${firstScreen.fallback || firstScreen.file}" alt="${project.title} - ${firstScreen.name}" loading="lazy" />
           </div>
-          <div class="device-satellite device-satellite-right" data-target-screen="2" title="Click to view AI Pricing">
-            <img src="${screens[2].file}" alt="AI Pricing preview" loading="lazy" />
-            <span class="satellite-tag">Dynamic Pricing</span>
+          <div class="device-satellite device-satellite-right" data-target-screen="2" title="Click to view ${screens[2].name}">
+            <img src="${screens[2].fallback || screens[2].file}" alt="${screens[2].name} preview" loading="lazy" />
+            <span class="satellite-tag">${screens[2].name}</span>
           </div>
         </div>
         <div class="stage-caption" id="caption-${project.id}">
@@ -1125,8 +1229,8 @@ function renderProjectShowcase(project, index) {
         </div>
       </div>
     `;
-  } else if (project.device === 'desktop-landscape') {
-    // Desktop Landscape Frame (TrendPilot AI, ShareLink, Photo Enhancer, Automation)
+  } else if (isTrendPilot || project.id === 'automation') {
+    // Desktop Landscape Frame (TrendPilot AI, Automation)
     rightMediaHtml = `
       <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
         ${tabsHtml}
@@ -1158,26 +1262,26 @@ function renderProjectShowcase(project, index) {
         </div>
       </div>
     `;
-  } else if (project.device === 'terminal') {
-    // Terminal Frame (FarmGen AI CLI)
+  } else if (project.id === 'photo') {
+    // Desktop Single Window
     rightMediaHtml = `
       <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
         ${tabsHtml}
-        <div class="device-stage-viewport viewport-terminal" id="panel-${project.id}">
+        <div class="device-stage-viewport viewport-desktop" id="panel-${project.id}">
           <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="device-terminal-primary">
-            <div class="terminal-window-header">
+          <div class="device-desktop-primary device-landscape">
+            <div class="desktop-window-header">
               <div class="window-controls" aria-hidden="true">
                 <span class="window-dot dot-close"></span>
                 <span class="window-dot dot-min"></span>
                 <span class="window-dot dot-max"></span>
               </div>
-              <span class="terminal-window-title">farmgen-ai — cli</span>
+              <span class="desktop-window-title">photo-enhancer-studio — v2.4</span>
             </div>
-            <div class="terminal-screen-wrapper">
+            <div class="desktop-screen-wrapper">
               <picture>
                 <source srcset="${firstScreen.file}" type="image/webp">
-                <img id="terminal-img-${project.id}" class="terminal-screen-img screen-showcase-img"
+                <img id="desktop-img-${project.id}" class="desktop-screen-img screen-showcase-img"
                      src="${firstScreen.fallback || firstScreen.file}"
                      alt="${project.title} - ${firstScreen.name}: ${firstScreen.desc}"
                      loading="lazy" />
@@ -1191,22 +1295,52 @@ function renderProjectShowcase(project, index) {
         </div>
       </div>
     `;
-  } else {
-    // Portrait Smartphone Frame (genEditor, Music, Blog, Bus)
+  } else if (screens.length === 3) {
+    // Multi-Card Adaptive Carousel (3 Screens: Music Player, genEditor, FarmGen AI CLI)
     rightMediaHtml = `
       <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
         ${tabsHtml}
         <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
           <div class="device-ambient-glow" aria-hidden="true"></div>
-          <div class="device-phone-primary">
-            <div class="phone-camera-notch" aria-hidden="true"></div>
-            <picture>
-              <source srcset="${firstScreen.file}" type="image/webp">
-              <img id="phone-img-${project.id}" class="phone-screen-img screen-showcase-img"
-                   src="${firstScreen.fallback || firstScreen.file}"
-                   alt="${project.title} - ${firstScreen.name}: ${firstScreen.desc}"
-                   loading="lazy" />
-            </picture>
+          <div class="stage-cards-container" data-project-id="${project.id}">
+            ${renderDeviceCard(project, screens[0], 0, 'pos-center')}
+            ${renderDeviceCard(project, screens[1], 1, 'pos-right')}
+            ${renderDeviceCard(project, screens[2], 2, 'pos-left')}
+          </div>
+        </div>
+        <div class="stage-caption" id="caption-${project.id}">
+          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
+          <span class="screen-caption-desc">${firstScreen.desc}</span>
+        </div>
+      </div>
+    `;
+  } else if (screens.length === 2) {
+    // Multi-Card Adaptive Carousel (2 Screens: ShareLink, Blog, Live Bus Tracking)
+    rightMediaHtml = `
+      <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
+        ${tabsHtml}
+        <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
+          <div class="device-ambient-glow" aria-hidden="true"></div>
+          <div class="stage-cards-container" data-project-id="${project.id}">
+            ${renderDeviceCard(project, screens[0], 0, 'pos-center')}
+            ${renderDeviceCard(project, screens[1], 1, 'pos-side-right')}
+          </div>
+        </div>
+        <div class="stage-caption" id="caption-${project.id}">
+          <strong class="screen-caption-title">${firstScreen.name}</strong>: 
+          <span class="screen-caption-desc">${firstScreen.desc}</span>
+        </div>
+      </div>
+    `;
+  } else {
+    // Single screen
+    rightMediaHtml = `
+      <div class="project-device-stage" data-project-id="${project.id}" style="--proj-accent: ${project.accentColor};">
+        ${tabsHtml}
+        <div class="device-stage-viewport viewport-phone" id="panel-${project.id}">
+          <div class="device-ambient-glow" aria-hidden="true"></div>
+          <div class="stage-cards-container" data-project-id="${project.id}">
+            ${renderDeviceCard(project, screens[0], 0, 'pos-single')}
           </div>
         </div>
         <div class="stage-caption" id="caption-${project.id}">
@@ -1240,36 +1374,37 @@ function switchProjectScreen(projectId, screenIndex) {
   const stage = document.querySelector(`.project-device-stage[data-project-id="${projectId}"]`);
   if (!stage) return;
 
+  // 1. Update tab active states
   const tabs = stage.querySelectorAll('.screen-tab-btn');
-  const titleElem = stage.querySelector('.screen-caption-title');
-  const descElem = stage.querySelector('.screen-caption-desc');
-
-  // Update tabs active state
-  tabs.forEach((tab, i) => {
-    const isActive = i === screenIndex;
+  tabs.forEach((tab, idx) => {
+    const isActive = idx === screenIndex;
     tab.classList.toggle('active', isActive);
     tab.setAttribute('aria-selected', String(isActive));
     tab.setAttribute('tabindex', isActive ? '0' : '-1');
   });
 
-  // 1. FarmLink satellites swap
+  // 2. FarmLink dynamic switching
   if (project.isFarmLink) {
     const mainImg = stage.querySelector('#farmlink-main-screen');
     const satellites = stage.querySelectorAll('.device-satellite');
 
     if (mainImg) {
-      mainImg.style.opacity = '0.2';
+      mainImg.style.opacity = '0.3';
+      mainImg.style.transform = 'scale(0.98)';
       setTimeout(() => {
-        mainImg.src = screen.file;
+        mainImg.src = screen.fallback || screen.file;
         mainImg.alt = `${project.title} - ${screen.name}: ${screen.desc}`;
         mainImg.style.opacity = '1';
+        mainImg.style.transform = 'scale(1)';
       }, 150);
     }
 
     if (satellites.length >= 2 && project.screens.length > 2) {
-      const otherIndices = project.screens.map((_, i) => i).filter((i) => i !== screenIndex);
-      const leftIdx = otherIndices[0];
-      const rightIdx = otherIndices[1];
+      const remainingIndices = project.screens
+        .map((_, i) => i)
+        .filter((i) => i !== screenIndex);
+      const leftIdx = remainingIndices[0];
+      const rightIdx = remainingIndices[1];
       const leftSat = satellites[0];
       const rightSat = satellites[1];
 
@@ -1277,271 +1412,327 @@ function switchProjectScreen(projectId, screenIndex) {
         leftSat.dataset.targetScreen = leftIdx;
         const leftImg = leftSat.querySelector('img');
         const leftTag = leftSat.querySelector('.satellite-tag');
-        if (leftImg) leftImg.src = project.screens[leftIdx].file;
+        if (leftImg) leftImg.src = project.screens[leftIdx].fallback || project.screens[leftIdx].file;
         if (leftTag) leftTag.textContent = project.screens[leftIdx].name;
       }
       if (rightSat && project.screens[rightIdx]) {
         rightSat.dataset.targetScreen = rightIdx;
         const rightImg = rightSat.querySelector('img');
         const rightTag = rightSat.querySelector('.satellite-tag');
-        if (rightImg) rightImg.src = project.screens[rightIdx].file;
+        if (rightImg) rightImg.src = project.screens[rightIdx].fallback || project.screens[rightIdx].file;
         if (rightTag) rightTag.textContent = project.screens[rightIdx].name;
       }
     }
-  } 
-  // 2. GaNg RaCe: Toggle between HTML5 video player and screenshots in SAME 16:9 viewport
-  else if (project.id === 'gang-race') {
+  } else if (project.id === 'gang-race') {
+    // GaNg RaCe media swapping
     const mediaMount = stage.querySelector('#gang-race-media-mount');
     if (mediaMount) {
-      if (screen.isVideo) {
+      if (screenIndex === 0) {
+        // Mount video player
+        const videoData = project.video;
         mediaMount.innerHTML = `
           <video id="gang-race-player" 
                  class="gameplay-video" 
                  controls 
                  playsinline 
                  preload="metadata" 
-                 poster="${project.video.poster}"
-                 aria-label="${project.video.title}">
-            <source src="${project.video.file}" type="video/mp4">
+                 poster="${videoData.poster}"
+                 aria-label="${videoData.title}">
+            <source src="${videoData.file}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         `;
       } else {
-        // Pause any playing video before replacing
-        const currentVideo = mediaMount.querySelector('video');
-        if (currentVideo) currentVideo.pause();
-
+        // Mount image with lightbox
         mediaMount.innerHTML = `
-          <div class="landscape-screen-wrapper">
-            <picture>
-              <source srcset="${screen.file}" type="image/webp">
-              <img class="landscape-screen-img screen-showcase-img"
-                   src="${screen.fallback || screen.file}"
-                   alt="${project.title} - ${screen.name}: ${screen.desc}"
-                   loading="lazy"
-                   onclick="openLightbox('${screen.file}', '${screen.name}')" />
-            </picture>
-          </div>
+          <picture>
+            <source srcset="${screen.file}" type="image/webp">
+            <img class="gameplay-video screen-showcase-img"
+                 src="${screen.fallback || screen.file}"
+                 alt="${project.title} - ${screen.name}: ${screen.desc}"
+                 loading="lazy"
+                 style="cursor: zoom-in;" />
+          </picture>
         `;
+        const newImg = mediaMount.querySelector('img');
+        if (newImg) {
+          newImg.addEventListener('click', () => openLightbox(newImg.src, newImg.alt));
+        }
       }
     }
-  } 
-  // 3. Desktop Landscape Frame (TrendPilot AI, ShareLink, Photo Enhancer, Automation)
-  else if (project.device === 'desktop-landscape') {
-    const desktopImg = stage.querySelector(`#desktop-img-${project.id}`);
+  } else if (project.id === 'trendpilot' || project.id === 'automation' || project.id === 'photo') {
+    // Desktop frame image swap
+    const desktopImg = stage.querySelector(`#desktop-img-${project.id}`) || stage.querySelector('.desktop-screen-img');
+    const desktopSource = desktopImg ? desktopImg.parentElement.querySelector('source') : null;
     if (desktopImg) {
-      desktopImg.style.opacity = '0.2';
+      desktopImg.style.opacity = '0.3';
+      desktopImg.style.transform = 'scale(0.98)';
       setTimeout(() => {
+        if (desktopSource) {
+          desktopSource.srcset = screen.file;
+        }
         desktopImg.src = screen.fallback || screen.file;
-        const sourceElem = desktopImg.parentElement?.querySelector('source');
-        if (sourceElem) sourceElem.srcset = screen.file;
         desktopImg.alt = `${project.title} - ${screen.name}: ${screen.desc}`;
         desktopImg.style.opacity = '1';
+        desktopImg.style.transform = 'scale(1)';
       }, 150);
     }
-  }
-  // 4. Terminal Frame (FarmGen AI CLI)
-  else if (project.device === 'terminal') {
-    const terminalImg = stage.querySelector(`#terminal-img-${project.id}`);
-    if (terminalImg) {
-      terminalImg.style.opacity = '0.2';
-      setTimeout(() => {
-        terminalImg.src = screen.fallback || screen.file;
-        const sourceElem = terminalImg.parentElement?.querySelector('source');
-        if (sourceElem) sourceElem.srcset = screen.file;
-        terminalImg.alt = `${project.title} - ${screen.name}: ${screen.desc}`;
-        terminalImg.style.opacity = '1';
-      }, 150);
-    }
-  }
-  // 5. Portrait Phone Frame (genEditor, Music, Blog, Bus)
-  else {
-    const phoneImg = stage.querySelector(`#phone-img-${project.id}`);
-    if (phoneImg) {
-      phoneImg.style.opacity = '0.2';
-      setTimeout(() => {
-        phoneImg.src = screen.fallback || screen.file;
-        const sourceElem = phoneImg.parentElement?.querySelector('source');
-        if (sourceElem) sourceElem.srcset = screen.file;
-        phoneImg.alt = `${project.title} - ${screen.name}: ${screen.desc}`;
-        phoneImg.style.opacity = '1';
-      }, 150);
+  } else {
+    // Multi-card stage carousel rearrangement (Music Player, genEditor, FarmGen, ShareLink, Blog, Bus)
+    const cards = stage.querySelectorAll('.stage-card');
+    const total = project.screens.length;
+
+    if (total === 3) {
+      cards.forEach((card) => {
+        const cIdx = parseInt(card.dataset.screenIndex, 10);
+        card.classList.remove('pos-center', 'pos-left', 'pos-right');
+        if (cIdx === screenIndex) {
+          card.classList.add('pos-center');
+        } else if (cIdx === (screenIndex + 1) % 3) {
+          card.classList.add('pos-right');
+        } else {
+          card.classList.add('pos-left');
+        }
+      });
+    } else if (total === 2) {
+      cards.forEach((card) => {
+        const cIdx = parseInt(card.dataset.screenIndex, 10);
+        card.classList.remove('pos-center', 'pos-side-right', 'pos-side-left');
+        if (cIdx === screenIndex) {
+          card.classList.add('pos-center');
+        } else {
+          card.classList.add('pos-side-right');
+        }
+      });
     }
   }
 
+  // 3. Update descriptive captions
+  const titleElem = stage.querySelector('.screen-caption-title');
+  const descElem = stage.querySelector('.screen-caption-desc');
   if (titleElem) titleElem.textContent = screen.name;
   if (descElem) descElem.textContent = screen.desc;
 }
 
+// ============================================================================
+// EVENT LISTENERS INITIALIZATION
+// ============================================================================
 function initShowcaseEventListeners() {
-  document.querySelectorAll('.project-device-stage').forEach((stage) => {
-    const projectId = stage.dataset.projectId;
-    const tabs = stage.querySelectorAll('.screen-tab-btn');
-    const satellites = stage.querySelectorAll('.device-satellite');
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => switchProjectScreen(projectId, index));
-    });
-
-    satellites.forEach((sat) => {
-      sat.addEventListener('click', () => {
-        const targetIdx = parseInt(sat.dataset.targetScreen, 10);
-        if (!isNaN(targetIdx)) switchProjectScreen(projectId, targetIdx);
-      });
+  // Tabs click
+  document.querySelectorAll('.screen-tab-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pId = btn.dataset.projectId;
+      const sIdx = parseInt(btn.dataset.screenIndex, 10);
+      switchProjectScreen(pId, sIdx);
     });
   });
 
-  // Lightbox triggers for showcase images
-  document.querySelectorAll('.screen-showcase-img').forEach((img) => {
+  // Stage cards click / keydown
+  document.querySelectorAll('.stage-card').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      const pId = card.dataset.projectId;
+      const sIdx = parseInt(card.dataset.screenIndex, 10);
+      if (card.classList.contains('pos-center') || card.classList.contains('pos-single')) {
+        const img = card.querySelector('.screen-showcase-img');
+        if (img) openLightbox(img.src, img.alt);
+      } else {
+        switchProjectScreen(pId, sIdx);
+      }
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const pId = card.dataset.projectId;
+        const sIdx = parseInt(card.dataset.screenIndex, 10);
+        switchProjectScreen(pId, sIdx);
+      }
+    });
+  });
+
+  // FarmLink Satellites click
+  document.querySelectorAll('.device-satellite').forEach((sat) => {
+    sat.addEventListener('click', (e) => {
+      const targetIdx = parseInt(sat.dataset.targetScreen, 10);
+      switchProjectScreen('farmlink', targetIdx);
+    });
+  });
+
+  // Lightbox for standalone screen images (Desktop, FarmLink main, etc.)
+  document.querySelectorAll('#farmlink-main-screen, .desktop-screen-img').forEach((img) => {
     img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+
+  // Case study modal triggers
+  document.querySelectorAll('.detail-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const pId = btn.dataset.projectId;
+      const project = projects.find((p) => p.id === pId);
+      if (project) openProjectModal(project);
+    });
   });
 }
 
 // ============================================================================
-// PROJECT DETAIL MODAL / DRAWER CONTROLLER
+// ENGINEERING CASE STUDY MODAL CONTROLLER
 // ============================================================================
-window.openProjectModal = function(projectId) {
-  const project = projects.find((p) => p.id === projectId);
-  if (!project || !projectModal || !modalContentMount) return;
+function openProjectModal(project) {
+  if (!projectModal || !modalContentMount) return;
 
-  const screens = project.screens || [];
+  const techRows = project.technicalDetails
+    ? Object.entries(project.technicalDetails)
+        .map(
+          ([key, val]) => `
+      <div class="tech-detail-box">
+        <strong>${key.replace(/([A-Z])/g, ' $1').toUpperCase()}</strong>
+        <p>${val}</p>
+      </div>
+    `
+        )
+        .join('')
+    : '';
+
+  const screenshotsHtml = (project.screens || [])
+    .map(
+      (s) => `
+    <div class="modal-screen-item" onclick="openLightbox('${s.fallback || s.file}', '${project.title} - ${s.name}')">
+      <img src="${s.fallback || s.file}" alt="${s.name}" loading="lazy" />
+      <div class="modal-screen-caption">
+        <strong>${s.name}</strong>
+        <small>${s.desc}</small>
+      </div>
+    </div>
+  `
+    )
+    .join('');
 
   modalContentMount.innerHTML = `
-    <div class="modal-case-study">
-      <div class="modal-hero">
-        <span class="modal-tag">${project.tag}</span>
-        <h2>${project.title}</h2>
-        <p class="modal-subtitle">${project.subtitle}</p>
-        ${buildMetricsStrip(project.metrics)}
-      </div>
+    <div class="modal-hero">
+      <span class="modal-tag">${project.tag}</span>
+      <h2>${project.title}</h2>
+      <p class="modal-subtitle">${project.subtitle}</p>
+      ${buildMetricsStrip(project.metrics)}
+    </div>
 
+    <div class="modal-section">
+      <h3>The Challenge & Engineering Problem</h3>
+      <p>${project.problem}</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Architecture & System Solution</h3>
+      <p>${project.solution}</p>
+    </div>
+
+    ${
+      techRows
+        ? `
       <div class="modal-section">
-        <h3>Problem &amp; Objective</h3>
-        <p>${project.problem}</p>
-      </div>
-
-      <div class="modal-section">
-        <h3>Architecture &amp; Solution</h3>
-        <p>${project.solution}</p>
-      </div>
-
-      ${project.technicalDetails ? `
-        <div class="modal-section modal-tech-breakdown">
-          <h3>Technical Architecture Breakdown</h3>
-          <div class="tech-details-grid">
-            ${Object.entries(project.technicalDetails).map(([k, v]) => `
-              <div class="tech-detail-box">
-                <strong>${k.replace(/([A-Z])/g, ' $1').toUpperCase()}</strong>
-                <p>${v}</p>
-              </div>
-            `).join('')}
-          </div>
+        <h3>Technical Deep-Dive & Architecture Decisions</h3>
+        <div class="tech-details-grid">
+          ${techRows}
         </div>
-      ` : ''}
-
-      <div class="modal-section">
-        <h3>Verified Capabilities</h3>
-        <ul class="modal-list">
-          ${(project.capabilities || []).map((c) => `<li>${c}</li>`).join('')}
-        </ul>
       </div>
+    `
+        : ''
+    }
 
+    <div class="modal-section">
+      <h3>Production Capabilities</h3>
+      <ul class="modal-list">
+        ${(project.capabilities || []).map((c) => `<li>${c}</li>`).join('')}
+      </ul>
+    </div>
+
+    <div class="modal-section">
+      <h3>Core Technology Stack</h3>
+      ${buildTechTags(project.tech, ['Flutter', 'Dart', 'Kotlin', 'AndroidX Media3', 'C++', 'n8n', 'FastAPI', 'PostgreSQL', 'OpenGL ES 3.0', 'AES-256-GCM', 'OpenHands AI'])}
+    </div>
+
+    ${
+      screenshotsHtml
+        ? `
       <div class="modal-section">
-        <h3>Screenshots &amp; Visual Evidence</h3>
+        <h3>Verified Interface & Architecture Evidence</h3>
         <div class="modal-screenshots-grid">
-          ${screens.filter(s => !s.isVideo).map((s) => `
-            <div class="modal-screen-item" onclick="openLightbox('${s.file}', '${s.name}')">
-              <picture>
-                <source srcset="${s.file}" type="image/webp">
-                <img src="${s.fallback || s.file}" alt="${s.name}" loading="lazy" />
-              </picture>
-              <div class="modal-screen-caption">
-                <strong>${s.name}</strong>
-                <small>${s.desc}</small>
-              </div>
-            </div>
-          `).join('')}
+          ${screenshotsHtml}
         </div>
       </div>
+    `
+        : ''
+    }
 
-      <div class="modal-section">
-        <h3>Technologies Employed</h3>
-        ${buildTechTags(project.tech)}
-      </div>
-
-      <div class="modal-footer-actions">
-        ${project.playstore ? `<a href="${project.playstore}" target="_blank" rel="noopener" class="btn btn-primary"><span>📱</span> Google Play Store</a>` : ''}
-        ${project.liveDemo ? `<a href="${project.liveDemo}" target="_blank" rel="noopener" class="btn btn-primary"><span>↗</span> Launch Live App</a>` : ''}
-        ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="btn btn-secondary"><span>💻</span> GitHub Repository</a>` : ''}
-        <button type="button" class="btn btn-secondary" onclick="closeProjectModal()">Close Case Study</button>
-      </div>
+    <div class="modal-footer-actions">
+      ${buildProjectLinks(project)}
     </div>
   `;
 
   projectModal.classList.add('open');
   projectModal.setAttribute('aria-hidden', 'false');
-  modalCloseBtn?.focus();
-  body.style.overflow = 'hidden';
-};
+  document.body.style.overflow = 'hidden';
+}
 
-window.closeProjectModal = function() {
+function closeProjectModal() {
   if (!projectModal) return;
   projectModal.classList.remove('open');
   projectModal.setAttribute('aria-hidden', 'true');
-  body.style.overflow = '';
-};
+  document.body.style.overflow = '';
+}
 
 modalCloseBtn?.addEventListener('click', closeProjectModal);
 projectModal?.addEventListener('click', (e) => {
-  if (e.target === projectModal) closeProjectModal();
+  if (e.target.classList.contains('project-modal-backdrop')) closeProjectModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && projectModal?.classList.contains('open')) {
+    closeProjectModal();
+  }
 });
 
 // ============================================================================
-// FILTERING & MASTER RENDERER (ALL 11 FULL-WIDTH SHOWCASES)
+// FILTERING CONTROLLER (PRESERVES STRICT ORDER)
 // ============================================================================
-let activeCategory = 'all';
-
-const CATEGORIES = [
-  { id: 'all', label: 'All Projects', count: 11 },
-  { id: 'mobile-native', label: 'Mobile & Native Systems', count: 5 },
-  { id: 'ai-automation', label: 'AI & Automation', count: 3 },
-  { id: 'fullstack-cloud', label: 'Full-Stack & Cloud', count: 2 },
-  { id: 'game-dev', label: 'Game Development', count: 1 }
-];
-
 function renderFilters() {
   if (!filterBarContainer) return;
-  filterBarContainer.innerHTML = `
-    <div class="filter-pills-wrap" role="tablist" aria-label="Project Categories">
-      ${CATEGORIES.map((cat) => `
-        <button class="filter-pill ${cat.id === activeCategory ? 'active' : ''}" 
-                data-category="${cat.id}"
-                role="tab" 
-                aria-selected="${cat.id === activeCategory ? 'true' : 'false'}">
-          ${cat.label} <span class="pill-count">${cat.count}</span>
-        </button>
-      `).join('')}
-    </div>
-  `;
+  filterBarContainer.innerHTML = CATEGORIES.map(
+    (cat) => `
+    <button class="filter-pill ${cat.id === currentFilter ? 'active' : ''}" 
+            data-filter="${cat.id}"
+            role="tab"
+            aria-selected="${cat.id === currentFilter ? 'true' : 'false'}">
+      ${cat.label} <span class="filter-count">${cat.count}</span>
+    </button>
+  `
+  ).join('');
 
   filterBarContainer.querySelectorAll('.filter-pill').forEach((btn) => {
     btn.addEventListener('click', () => {
-      activeCategory = btn.dataset.category;
-      renderFilters();
-      applyFilter();
+      const filter = btn.dataset.filter;
+      applyFilter(filter);
     });
   });
 }
 
-function applyFilter() {
-  const projectSlides = document.querySelectorAll('.project-slide');
-  projectSlides.forEach((slide) => {
-    const cat = slide.dataset.category;
-    const shouldShow = activeCategory === 'all' || cat === activeCategory;
-    slide.style.display = shouldShow ? 'block' : 'none';
+function applyFilter(filter) {
+  currentFilter = filter;
+  filterBarContainer?.querySelectorAll('.filter-pill').forEach((btn) => {
+    const isActive = btn.dataset.filter === filter;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-selected', String(isActive));
+  });
+
+  const projectArticles = document.querySelectorAll('.project-slide');
+  projectArticles.forEach((article) => {
+    const cat = article.dataset.category;
+    const shouldShow = filter === 'all' || cat === filter;
+    article.style.display = shouldShow ? '' : 'none';
   });
 }
 
+// ============================================================================
+// MASTER INITIALIZER
+// ============================================================================
 function renderAllProjects() {
   if (projectShowcaseContainer) {
     projectShowcaseContainer.innerHTML = projects
