@@ -49,13 +49,22 @@ const projects = [
     solution:
       'Engineered genEditor, an offline-first Android video editing suite combining a reactive Flutter interface with native Kotlin AndroidX Media3 (ExoPlayer & Transformer) and OpenGL ES 3.0 shaders for hardware-accelerated playback and frame composition. Implemented following reverse-engineering research into industry mobile editing architectures.',
     technicalDetails: {
-      architecture:
-        'Dual-layer hybrid architecture: Flutter Dart layer handles reactive gestures, timeline ruler rendering, waveform geometry, and state persistence; bidirectional Platform Channels (MethodChannels and EventChannels) orchestrate native Kotlin pipelines.',
-      nativePipeline:
-        'Leverages AndroidX Media3 Transformer for zero-copy hardware video decoding, clip trimming, audio stream multiplexing, and export rendering. Custom GLSurfaceView applies OpenGL ES 3.0 fragment shaders for real-time color grading and effects.',
+      developmentMotivation:
+        'Built as an offline-first, privacy-respecting video editing suite designed to give mobile creators low-latency editing and multi-track control without cloud round-trips or third-party data tracking.',
+      hybridArchitecture:
+        'Dual-layer hybrid architecture: Flutter Dart layer manages reactive UI components, gesture detection, timeline coordinate projections, and draft persistence; native Kotlin layer handles media pipeline execution.',
+      kotlinIntegration:
+        'Bidirectional Platform Channels: MethodChannels trigger timeline operations (split, trim, export), while EventChannels stream continuous playback progress and audio waveform amplitudes at 60 FPS.',
+      media3Pipeline:
+        'AndroidX Media3 (ExoPlayer & Transformer) provides zero-copy hardware video decoding, asynchronous media composition, audio track multiplexing, and hardware-accelerated MP4 transcoding.',
+      openglShaders:
+        'Custom GLSurfaceView utilizes OpenGL ES 3.0 fragment shaders for real-time video color grading, LUT application, and hardware-accelerated layer blending without CPU bottlenecks.',
       reverseEngineering:
         'Conducted reverse-engineering research on commercial Android editors to analyze safe-area coordinate transforms, multi-track audio scrubbing synchronization, and background memory retention strategies.',
-      milestone: 'Verified milestone of 35 passing automated unit & widget tests and successful release APK/AAB builds.'
+      timelineImplementation:
+        'Multi-track timeline managing 3 simultaneous streams (video, audio, text/overlay), sub-frame precision trimming, clip splitting, keyframing, and non-destructive undo/redo history.',
+      testingMilestone:
+        'Verified development milestone of 35 passing automated unit and widget tests and successful release APK/AAB builds.'
     },
     capabilities: [
       'Multi-track timeline supporting 3 simultaneous tracks (Video, Audio, Overlay)',
@@ -163,14 +172,26 @@ const projects = [
     solution:
       'Ported and customized a C++ 3D racing game engine (based on the SuperTuxKart engine) for Android using CMake and the Android NDK. Designed a distinctive custom gaming identity ("GaNg RaCe"), built responsive mobile touch HUD controls, and implemented ad-hoc zero-configuration 6-player local Wi-Fi and mobile hotspot multiplayer networking without requiring cloud servers.',
     technicalDetails: {
+      gameOverview:
+        '3D arcade kart racing title featuring offline Grand Prix, Battle Mode, custom vehicle handling, and ad-hoc 6-player local Wi-Fi multiplayer engineered for Android.',
       engineFoundation:
-        'Honest engineering foundation: Adapted the robust SuperTuxKart C++ engine core, recompiling native libraries for Android ARM64/armeabi-v7a architectures via CMake and Android NDK toolchains.',
-      graphicsAudio:
-        'OpenGL ES rendering pipeline with hardware-accelerated 3D kart meshes, skid particle emitters, dynamic track lighting, and real-time drift boost mechanics.',
-      scriptingLogic:
-        'Squirrel scripting engine bindings interacting directly with C++ classes to drive race event rules, menu state machines, and HUD telemetry.',
-      localNetworking:
-        'Peer-to-peer and host-client UDP/TCP socket protocol for local Wi-Fi hotspot room broadcasting, low-latency position synchronization, and 6-player race lobbies.'
+        'Built upon the open-source C++ SuperTuxKart engine foundation. Re-architected with custom visual branding ("GaNg RaCe"), mobile touch controls, and customized vehicle assets.',
+      cppArchitecture:
+        'Modular C++ systems architecture separating track physics simulation, spatial audio, AI opponent pathfinding, collision detection, and rendering loops.',
+      squirrelScripting:
+        'Embedded Squirrel scripting engine bridges high-level game logic, race rules, menu state transitions, and UI event handling to compiled C++ routines.',
+      openglRendering:
+        'OpenGL ES 3D rendering pipeline optimized for mobile GPUs, featuring dynamic track illumination, particle drift effects, mipmapped textures, and smooth 60 FPS frame rates.',
+      androidNdkIntegration:
+        'Direct Android NDK native activity integration using JNI bindings for touch screen event dispatching, sensor telemetry, and audio buffer callbacks.',
+      buildSystem:
+        'Cross-platform CMake build configuration integrated with Gradle and Android NDK toolchain targeting ARM64-v8a and armeabi-v7a application binaries.',
+      offlineGameplay:
+        '100% offline-first architecture allowing full access to Single Race, Grand Prix championships, Time Trials, and Battle Arenas without internet connection.',
+      localWifiMultiplayer:
+        'Zero-configuration ad-hoc local Wi-Fi hotspot and LAN multiplayer networking via custom UDP/TCP socket broadcasting, enabling instant 6-player room discovery and low-latency racing.',
+      challengesAndRoadmap:
+        'Solved Android-specific challenges including touch HUD latency, low-power GPU thermal throttling, and local broadcast socket drops. Roadmap distinguishes verified completed local multiplayer from future online lobbies.'
     },
     capabilities: [
       '6-Player Cross-Platform Local Wi-Fi and Hotspot Multiplayer racing',
@@ -242,14 +263,24 @@ const projects = [
     solution:
       'Engineered TrendPilot AI, an end-to-end autonomous content generation agent orchestrating trend discovery, LLM-driven prompt crafting, meme image generation, and persistent brand memory storage using n8n, Python, and PostgreSQL. Tailored specifically for Indian and Tamil Nadu regional demographics, supporting witty Tanglish and English relatable humor.',
     technicalDetails: {
-      orchestration:
-        'Multi-stage n8n workflows: WF01 handles trend ingestion and Gemini LLM template analysis; WF03 manages scheduled candidate selection (10:30 AM, 2:30 PM, 6:30 PM IST), automated Python rendering calls, and output verification.',
-      persistenceMemory:
-        'PostgreSQL database maintains normalized tables for trend candidates, generated image metadata, template parameters, and brand voice memory.',
-      humanInTheLoop:
-        'Features a deliberate "Human Approval" pause node in n8n where rendered drafts are reviewed and verified before any scheduled publishing triggers.',
-      regionalContext:
-        'Advanced prompt engineering produces high-relatability Tanglish memes covering cricket moments (RCB fans), software engineering realities (production deployment errors), and cinema trends.'
+      problemStatement:
+        'Digital content creators and regional brands spend excessive manual hours monitoring social media streams, brainstorming witty captions, finding templates, and formatting images across fragmented channels.',
+      proposedSolution:
+        'TrendPilot AI autonomously discovers viral trends, analyzes humor dynamics, crafts culturally relatable captions in Tanglish and English, and produces high-resolution branded creatives via structured automation.',
+      workflowArchitecture:
+        'Orchestrated through multi-stage n8n workflows: WF01 handles trend discovery and template analysis; WF03 executes scheduled generation cycles (10:30 AM, 2:30 PM, 6:30 PM IST) and rendering verification.',
+      trendProcessing:
+        'Ingests viral topics from social feeds and news webhooks; passes data to Google Gemini LLM with custom prompt guidelines to extract humor angles, sarcasm, and cultural references.',
+      memeGeneration:
+        'Python rendering engine calculates dynamic text layout, typography metrics, and watermark branding, compositing final 1080x1080 social media graphics ready for review.',
+      databaseIntegration:
+        'PostgreSQL database maintains normalized tables for active trend candidates, scored prompts, generated asset metadata, engagement logs, and template registries.',
+      brandMemory:
+        'Persistent brand guidelines database ensures jokes align with tone, avoid prohibited terminology, maintain consistent font styling, and incorporate Gen Soft Tech branding watermarks.',
+      humanApproval:
+        'Deliberate human-in-the-loop verification node in n8n where generated drafts are previewed and approved before queueing for distribution, guaranteeing quality.',
+      engineeringDecisions:
+        'Selected n8n for visual, auditable orchestration; Python for deterministic image layout; and PostgreSQL for robust relational indexing. (Automatic Instagram publishing intentionally omitted until API verification).'
     },
     capabilities: [
       'Automated multi-stage workflow orchestration in n8n with scheduled execution timers',
@@ -1415,19 +1446,34 @@ function renderFilters() {
 function applyFilter() {
   // Filter flagship projects
   const flagshipSlides = document.querySelectorAll('.flagship-slide');
+  let visibleFlagships = 0;
   flagshipSlides.forEach((slide) => {
     const cat = slide.dataset.category;
     const shouldShow = activeCategory === 'all' || cat === activeCategory;
     slide.style.display = shouldShow ? 'block' : 'none';
+    if (shouldShow) visibleFlagships++;
   });
 
   // Filter secondary cards
   const secondaryCards = document.querySelectorAll('.secondary-card');
+  let visibleSecondary = 0;
   secondaryCards.forEach((card) => {
     const cat = card.dataset.category;
     const shouldShow = activeCategory === 'all' || cat === activeCategory;
     card.style.display = shouldShow ? 'flex' : 'none';
+    if (shouldShow) visibleSecondary++;
   });
+
+  // Toggle secondary section wrapper when no secondary items match category
+  const secWrap = document.querySelector('.secondary-showcase-wrap');
+  if (secWrap) {
+    secWrap.style.display = visibleSecondary > 0 ? 'block' : 'none';
+  }
+
+  // Toggle flagship showcase container when no flagships match
+  if (featuredShowcaseContainer) {
+    featuredShowcaseContainer.style.display = visibleFlagships > 0 ? 'block' : 'none';
+  }
 }
 
 function renderAllProjects() {
