@@ -38,7 +38,6 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="assets/css/background.css" />
-  <link rel="stylesheet" href="assets/css/technology-core.css" />
 
   <!-- JSON-LD Structured Data for Search Engines -->
   <script type="application/ld+json">
@@ -136,61 +135,40 @@
             <a href="#contact" class="text-link">Contact Me <span aria-hidden="true">→</span></a>
           </div>
           <div class="hero-meta fade-up delay-5" aria-label="Verified engineering highlights">
-            <div><strong>10</strong><span>Shipped projects</span></div>
+            <div><strong>11</strong><span>Shipped projects</span></div>
             <div><strong>14+</strong><span>Core technologies</span></div>
             <div><strong>Play Store</strong><span>Published author</span></div>
           </div>
         </div>
 
-        <!-- 3D Technology Core Centerpiece -->
+        <!-- Developer Avatar Video Presentation -->
         <div class="hero-visual fade-up delay-3">
           <div class="visual-orbit orbit-one" aria-hidden="true"></div>
           <div class="visual-orbit orbit-two" aria-hidden="true"></div>
-          <div class="tech-core-shell" id="tech-core-shell">
-            <div class="tech-core-topline">
-              <span class="tech-core-badge"><i class="pulse-indicator"></i> ENGINEERING STACK</span>
-              <span class="tech-core-status" id="tech-core-status">6 Layers • Interactive 3D</span>
+          <div class="avatar-video-shell" id="avatar-shell">
+            <div class="avatar-video-topline">
+              <span class="avatar-badge"><i class="pulse-indicator"></i> DEVELOPER AVATAR</span>
+              <span class="avatar-status">Gengadharan S</span>
             </div>
             
-            <div class="tech-core-viewport" id="tech-core-viewport">
-              <canvas id="tech-core-canvas" class="tech-core-canvas" aria-label="Interactive 3D Exploded View of Developer Technology Stack"></canvas>
-              
-              <!-- WebGL Fallback -->
-              <div id="tech-core-fallback" class="tech-core-fallback" hidden>
-                <div class="tech-fallback-layer"><span class="tech-fallback-name">06 // AI Intelligence Core</span><span class="tech-fallback-tags">OpenHands AI • Real-ESRGAN • LLMs</span></div>
-                <div class="tech-fallback-layer"><span class="tech-fallback-name">05 // Application Deck</span><span class="tech-fallback-tags">Flutter • Kotlin • Android NDK</span></div>
-                <div class="tech-fallback-layer"><span class="tech-fallback-name">04 // Backend Engine</span><span class="tech-fallback-tags">FastAPI • Python • REST APIs</span></div>
-                <div class="tech-fallback-layer"><span class="tech-fallback-name">03 // Data Vault</span><span class="tech-fallback-tags">PostgreSQL • SQLAlchemy • MySQL</span></div>
-                <div class="tech-fallback-layer"><span class="tech-fallback-name">02 // Cloud &amp; DevOps</span><span class="tech-fallback-tags">Docker • AWS • Railway • Render</span></div>
-                <div class="tech-fallback-layer"><span class="tech-fallback-name">01 // Low-Level Systems</span><span class="tech-fallback-tags">C++ • OpenGL • Linux • CMake</span></div>
-              </div>
-
-              <!-- Technical HUD Overlay -->
-              <div class="tech-core-hud" id="tech-core-hud" aria-live="polite">
-                <div class="tech-hud-header">
-                  <span class="tech-hud-layer-tag" id="hud-layer-tag">LAYER 06 // APEX</span>
-                  <span class="tech-hud-layer-name" id="hud-layer-name">AI &amp; Intelligence Core</span>
-                </div>
-                <div class="tech-hud-pills" id="hud-tech-pills">
-                  <span>OpenHands AI</span><span>Real-ESRGAN</span><span>LLM Integration</span><span>Agritech AI</span>
-                </div>
-                <p class="tech-hud-desc" id="hud-layer-desc">Autonomous coding agents, deep learning image upscaling, and domain-specific multilingual conversational copilots.</p>
-              </div>
-
-              <!-- Interactive Controls -->
-              <div class="tech-core-controls">
-                <button type="button" id="tech-explode-btn" class="tech-ctrl-btn" aria-label="Toggle Exploded View">
-                  <span class="ctrl-icon">⤢</span> <span class="ctrl-label">Explode View</span>
-                </button>
-                <div class="tech-drag-hint" id="tech-drag-hint">
-                  <span>✦ Drag to rotate • Click layer to inspect</span>
-                </div>
-              </div>
+            <div class="avatar-video-viewport">
+              <video id="avatar-video"
+                     class="avatar-video-player"
+                     src="assets/avatar.mp4"
+                     poster="assets/profile.png"
+                     autoplay
+                     muted
+                     loop
+                     playsinline
+                     preload="auto"
+                     aria-label="Developer Video Introduction - Gengadharan S">
+              </video>
+              <div class="avatar-video-glow" aria-hidden="true"></div>
             </div>
 
-            <div class="tech-core-caption">
-              <span>Full-Stack &amp; Systems Architecture</span>
-              <strong>Interactive Developer Core</strong>
+            <div class="avatar-video-caption">
+              <span>Software Developer &amp; Systems Engineer</span>
+              <strong>Building with Purpose &amp; Precision</strong>
             </div>
           </div>
           <div class="floating-chip chip-ai"><span>✦</span> Native Media &amp; Systems</div>
@@ -207,44 +185,35 @@
           <p class="eyebrow">Selected Engineering Work</p>
           <h2 class="section-title">Products built with<br /><span>purpose &amp; precision.</span></h2>
         </div>
-        <p>From native Android media pipelines and C++ 3D game engines to autonomous AI agent workflows and distributed full-stack systems — a complete catalog of 10 practical software engineering projects.</p>
+        <p>From native Android media pipelines and C++ 3D game engines to autonomous AI agent workflows and distributed full-stack systems — a complete catalog of 11 practical software engineering projects.</p>
       </div>
 
       <div class="container">
         <!-- SEO Semantic Crawlable Fallback (for search crawlers & non-JS engines) -->
         <noscript>
           <div class="noscript-projects-index">
-            <h3>Verified Engineering Projects Index</h3>
-            <ul>
-              <li><strong>genEditor:</strong> Offline-first Android video editor with Flutter, Kotlin, AndroidX Media3, and OpenGL ES 3.0 shaders. Verified milestone of 35 passing tests and reproducible release APK/AAB builds.</li>
+            <h3>Verified Engineering Projects Index (11 Production Systems)</h3>
+            <ol>
+              <li><strong>Offline Music Player:</strong> Published Android application on Google Play Store with local audio caching, background playback services, and Riverpod state management.</li>
               <li><strong>FarmLink:</strong> AI-powered agricultural supply-demand telemetry platform with FastAPI, PostgreSQL, context-aware dynamic pricing engine, and Tamil agricultural copilot.</li>
-              <li><strong>GaNg RaCe:</strong> 3D Android racing game built upon the SuperTuxKart C++ engine with 6-player ad-hoc local Wi-Fi / hotspot socket networking and OpenGL ES rendering.</li>
               <li><strong>TrendPilot AI:</strong> Autonomous meme generator agent with multi-stage n8n workflows, Python rendering, Google Gemini LLM API, and PostgreSQL brand memory.</li>
-              <li><strong>Offline Music Player:</strong> Published Android application on Google Play Store featuring local audio caching and background playback services.</li>
-              <li><strong>FarmGen AI CLI:</strong> Terminal-based agricultural assistant powered by OpenHands AI and Python with 54+ domain-specific skills.</li>
-              <li><strong>AI Photo Enhancer:</strong> Desktop neural image upscaling application using Real-ESRGAN and NCNN inference pipelines.</li>
+              <li><strong>GaNg RaCe:</strong> 3D Android racing game built upon the SuperTuxKart C++ engine with 6-player ad-hoc local Wi-Fi / hotspot socket networking and OpenGL ES rendering.</li>
+              <li><strong>ShareLink:</strong> Fast, private, offline-first cross-platform file transfer platform with local HTTP streaming, AES-256-GCM authenticated encryption, and QR code pairing by Gen Soft Tech.</li>
+              <li><strong>AI Photo Enhancer:</strong> Desktop neural image upscaling application using Real-ESRGAN and NCNN inference pipelines for 2x/4x super-resolution.</li>
+              <li><strong>genEditor:</strong> Offline-first Android video editor with Flutter, Kotlin, AndroidX Media3, and OpenGL ES 3.0 shaders. (Verified milestone of 35 passing tests).</li>
               <li><strong>Blog Application:</strong> Full-stack publishing application with Flutter, Flask REST APIs, MySQL, and OTP authentication deployed on Render and Firebase.</li>
-              <li><strong>Bus Tracking Simulation:</strong> Simulated real-time transit telemetry application featuring interactive map visualization.</li>
+              <li><strong>Live Bus Tracking:</strong> Simulated real-time transit telemetry application featuring interactive map visualization and route telemetry.</li>
+              <li><strong>FarmGen AI CLI:</strong> Terminal-based agricultural assistant powered by OpenHands AI and Python with 54+ domain-specific skills.</li>
               <li><strong>Operations Workflow Automation:</strong> Scheduled operational communications and email orchestration workflows built in n8n.</li>
-            </ul>
+            </ol>
           </div>
         </noscript>
 
         <!-- Project Category Filter Pills -->
         <div id="project-filter-bar" class="project-filter-bar"></div>
 
-        <!-- Flagship Projects Showcase (genEditor, FarmLink, GaNg RaCe, TrendPilot AI) -->
-        <div id="featured-showcase" class="project-showcase"></div>
-
-        <!-- Secondary Projects Grid (Music Player, FarmGen, Photo Enhancer, Blog, Bus Tracking, Automation) -->
-        <div class="secondary-showcase-wrap">
-          <div class="secondary-heading">
-            <p class="eyebrow">Additional Work</p>
-            <h3>Application Portfolio &amp; Technical Systems</h3>
-            <p>Production mobile clients, command-line utilities, full-stack APIs, and workflow automations.</p>
-          </div>
-          <div id="secondary-projects-grid" class="secondary-projects-grid"></div>
-        </div>
+        <!-- Unified FarmLink-Style Project Showcases (All 11 Projects) -->
+        <div id="project-showcase" class="project-showcase"></div>
       </div>
     </section>
 
@@ -535,8 +504,6 @@
   </div>
 
   <!-- Deferred Scripts -->
-  <script src="assets/js/three.min.js" defer></script>
-  <script src="assets/js/technology-core.js" defer></script>
   <script src="script.js" defer></script>
   <script src="assets/js/background.js" defer></script>
 </body>
