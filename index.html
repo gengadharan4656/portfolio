@@ -3,14 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Gengadharan S — software developer, AI integrator, and cloud computing enthusiast." />
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Gengadharan S | Software Developer • AI Integrator • Mobile &amp; Systems Engineer</title>
+  <meta name="title" content="Gengadharan S | Software Developer • AI Integrator • Mobile &amp; Systems Engineer" />
+  <meta name="description" content="Portfolio of Gengadharan S — Computer Science Engineering student building high-performance native Android media systems, autonomous AI agents, and C++ graphics engines." />
+  <meta name="keywords" content="Gengadharan S, Software Developer, AI Integrator, Flutter, Android, Kotlin, AndroidX Media3, OpenGL ES, C++, n8n, FastAPI, PostgreSQL, Sethu Institute of Technology" />
+  <meta name="author" content="Gengadharan S" />
   <meta name="theme-color" content="#070b14" />
-  <title>Gengadharan S | Software Developer & AI Integrator</title>
+  <link rel="canonical" href="https://gengadharan4656.github.io/portfolio/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gengadharan4656.github.io/portfolio/" />
+  <meta property="og:title" content="Gengadharan S | Software Developer &amp; Systems Engineer" />
+  <meta property="og:description" content="Explore selected engineering projects: genEditor (Android Media3 Video Editor), GaNg RaCe (C++ 3D Racing Game), Social Media Meme Generator (n8n Meme Agent), and FarmLink (AI Agritech)." />
+  <meta property="og:image" content="https://gengadharan4656.github.io/portfolio/assets/projects/farmlink-dashboard.png" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://gengadharan4656.github.io/portfolio/" />
+  <meta name="twitter:title" content="Gengadharan S | Software Developer &amp; Systems Engineer" />
+  <meta name="twitter:description" content="Computer Science student specializing in native Android media pipelines, autonomous AI agents, and low-level graphics engines." />
+  <meta name="twitter:image" content="https://gengadharan4656.github.io/portfolio/assets/projects/farmlink-dashboard.png" />
+
+  <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="assets/css/background.css" />
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gengadharan S",
+    "url": "https://gengadharan4656.github.io/portfolio/",
+    "email": "gengadharan4656s@gmail.com",
+    "telephone": "+919884593205",
+    "jobTitle": "Software Developer & Systems Engineer",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Sethu Institute of Technology"
+    },
+    "sameAs": [
+      "https://github.com/gengadharan4656",
+      "https://linkedin.com/in/genga-dharan"
+    ]
+  }
+  </script>
 </head>
 
 <body class="dark">
@@ -18,51 +66,69 @@
   <div id="scroll-progress" aria-hidden="true"></div>
   <div class="page-noise" aria-hidden="true"></div>
 
+  <!-- Header & Navigation -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Gengadharan S — home"><span class="brand-mark">GS</span><span class="brand-name">Gengadharan S</span></a>
+      <a class="brand" href="#home" aria-label="Gengadharan S — Home">
+        <span class="brand-mark">GS</span>
+        <span class="brand-name">Gengadharan S</span>
+      </a>
+
       <nav class="nav" id="main-nav" aria-label="Main navigation">
         <a class="nav-link active" href="#home">Home</a>
         <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#competencies">Capabilities</a>
+        <a class="nav-link" href="#credentials">Education</a>
+        <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#tech">Stack</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
+
       <div class="nav-actions">
-        <button id="theme-toggle" class="icon-btn theme-toggle" aria-label="Switch to light mode" aria-pressed="true"><span class="sun">☀</span><span class="moon">☾</span></button>
-        <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+        <a href="https://github.com/gengadharan4656" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub Profile" title="GitHub Profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/genga-dharan" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn Profile" title="LinkedIn Profile">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <button id="theme-toggle" class="icon-btn theme-toggle" aria-label="Switch to light mode" aria-pressed="true">
+          <span class="sun">☀</span><span class="moon">☾</span>
+        </button>
+        <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- 1. Hero Section -->
     <section id="home" class="hero section">
       <div class="hero-glow glow-one" aria-hidden="true"></div>
       <div class="hero-glow glow-two" aria-hidden="true"></div>
       <div class="container hero-layout">
         <div class="hero-copy">
-          <div class="availability fade-up"><span class="status-dot"></span> Open to internships &amp; collaborations</div>
+          <div class="availability fade-up">
+            <span class="status-dot"></span> Open to internships &amp; collaborations
+          </div>
           <p class="eyebrow fade-up delay-1">Hello, I’m</p>
           <h1 class="fade-up delay-2">
-  Gengadharan&nbsp;<span>S</span>
-</h1>
+            Gengadharan&nbsp;<span>S</span>
+          </h1>
           <div class="role-stack fade-up delay-3" aria-label="Professional roles">
             <span>Software Developer</span><i></i><span>AI Integrator</span><i></i><span>Cloud Computing Enthusiast</span>
           </div>
-          <p class="hero-lead fade-up delay-4">Computer Science Engineering Student building intelligent applications, scalable cloud solutions, and modern digital experiences that turn ambitious ideas into useful products.</p>
+          <p class="hero-lead fade-up delay-4">
+            Computer Science Engineering Student building intelligent applications, scalable cloud solutions, and modern digital experiences that turn ambitious ideas into useful products.
+          </p>
           <div class="hero-actions fade-up delay-5">
             <a href="#projects" class="btn btn-primary">View Projects <span aria-hidden="true">↘</span></a>
-            <a href="assets/resume/Gengadharan_Resume.pdf"
-   target="_blank"
-   class="btn btn-secondary">
-   View Resume
-</a>
-
-<a href="assets/resume/Gengadharan_Resume.pdf"
-   download
-   class="btn btn-primary">
-   Download Resume
-</a>
+            <a href="assets/resume/Gengadharan_Resume.pdf" target="_blank" rel="noopener" class="btn btn-secondary">
+              View Resume
+            </a>
+            <a href="assets/resume/Gengadharan_Resume.pdf" download class="btn btn-primary">
+              Download Resume
+            </a>
             <a href="#contact" class="text-link">Contact Me <span aria-hidden="true">→</span></a>
           </div>
           <div class="hero-meta fade-up delay-5" aria-label="Professional highlights">
@@ -72,100 +138,369 @@
           </div>
         </div>
 
+        <!-- Personal Introduction Media Card (Reference 1) -->
         <div class="hero-visual fade-up delay-3">
           <div class="visual-orbit orbit-one" aria-hidden="true"></div>
           <div class="visual-orbit orbit-two" aria-hidden="true"></div>
-          <div class="avatar-shell">
-            <div class="avatar-topline"><span><i></i> AI introduction</span><span class="video-status">
-  Click to watch introduction
-</span></div>
-           <div class="avatar-container">
-
-  <button id="play-intro-btn" class="play-intro-btn">
-    ▶ Watch My Introduction
-  </button>
-
-  <video id="avatar-video"
-       class="avatar-media avatar-video"
-       playsinline
-       controls
-       preload="metadata"
-       poster="assets/profile.png"
-       hidden>
-
-  <source src="assets/avatar.mp4" type="video/mp4">
-
-  Your browser does not support the video element.
-</video>
-              <img id="avatar-image"
-     class="avatar-media avatar-image visible"
-     src="assets/profile.png"
-     alt="Professional portrait of Gengadharan S" />
-              <div class="avatar-gradient" aria-hidden="true"></div>
+          <div class="avatar-shell" id="avatar-shell">
+            <div class="avatar-topline">
+              <span><i aria-hidden="true"></i> AI introduction</span>
+              <span class="video-status">Click to watch introduction</span>
             </div>
-            <div class="avatar-caption"><span>Based in India</span><strong>Building for the world.</strong></div>
+            
+            <div class="avatar-container">
+              <video id="avatar-video"
+                     class="avatar-media avatar-video"
+                     src="assets/avatar.mp4"
+                     poster="assets/profile.png"
+                     playsinline
+                     preload="auto"
+                     muted
+                     aria-label="Developer Video Introduction - Gengadharan S">
+              </video>
+              <img id="avatar-image"
+                   class="avatar-media avatar-image visible"
+                   src="assets/profile.png"
+                   alt="Gengadharan S - Software Developer &amp; AI Integrator" />
+              <div class="avatar-gradient" aria-hidden="true"></div>
+              <button id="play-intro-btn" class="play-intro-btn" aria-label="Watch personal introduction">
+                <span aria-hidden="true">▶</span> Watch My Introduction
+              </button>
+            </div>
           </div>
           <div class="floating-chip chip-ai"><span>✦</span> AI Integrator</div>
           <div class="floating-chip chip-cloud"><span>☁</span> Cloud Native</div>
         </div>
       </div>
-      <a href="#projects" class="scroll-cue" aria-label="Scroll to projects"><span></span> Explore my work</a>
+      <a href="#projects" class="scroll-cue" aria-label="Scroll to projects"><span></span> Explore Selected Work</a>
     </section>
 
+    <!-- 2. Featured Projects Section -->
     <section id="projects" class="section project-story reveal">
       <div class="container section-heading">
-        <div><p class="eyebrow">Selected work</p><h2 class="section-title">Products built with<br /><span>purpose &amp; precision.</span></h2></div>
-        <p>From offline-first mobile experiences to full-stack systems and intelligent automation — a selection of practical products engineered to solve real problems.</p>
+        <div>
+          <p class="eyebrow">Selected Engineering Work</p>
+          <h2 class="section-title">Products built with<br /><span>purpose &amp; precision.</span></h2>
+        </div>
+        <p>From native Android media pipelines and C++ 3D game engines to autonomous AI agent workflows and distributed full-stack systems — a complete catalog of 11 practical software engineering projects.</p>
       </div>
-      <div id="project-showcase"></div>
+
+      <div class="container">
+        <!-- SEO Semantic Crawlable Fallback (for search crawlers & non-JS engines) -->
+        <noscript>
+          <div class="noscript-projects-index">
+            <h3>Verified Engineering Projects Index (11 Production Systems)</h3>
+            <ol>
+              <li><strong>Offline Music Player:</strong> Published Android application on Google Play Store with local audio caching, background playback services, and Riverpod state management.</li>
+              <li><strong>FarmLink:</strong> AI-powered agricultural supply-demand telemetry platform with FastAPI, PostgreSQL, context-aware dynamic pricing engine, and Tamil agricultural copilot.</li>
+              <li><strong>Social Media Meme Generator:</strong> Autonomous meme generator agent with multi-stage n8n workflows, Python rendering, Google Gemini LLM API, and PostgreSQL brand memory.</li>
+              <li><strong>GaNg RaCe:</strong> 3D Android racing game built upon the SuperTuxKart C++ engine with 6-player ad-hoc local Wi-Fi / hotspot socket networking and OpenGL ES rendering.</li>
+              <li><strong>ShareLink:</strong> Fast, private, offline-first cross-platform file transfer platform with local HTTP streaming, AES-256-GCM authenticated encryption, and QR code pairing by Gen Soft Tech.</li>
+              <li><strong>AI Photo Enhancer:</strong> Desktop neural image upscaling application using Real-ESRGAN and NCNN inference pipelines for 2x/4x super-resolution.</li>
+              <li><strong>genEditor:</strong> Offline-first Android video editor with Flutter, Kotlin, AndroidX Media3, and OpenGL ES 3.0 shaders. (Verified milestone of 35 passing tests).</li>
+              <li><strong>Blog Application:</strong> Full-stack publishing application with Flutter, Flask REST APIs, MySQL, and OTP authentication deployed on Render and Firebase.</li>
+              <li><strong>Live Bus Tracking:</strong> Simulated real-time transit telemetry application featuring interactive map visualization and route telemetry.</li>
+              <li><strong>FarmGen AI CLI:</strong> Terminal-based agricultural assistant powered by OpenHands AI and Python with 54+ domain-specific skills.</li>
+              <li><strong>Operations Workflow Automation:</strong> Scheduled operational communications and email orchestration workflows built in n8n.</li>
+            </ol>
+          </div>
+        </noscript>
+
+        <!-- Project Category Filter Pills -->
+        <div id="project-filter-bar" class="project-filter-bar"></div>
+
+        <!-- Unified FarmLink-Style Project Showcases (All 11 Projects) -->
+        <div id="project-showcase" class="project-showcase"></div>
+      </div>
     </section>
 
-    <section id="services" class="section reveal">
+    <!-- 3. Core Engineering Competencies Section -->
+    <section id="competencies" class="section reveal">
       <div class="container">
-        <div class="section-heading compact"><div><p class="eyebrow">What I do</p><h2 class="section-title">Ways I can <span>help.</span></h2></div></div>
-        <div class="services-grid">
-          <article class="panel service-card"><span class="service-number">01</span><div class="service-icon">◫</div><h3>Flutter App Development</h3><p>Fast, polished, cross-platform applications designed around real user needs.</p></article>
-          <article class="panel service-card"><span class="service-number">02</span><div class="service-icon">⌁</div><h3>Bug Fixing &amp; Optimization</h3><p>Performance diagnosis, dependable fixes, and smoother product experiences.</p></article>
-          <article class="panel service-card"><span class="service-number">03</span><div class="service-icon">↔</div><h3>API Integration</h3><p>Secure, maintainable connections between apps, services, and data.</p></article>
-          <article class="panel service-card"><span class="service-number">04</span><div class="service-icon">↥</div><h3>Play Store Deployment</h3><p>Release-ready builds and guided deployment from testing to production.</p></article>
-          <article class="panel service-card"><span class="service-number">05</span><div class="service-icon">☁</div><h3>Cloud Website Hosting</h3><p>Reliable cloud deployment and hosting configured for scale and availability.</p></article>
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Engineering Pillars</p>
+            <h2 class="section-title">Core Technical <span>Capabilities.</span></h2>
+          </div>
+          <p>Disciplined software engineering applied across low-level media pipelines, intelligent automation, cross-platform clients, and distributed backends.</p>
+        </div>
+
+        <div class="competencies-grid">
+          <article class="panel competency-card">
+            <span class="competency-number">01</span>
+            <div class="competency-icon">◫</div>
+            <h3>Native Android &amp; Media Systems</h3>
+            <p>Low-latency media pipeline architecture using AndroidX Media3 (ExoPlayer &amp; Transformer), OpenGL ES 3.0 fragment shaders, and bidirectional Platform Channels.</p>
+            <div class="competency-tags">
+              <span>Kotlin</span><span>Media3</span><span>OpenGL ES</span><span>NDK</span>
+            </div>
+          </article>
+
+          <article class="panel competency-card">
+            <span class="competency-number">02</span>
+            <div class="competency-icon">✦</div>
+            <h3>AI Agents &amp; Autonomous Pipelines</h3>
+            <p>Multi-stage workflow automation using n8n, OpenHands AI, Python script hooks, and Google Gemini LLM prompting with regional Tanglish nuance and human verification gates.</p>
+            <div class="competency-tags">
+              <span>n8n</span><span>OpenHands</span><span>LLM Prompts</span><span>Python</span>
+            </div>
+          </article>
+
+          <article class="panel competency-card">
+            <span class="competency-number">03</span>
+            <div class="competency-icon">📱</div>
+            <h3>Cross-Platform Mobile Architecture</h3>
+            <p>Production Flutter engineering with Riverpod state management, background lifecycle audio services, offline-first local persistence, and Play Store release hygiene.</p>
+            <div class="competency-tags">
+              <span>Flutter</span><span>Dart</span><span>Riverpod</span><span>Play Store</span>
+            </div>
+          </article>
+
+          <article class="panel competency-card">
+            <span class="competency-number">04</span>
+            <div class="competency-icon">↔</div>
+            <h3>Backend Engines &amp; Data Vaults</h3>
+            <p>High-throughput asynchronous REST APIs built with FastAPI and Flask; normalized relational database modeling, query optimization, and connection pooling in PostgreSQL and MySQL.</p>
+            <div class="competency-tags">
+              <span>FastAPI</span><span>Flask</span><span>PostgreSQL</span><span>SQLAlchemy</span>
+            </div>
+          </article>
+
+          <article class="panel competency-card">
+            <span class="competency-number">05</span>
+            <div class="competency-icon">🎮</div>
+            <h3>Systems &amp; Low-Level Graphics</h3>
+            <p>C++ native engine porting for Android via CMake and Android NDK; OpenGL ES 3D rendering loops, Squirrel scripting bindings, and ad-hoc socket multiplayer networking.</p>
+            <div class="competency-tags">
+              <span>C++</span><span>Android NDK</span><span>CMake</span><span>Sockets</span>
+            </div>
+          </article>
+
+          <article class="panel competency-card">
+            <span class="competency-number">06</span>
+            <div class="competency-icon">☁</div>
+            <h3>Cloud Infrastructure &amp; Deployment</h3>
+            <p>Containerized deployment with Docker, database hosting on Railway, serverless backend management on Render, AWS foundational cloud practices, and Git CI/CD hygiene.</p>
+            <div class="competency-tags">
+              <span>Docker</span><span>AWS</span><span>Railway</span><span>Render</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- 4. Education, Experience & Certifications Section -->
+    <section id="credentials" class="section reveal">
+      <div class="container">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Academic &amp; Professional Background</p>
+            <h2 class="section-title">Education &amp; <span>Credentials.</span></h2>
+          </div>
+          <p>Formal academic training in Computer Science Engineering alongside industry internships, robotics competitions, and verified cloud certifications.</p>
+        </div>
+
+        <div class="credentials-grid">
+          <!-- Column 1: Education -->
+          <div class="credential-column">
+            <div class="credential-column-header">
+              <span class="eyebrow">🎓 Formal Education</span>
+            </div>
+            <article class="panel credential-card">
+              <span class="credential-badge">Degree Program</span>
+              <h4>B.E. Computer Science Engineering</h4>
+              <span class="credential-institution">Sethu Institute of Technology</span>
+              <span class="credential-date">2024 – 2028 | Full-Time</span>
+              <p class="credential-details">
+                Current Cumulative Grade Point Average: <strong>8.50 / 10.00</strong>. Core coursework in Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Computer Networks, and Operating Systems.
+              </p>
+            </article>
+          </div>
+
+          <!-- Column 2: Internships & Industry Training -->
+          <div class="credential-column">
+            <div class="credential-column-header">
+              <span class="eyebrow">💼 Industry Experience</span>
+            </div>
+            <article class="panel credential-card">
+              <span class="credential-badge">Internship</span>
+              <h4>Artificial Intelligence Intern</h4>
+              <span class="credential-institution">Phoenix Softech</span>
+              <span class="credential-date">Internship Program</span>
+              <p class="credential-details">
+                Trained on applied machine learning pipelines, dataset preprocessing, computer vision algorithms, and integration of neural networks into user-facing software.
+              </p>
+            </article>
+            <article class="panel credential-card">
+              <span class="credential-badge">Technical Training</span>
+              <h4>IoT &amp; Robotics Engineering Training</h4>
+              <span class="credential-institution">e-Yantra (IIT Bombay initiative)</span>
+              <span class="credential-date">Specialized Program</span>
+              <p class="credential-details">
+                Hands-on systems engineering covering microcontroller interfacing, sensor telemetry, real-time embedded communication, and autonomous robot navigation.
+              </p>
+            </article>
+          </div>
+
+          <!-- Column 3: Verified Certifications -->
+          <div class="credential-column">
+            <div class="credential-column-header">
+              <span class="eyebrow">📜 Verified Certifications</span>
+            </div>
+            <article class="panel credential-card">
+              <span class="credential-badge">Cloud</span>
+              <h4>AWS Cloud Practitioner Essentials</h4>
+              <span class="credential-institution">Amazon Web Services</span>
+              <p class="credential-details">Cloud architecture, shared security responsibility, compute, storage, and IAM configuration.</p>
+            </article>
+            <article class="panel credential-card">
+              <span class="credential-badge">Programming</span>
+              <h4>Python Programming Certification</h4>
+              <span class="credential-institution">NPTEL</span>
+              <p class="credential-details">Advanced data structures, algorithmic problem-solving, and functional programming in Python.</p>
+            </article>
+            <article class="panel credential-card">
+              <span class="credential-badge">Systems</span>
+              <h4>Cloud Computing Fundamentals</h4>
+              <span class="credential-institution">IBM SkillsBuild &amp; NPTEL</span>
+              <p class="credential-details">Virtualization, microservices architecture, and cloud service models (IaaS, PaaS, SaaS).</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. About Me Section -->
+    <section id="about" class="section reveal">
+      <div class="container">
+        <div class="panel about-card">
+          <div class="about-grid">
+            <div class="about-text">
+              <p class="eyebrow">Engineering Philosophy</p>
+              <h3>Curiosity to build, optimize, and engineer at the boundary.</h3>
+              <p>
+                I am a Computer Science Engineering student with an active builder mindset. Rather than limiting myself to surface-level web interfaces, I enjoy bridging the gap between high-level reactive client architectures (Flutter, FastAPI, n8n workflows) and low-level native systems (C++, Android NDK, AndroidX Media3, and OpenGL ES 3.0 shaders).
+              </p>
+              <p>
+                My projects reflect practical software engineering: shipping published apps to the Google Play Store, implementing local ad-hoc Wi-Fi multiplayer games without centralized server dependencies, creating context-aware AI pricing algorithms for regional farmers, and automating complex meme generation workflows with regional cultural nuance.
+              </p>
+              <div class="about-highlights">
+                <div class="highlight-item">
+                  <strong>Practical Builder</strong>
+                  <span>10 functional projects designed, architected, and validated</span>
+                </div>
+                <div class="highlight-item">
+                  <strong>Native Systems</strong>
+                  <span>Reverse-engineering research and C++ NDK porting experience</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-pillar-box">
+              <h4>Engineering Standards</h4>
+              <ul class="pillar-list">
+                <li><span>✓</span> <strong>Deterministic Testing:</strong> Unit and integration test validation across critical application paths.</li>
+                <li><span>✓</span> <strong>Offline-First Resilience:</strong> Building apps that remain functional even without an internet connection.</li>
+                <li><span>✓</span> <strong>Zero Unnecessary Overhead:</strong> Prioritizing hardware-accelerated rendering and lean memory consumption.</li>
+                <li><span>✓</span> <strong>Honest Attribution:</strong> Transparent about open-source engine foundations and collaborative frameworks.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Technology Stack (Toolbox) -->
     <section id="tech" class="section reveal">
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">Toolbox</p><h2 class="section-title">Technology I use to <span>ship.</span></h2></div><p>A versatile stack across mobile, backend, databases, version control, and cloud infrastructure.</p></div>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Toolbox</p>
+            <h2 class="section-title">Technology I use to <span>ship.</span></h2>
+          </div>
+          <p>A versatile, disciplined stack across mobile platforms, low-level native languages, databases, orchestration agents, and cloud infrastructure.</p>
+        </div>
+
         <div class="tech-grid">
-          <div class="panel tech-item"><img src="assets/skills/flutter.png" alt="" loading="lazy" /><span>Flutter</span><small>Mobile</small></div>
-          <div class="panel tech-item"><img src="assets/skills/dart.png" alt="" loading="lazy" /><span>Dart</span><small>Language</small></div>
-          <div class="panel tech-item"><img src="assets/skills/python.png" alt="" loading="lazy" /><span>Python</span><small>Language</small></div>
-          <div class="panel tech-item"><img src="assets/skills/flask.png" alt="" loading="lazy" /><span>Flask</span><small>Backend</small></div>
-          <div class="panel tech-item"><img src="assets/skills/mysql.png" alt="" loading="lazy" /><span>MySQL</span><small>Database</small></div>
-          <div class="panel tech-item"><img src="assets/skills/git.png" alt="" loading="lazy" /><span>Git</span><small>Workflow</small></div>
-          <div class="panel tech-item"><img src="assets/skills/cloud.png" alt="" loading="lazy" /><span>Cloud</span><small>Infrastructure</small></div>
-          <div class="panel tech-item"><img src="assets/skills/android.png" alt="" loading="lazy" /><span>Android</span><small>Platform</small></div>
+          <div class="panel tech-item"><img src="assets/skills/flutter.png" alt="Flutter" loading="lazy" /><span>Flutter</span><small>Cross-Platform</small></div>
+          <div class="panel tech-item"><img src="assets/skills/dart.png" alt="Dart" loading="lazy" /><span>Dart</span><small>Language</small></div>
+          <div class="panel tech-item"><img src="assets/skills/android.png" alt="Android" loading="lazy" /><span>Android</span><small>Native SDK</small></div>
+          <div class="panel tech-item"><img src="assets/skills/python.png" alt="Python" loading="lazy" /><span>Python</span><small>AI &amp; Backend</small></div>
+          <div class="panel tech-item"><img src="assets/skills/c.png" alt="C++" loading="lazy" /><span>C++</span><small>Systems &amp; NDK</small></div>
+          <div class="panel tech-item"><img src="assets/skills/flask.png" alt="Flask" loading="lazy" /><span>FastAPI/Flask</span><small>Async Backends</small></div>
+          <div class="panel tech-item"><img src="assets/skills/mysql.png" alt="MySQL" loading="lazy" /><span>PostgreSQL/SQL</span><small>Relational DB</small></div>
+          <div class="panel tech-item"><img src="assets/skills/git.png" alt="Git" loading="lazy" /><span>Git &amp; GitHub</span><small>Version Control</small></div>
+          <div class="panel tech-item"><img src="assets/skills/cloud.png" alt="Cloud" loading="lazy" /><span>AWS &amp; Docker</span><small>Cloud &amp; DevOps</small></div>
+          <div class="panel tech-item"><img src="assets/skills/cloud.png" alt="n8n" loading="lazy" /><span>n8n</span><small>Workflow Agents</small></div>
         </div>
       </div>
     </section>
 
+    <!-- 7. Contact Section -->
     <section id="contact" class="section contact-section reveal">
       <div class="container">
         <article class="contact-card">
           <div class="contact-glow" aria-hidden="true"></div>
-          <p class="eyebrow">Have an idea?</p>
+          <p class="eyebrow">Let’s Connect</p>
           <h2>Let’s create something<br /><span>remarkable together.</span></h2>
-          <p>I’m available for internships, freelance development, optimization, and product collaborations.</p>
-          <a href="mailto:gengadharan4656s@gmail.com" class="btn btn-primary">Start a conversation <span aria-hidden="true">↗</span></a>
-          <a class="contact-email" href="mailto:gengadharan4656s@gmail.com">gengadharan4656s@gmail.com</a>
+          <p>I’m actively available for software engineering internships, native mobile development, AI integration, systems architecture, and engineering collaborations.</p>
+          <a href="mailto:gengadharan4656s@gmail.com" class="btn btn-primary">Start a Conversation <span aria-hidden="true">↗</span></a>
+          
+          <div class="contact-channels">
+            <a class="contact-channel-item" href="mailto:gengadharan4656s@gmail.com">
+              <span>✉</span> gengadharan4656s@gmail.com
+            </a>
+            <a class="contact-channel-item" href="tel:+919884593205">
+              <span>📞</span> +91 9884593205
+            </a>
+            <a class="contact-channel-item" href="https://linkedin.com/in/genga-dharan" target="_blank" rel="noopener">
+              <span>💼</span> LinkedIn Profile
+            </a>
+            <a class="contact-channel-item" href="https://github.com/gengadharan4656" target="_blank" rel="noopener">
+              <span>💻</span> GitHub Profile
+            </a>
+          </div>
         </article>
       </div>
     </section>
   </main>
 
-  <footer><div class="container footer-inner"><a class="brand" href="#home"><span class="brand-mark">GS</span></a><p>Designed &amp; built by Gengadharan S</p><p>© <span id="year"></span> — All rights reserved</p></div></footer>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#home" aria-label="Gengadharan S Home">
+        <span class="brand-mark">GS</span>
+        <span class="brand-name">Gengadharan S</span>
+      </a>
+      <p>Engineered &amp; crafted by Gengadharan S • B.E. Computer Science Engineering</p>
+      <div class="footer-socials">
+        <a href="https://github.com/gengadharan4656" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/genga-dharan" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="assets/resume/Gengadharan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <p>© <span id="year"></span> — All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
   <button id="to-top" class="icon-btn to-top" aria-label="Back to top">↑</button>
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project image preview"><button id="lightbox-close" class="icon-btn lightbox-close" aria-label="Close preview">✕</button><img id="lightbox-image" src="" alt="Project screenshot preview" /></div>
+
+  <!-- Fullscreen Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project image preview">
+    <button id="lightbox-close" class="lightbox-close" aria-label="Close preview">✕</button>
+    <img id="lightbox-image" src="" alt="Project screenshot preview" />
+  </div>
+
+  <!-- Accessible Project Detail Modal -->
+  <div id="project-modal" class="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project Case Study Detail">
+    <div class="project-modal-backdrop" onclick="closeProjectModal()"></div>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close Case Study">✕</button>
+      <div id="modal-content-mount"></div>
+    </div>
+  </div>
+
+  <!-- Deferred Scripts -->
   <script src="script.js" defer></script>
   <script src="assets/js/background.js" defer></script>
 </body>
