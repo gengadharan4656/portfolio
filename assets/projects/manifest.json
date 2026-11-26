@@ -1,0 +1,174 @@
+{
+  "version": "2.0.0",
+  "generated": "2026-11-21",
+  "developer": "Gengadharan S",
+  "projects": {
+    "trendpilot": {
+      "name": "TrendPilot AI – Automated Meme Generator Agent",
+      "category": "ai-automation",
+      "mediaType": "desktop-landscape",
+      "assets": {
+        "workflow": [
+          {
+            "id": "wf-template-analysis",
+            "name": "Template Analysis & Trend Ingestion",
+            "source": "meme automator 1.png",
+            "path": "assets/projects/trendpilot/workflow/trendpilot-wf-template.png",
+            "webp": "assets/projects/trendpilot/workflow/trendpilot-wf-template.webp",
+            "dimensions": "1908x978",
+            "desc": "n8n workflow pipeline reading trend files, sending Google Gemini LLM API analysis requests, executing JavaScript parsers, and querying PostgreSQL."
+          },
+          {
+            "id": "wf-render-verification",
+            "name": "Meme Image Generation & Verification (WF03)",
+            "source": "meme automator 2.png",
+            "path": "assets/projects/trendpilot/workflow/trendpilot-wf-render.png",
+            "webp": "assets/projects/trendpilot/workflow/trendpilot-wf-render.webp",
+            "dimensions": "1650x741",
+            "desc": "Scheduled rendering pipeline (10:30 AM, 2:30 PM, 6:30 PM IST), draft selection, Python rendering endpoint verification, and human approval node."
+          }
+        ],
+        "dashboard": [
+          {
+            "id": "dash-cricket",
+            "name": "Content Ingestion & Engagement Analytics",
+            "source": "meme automator 3.png",
+            "path": "assets/projects/trendpilot/dashboard/trendpilot-dash-cricket.png",
+            "webp": "assets/projects/trendpilot/dashboard/trendpilot-dash-cricket.webp",
+            "dimensions": "1479x852",
+            "desc": "Tanglish content telemetry dashboard displaying post metadata, hashtag taxonomy (#TamilComedy, #Cricket), and engagement tracking."
+          },
+          {
+            "id": "dash-ramayana",
+            "name": "Viral Trend Monitoring & Social Feed",
+            "source": "meme automator 5.png",
+            "path": "assets/projects/trendpilot/dashboard/trendpilot-dash-ramayana.png",
+            "webp": "assets/projects/trendpilot/dashboard/trendpilot-dash-ramayana.webp",
+            "dimensions": "1479x841",
+            "desc": "Real-time entertainment trend tracker logging viral WhatsApp and cinema trends (#Ramayana, #Trend) with audience reaction metrics."
+          }
+        ],
+        "memes": [
+          {
+            "id": "meme-rcb",
+            "name": "Generated Meme: Cricket / IPL Fan Relatability",
+            "source": "meme automator 4.png",
+            "path": "assets/projects/trendpilot/memes/trendpilot-meme-rcb.png",
+            "webp": "assets/projects/trendpilot/memes/trendpilot-meme-rcb.webp",
+            "dimensions": "1080x1080",
+            "desc": "Context-aware Tanglish meme generated using trend candidate database and Gen Soft Tech watermark branding."
+          },
+          {
+            "id": "meme-deploy",
+            "name": "Generated Meme: Software Engineer Production Reality",
+            "source": "meme automator 6.png",
+            "path": "assets/projects/trendpilot/memes/trendpilot-meme-deploy.png",
+            "webp": "assets/projects/trendpilot/memes/trendpilot-meme-deploy.webp",
+            "dimensions": "1080x1080",
+            "desc": "Relatable developer humor meme automatically composed from software engineering prompt templates."
+          }
+        ]
+      }
+    },
+    "geneditor": {
+      "name": "genEditor – Android Video Editor",
+      "category": "mobile-native",
+      "mediaType": "phone-portrait",
+      "assets": {
+        "screenshots": [
+          {
+            "id": "screen-home",
+            "order": 1,
+            "name": "Home Screen & Project Manager",
+            "source": "vedio editor 2.png",
+            "path": "assets/projects/geneditor/screenshots/geneditor-01-home.png",
+            "webp": "assets/projects/geneditor/screenshots/geneditor-01-home.webp",
+            "dimensions": "899x2048",
+            "desc": "Offline-first project dashboard showing new project creation, camera import, recent project drafts (Project 10-31), and audio extractor tool."
+          },
+          {
+            "id": "screen-timeline",
+            "order": 2,
+            "name": "Multi-Track Timeline & Waveform Editor",
+            "source": "vedio editor 1.png",
+            "path": "assets/projects/geneditor/screenshots/geneditor-02-timeline.png",
+            "webp": "assets/projects/geneditor/screenshots/geneditor-02-timeline.webp",
+            "dimensions": "899x2048",
+            "desc": "Interactive multi-track editing workspace supporting 3 simultaneous tracks (video, audio, overlays), split, timing, keyframing, and style controls."
+          },
+          {
+            "id": "screen-export",
+            "order": 3,
+            "name": "Export Configuration & Resolution Settings",
+            "source": "vedio editor 3.png",
+            "path": "assets/projects/geneditor/screenshots/geneditor-03-export.png",
+            "webp": "assets/projects/geneditor/screenshots/geneditor-03-export.webp",
+            "dimensions": "899x2048",
+            "desc": "Hardware-accelerated media export configuration supporting 720p HD, 1080p FHD, 4K UHD, and framerate selection (24, 25, 30, 60 FPS)."
+          }
+        ]
+      }
+    },
+    "gang-race": {
+      "name": "GaNg RaCe – Android Racing Game",
+      "category": "game-dev",
+      "mediaType": "phone-landscape",
+      "assets": {
+        "video": {
+          "id": "gameplay-video",
+          "name": "In-Game 3D Racing Gameplay Demonstration",
+          "source": "gang race 1 vedio.mp4",
+          "path": "assets/projects/gang-race/video/gang-race-gameplay.mp4",
+          "poster": "assets/projects/gang-race/video/gang-race-poster.jpg",
+          "posterWebp": "assets/projects/gang-race/video/gang-race-poster.webp",
+          "dimensions": "1280x720",
+          "duration": "60.82s",
+          "fps": 24.25,
+          "desc": "Real-time 60fps Android gameplay footage featuring drift mechanics, kart physics, dynamic race HUD, and 3D track rendering."
+        },
+        "screenshots": [
+          {
+            "id": "screen-menu",
+            "order": 1,
+            "name": "Main Menu & 6-Player Local Multiplayer Hub",
+            "source": "gang race 2.png",
+            "path": "assets/projects/gang-race/branding/gang-race-01-menu.png",
+            "webp": "assets/projects/gang-race/branding/gang-race-01-menu.webp",
+            "dimensions": "2460x1080",
+            "desc": "Custom branded game interface featuring Quick Race, 6-Player Cross-Platform Wi-Fi & Hotspot Multiplayer, Single Player, and Garage options."
+          },
+          {
+            "id": "screen-karts",
+            "order": 2,
+            "name": "Character & Kart Customization Garage",
+            "source": "gang race 4.jpg",
+            "path": "assets/projects/gang-race/branding/gang-race-02-karts.jpg",
+            "webp": "assets/projects/gang-race/branding/gang-race-02-karts.webp",
+            "dimensions": "2460x1080",
+            "desc": "Kart selection roster (Amanda, Emule, Godette, Kiki, Konqi, Sara, Tux, Wilber) with customized vehicle textures and driver stats."
+          },
+          {
+            "id": "screen-network",
+            "order": 3,
+            "name": "Local Wi-Fi / Hotspot Multiplayer Discovery",
+            "source": "gang race 5.jpg",
+            "path": "assets/projects/gang-race/gameplay/gang-race-03-network.jpg",
+            "webp": "assets/projects/gang-race/gameplay/gang-race-03-network.webp",
+            "dimensions": "2460x1080",
+            "desc": "Zero-configuration local LAN and mobile Wi-Fi hotspot socket server discovery screen allowing seamless 6-player ad-hoc multiplayer racing."
+          },
+          {
+            "id": "screen-drift",
+            "order": 4,
+            "name": "Mountain Drift Track Gameplay Action",
+            "source": "gang race 3.png",
+            "path": "assets/projects/gang-race/gameplay/gang-race-04-drift.png",
+            "webp": "assets/projects/gang-race/gameplay/gang-race-04-drift.webp",
+            "dimensions": "1817x757",
+            "desc": "In-engine action snapshot of the Mountain Drift course showcasing OpenGL lighting, skid particle emitters, and drift boost physics."
+          }
+        ]
+      }
+    }
+  }
+}
